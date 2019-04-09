@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\..\imgui.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\imgui_demo.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\imgui_draw.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\imgui_impl_glfw.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\imgui_impl_opengl3.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libs\gl3w\GL\gl3w.c">
+      <Filter>opengl3</Filter>
+    </ClCompile>
+    <ClCompile Include="colorDefine.cpp">
+      <Filter>rubiksCubeRobot</Filter>
+    </ClCompile>
+    <ClCompile Include="Config.cpp">
+      <Filter>rubiksCubeRobot</Filter>
+    </ClCompile>
+    <ClCompile Include="cubeTracker.cpp">
+      <Filter>rubiksCubeRobot</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Serial.cpp">
+      <Filter>rubiksCubeRobot</Filter>
+    </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>rubiksCubeRobot</Filter>
+    </ClCompile>
+    <ClCompile Include="k_KociMainFunc.cpp">
+      <Filter>kocimeba</Filter>
+    </ClCompile>
+    <ClCompile Include="k_Vector.cpp">
+      <Filter>kocimeba</Filter>
+    </ClCompile>
+    <ClCompile Include="k_Solver.cpp">
+      <Filter>kocimeba</Filter>
+    </ClCompile>
+    <ClCompile Include="k_RubiksCube.cpp">
+      <Filter>kocimeba</Filter>
+    </ClCompile>
+    <ClCompile Include="k_PruningTable.cpp">
+      <Filter>kocimeba</Filter>
+    </ClCompile>
+    <ClCompile Include="k_MoveTable.cpp">
+      <Filter>kocimeba</Filter>
+    </ClCompile>
+    <ClCompile Include="k_KociMain.cpp">
+      <Filter>kocimeba</Filter>
+    </ClCompile>
+    <ClCompile Include="k_FaceletCube.cpp">
+      <Filter>kocimeba</Filter>
+    </ClCompile>
+    <ClCompile Include="k_CubeParser.cpp">
+      <Filter>kocimeba</Filter>
+    </ClCompile>
+    <ClCompile Include="k_Cube.cpp">
+      <Filter>kocimeba</Filter>
+    </ClCompile>
+    <ClCompile Include="k_Combinatorics.cpp">
+      <Filter>kocimeba</Filter>
+    </ClCompile>
+    <ClCompile Include="k_Step.cpp">
+      <Filter>kocimeba</Filter>
+    </ClCompile>
+    <ClCompile Include="k_CoordSys.cpp">
+      <Filter>kocimeba</Filter>
+    </ClCompile>
+    <ClCompile Include="UI.cpp">
+      <Filter>rubiksCubeRobot</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\imconfig.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\imgui.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\imgui_impl_glfw.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\imgui_impl_opengl3.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\imgui_internal.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libs\gl3w\GL\gl3w.h">
+      <Filter>opengl3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libs\gl3w\GL\glcorearb.h">
+      <Filter>opengl3</Filter>
+    </ClInclude>
+    <ClInclude Include="k_Combinatorics.hpp">
+      <Filter>kocimeba</Filter>
+    </ClInclude>
+    <ClInclude Include="k_Cube.hpp">
+      <Filter>kocimeba</Filter>
+    </ClInclude>
+    <ClInclude Include="k_CubeParser.hpp">
+      <Filter>kocimeba</Filter>
+    </ClInclude>
+    <ClInclude Include="k_FaceletCube.hpp">
+      <Filter>kocimeba</Filter>
+    </ClInclude>
+    <ClInclude Include="k_KociMoveTables.hpp">
+      <Filter>kocimeba</Filter>
+    </ClInclude>
+    <ClInclude Include="k_MoveTable.hpp">
+      <Filter>kocimeba</Filter>
+    </ClInclude>
+    <ClInclude Include="k_PruningTable.hpp">
+      <Filter>kocimeba</Filter>
+    </ClInclude>
+    <ClInclude Include="k_RubiksCube.hpp">
+      <Filter>kocimeba</Filter>
+    </ClInclude>
+    <ClInclude Include="k_Solver.hpp">
+      <Filter>kocimeba</Filter>
+    </ClInclude>
+    <ClInclude Include="k_Vector.hpp">
+      <Filter>kocimeba</Filter>
+    </ClInclude>
+    <ClInclude Include="colorDefine.hpp">
+      <Filter>rubiksCubeRobot</Filter>
+    </ClInclude>
+    <ClInclude Include="Config.h">
+      <Filter>rubiksCubeRobot</Filter>
+    </ClInclude>
+    <ClInclude Include="cubeTracker.h">
+      <Filter>rubiksCubeRobot</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectedSegment.hpp">
+      <Filter>rubiksCubeRobot</Filter>
+    </ClInclude>
+    <ClInclude Include="Grid.hpp">
+      <Filter>rubiksCubeRobot</Filter>
+    </ClInclude>
+    <ClInclude Include="RccSetter.hpp">
+      <Filter>rubiksCubeRobot</Filter>
+    </ClInclude>
+    <ClInclude Include="RubiksCubeCapturer.hpp">
+      <Filter>rubiksCubeRobot</Filter>
+    </ClInclude>
+    <ClInclude Include="Serial.h">
+      <Filter>rubiksCubeRobot</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.hpp">
+      <Filter>rubiksCubeRobot</Filter>
+    </ClInclude>
+    <ClInclude Include="k_KociMainFunc.h">
+      <Filter>kocimeba</Filter>
+    </ClInclude>
+    <ClInclude Include="k_Step.h">
+      <Filter>kocimeba</Filter>
+    </ClInclude>
+    <ClInclude Include="k_CoordSys.h">
+      <Filter>kocimeba</Filter>
+    </ClInclude>
+    <ClInclude Include="UI.h">
+      <Filter>rubiksCubeRobot</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="imgui">
+      <UniqueIdentifier>{6ec4c771-7a3b-4e5a-bf1d-7d26fac2d0e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="opengl3">
+      <UniqueIdentifier>{0443d781-d5c8-4126-9cdf-572a472244a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="kocimeba">
+      <UniqueIdentifier>{04e277b5-8115-436a-9835-45448da17eb1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="rubiksCubeRobot">
+      <UniqueIdentifier>{9e66b55c-5a46-48d9-90ad-94f44e7cfe61}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\misc\natvis\imgui.natvis">
+      <Filter>imgui</Filter>
+    </None>
+  </ItemGroup>
+</Project>
