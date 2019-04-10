@@ -1,0 +1,13 @@
+*.ilk
+*.pdb
+*.obj
+*.log
+*.tlog
+*.idb
+*.o
+*.map
+*.crf
+*.axf
+*.htm
+*.hex
+*.iobj
