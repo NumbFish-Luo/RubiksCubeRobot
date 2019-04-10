@@ -24,6 +24,8 @@
 #define TRUN_90S_L  -TRUN_90 // steps
 #define TRUN_90S_D  -TRUN_90 // steps
 
+#define MIN_DELAY_TIME 3 // 最小允许延时值
+
 #define ANGLE_L_MIN -270
 #define ANGLE_L_MAX  90
 #define ANGLE_D_MIN -90

@@ -1839,106 +1839,106 @@ Image Symbol Table
     i.MSD_ENA                                0x08000a04   Section        0  microstepdriver.o(i.MSD_ENA)
     i.MSD_GPIO_Config                        0x08000a8c   Section        0  microstepdriver.o(i.MSD_GPIO_Config)
     i.MSD_IRQHandler                         0x08000b38   Section        0  microstepdriver.o(i.MSD_IRQHandler)
-    i.MSD_Mode_Config                        0x08000c10   Section        0  microstepdriver.o(i.MSD_Mode_Config)
-    i.MSD_Move                               0x08000ca0   Section        0  microstepdriver.o(i.MSD_Move)
-    i.MSD_NVIC_Config                        0x08000cf4   Section        0  microstepdriver.o(i.MSD_NVIC_Config)
-    i.MSD_waitStop                           0x08000d1c   Section        0  microstepdriver.o(i.MSD_waitStop)
-    i.MemManage_Handler                      0x08000d30   Section        0  stm32f4xx_it.o(i.MemManage_Handler)
-    i.NMI_Handler                            0x08000d34   Section        0  stm32f4xx_it.o(i.NMI_Handler)
-    i.NVIC_Init                              0x08000d38   Section        0  misc.o(i.NVIC_Init)
-    i.NVIC_PriorityGroupConfig               0x08000db0   Section        0  misc.o(i.NVIC_PriorityGroupConfig)
-    i.NewInvoker                             0x08000dc4   Section        0  order.o(i.NewInvoker)
-    i.NewOrder                               0x08000e00   Section        0  order.o(i.NewOrder)
-    i.NewOrderACA                            0x08000e20   Section        0  order.o(i.NewOrderACA)
-    i.NewOrderACS                            0x08000e3c   Section        0  order.o(i.NewOrderACS)
-    i.NewOrderDCA                            0x08000e58   Section        0  order.o(i.NewOrderDCA)
-    i.NewOrderDCS                            0x08000e74   Section        0  order.o(i.NewOrderDCS)
-    i.NewOrderDM2                            0x08000e90   Section        0  order.o(i.NewOrderDM2)
-    i.NewOrderDMA                            0x08000eac   Section        0  order.o(i.NewOrderDMA)
-    i.NewOrderDMF                            0x08000ec8   Section        0  order.o(i.NewOrderDMF)
-    i.NewOrderDMR                            0x08000ee4   Section        0  order.o(i.NewOrderDMR)
-    i.NewOrderDMS                            0x08000f00   Section        0  order.o(i.NewOrderDMS)
-    i.NewOrderERR                            0x08000f1c   Section        0  order.o(i.NewOrderERR)
-    i.NewOrderLCA                            0x08000f38   Section        0  order.o(i.NewOrderLCA)
-    i.NewOrderLCS                            0x08000f54   Section        0  order.o(i.NewOrderLCS)
-    i.NewOrderLM2                            0x08000f70   Section        0  order.o(i.NewOrderLM2)
-    i.NewOrderLMA                            0x08000f8c   Section        0  order.o(i.NewOrderLMA)
-    i.NewOrderLMF                            0x08000fa8   Section        0  order.o(i.NewOrderLMF)
-    i.NewOrderLMR                            0x08000fc4   Section        0  order.o(i.NewOrderLMR)
-    i.NewOrderLMS                            0x08000fe0   Section        0  order.o(i.NewOrderLMS)
-    i.NewVectorOrder                         0x08000ffc   Section        0  orders.o(i.NewVectorOrder)
-    i.OrderACADo                             0x08001040   Section        0  order.o(i.OrderACADo)
-    i.OrderACSDo                             0x08001070   Section        0  order.o(i.OrderACSDo)
-    i.OrderDCADo                             0x080010a0   Section        0  order.o(i.OrderDCADo)
-    i.OrderDCSDo                             0x080010c8   Section        0  order.o(i.OrderDCSDo)
-    i.OrderDM2Do                             0x080010f0   Section        0  order.o(i.OrderDM2Do)
-    i.OrderDMADo                             0x08001140   Section        0  order.o(i.OrderDMADo)
-    i.OrderDMFDo                             0x08001174   Section        0  order.o(i.OrderDMFDo)
-    i.OrderDMRDo                             0x0800119c   Section        0  order.o(i.OrderDMRDo)
-    i.OrderDMSDo                             0x080011c8   Section        0  order.o(i.OrderDMSDo)
-    i.OrderDo                                0x080011fc   Section        0  order.o(i.OrderDo)
-    i.OrderERRDo                             0x08001214   Section        0  order.o(i.OrderERRDo)
-    i.OrderLCADo                             0x08001228   Section        0  order.o(i.OrderLCADo)
-    i.OrderLCSDo                             0x08001250   Section        0  order.o(i.OrderLCSDo)
-    i.OrderLM2Do                             0x08001278   Section        0  order.o(i.OrderLM2Do)
-    i.OrderLMADo                             0x080012c8   Section        0  order.o(i.OrderLMADo)
-    i.OrderLMFDo                             0x080012fc   Section        0  order.o(i.OrderLMFDo)
-    i.OrderLMRDo                             0x08001324   Section        0  order.o(i.OrderLMRDo)
-    i.OrderLMSDo                             0x08001350   Section        0  order.o(i.OrderLMSDo)
-    i.PendSV_Handler                         0x08001384   Section        0  stm32f4xx_it.o(i.PendSV_Handler)
-    i.RCC_AHB1PeriphClockCmd                 0x08001388   Section        0  stm32f4xx_rcc.o(i.RCC_AHB1PeriphClockCmd)
-    i.RCC_APB1PeriphClockCmd                 0x080013a8   Section        0  stm32f4xx_rcc.o(i.RCC_APB1PeriphClockCmd)
-    i.RCC_APB2PeriphClockCmd                 0x080013c8   Section        0  stm32f4xx_rcc.o(i.RCC_APB2PeriphClockCmd)
-    i.RCC_GetClocksFreq                      0x080013e8   Section        0  stm32f4xx_rcc.o(i.RCC_GetClocksFreq)
-    i.SVC_Handler                            0x080014d0   Section        0  stm32f4xx_it.o(i.SVC_Handler)
-    i.SYSCFG_EXTILineConfig                  0x080014d4   Section        0  stm32f4xx_syscfg.o(i.SYSCFG_EXTILineConfig)
-    i.SetSysClock                            0x08001514   Section        0  system_stm32f4xx.o(i.SetSysClock)
-    SetSysClock                              0x08001515   Thumb Code   272  system_stm32f4xx.o(i.SetSysClock)
-    i.SysTick_Handler                        0x08001634   Section        0  stm32f4xx_it.o(i.SysTick_Handler)
-    i.SystemInit                             0x08001638   Section        0  system_stm32f4xx.o(i.SystemInit)
-    i.TIM2_IRQHandler                        0x080016a0   Section        0  stm32f4xx_it.o(i.TIM2_IRQHandler)
-    i.TIM3_IRQHandler                        0x080016b0   Section        0  stm32f4xx_it.o(i.TIM3_IRQHandler)
-    i.TIM_ARRPreloadConfig                   0x080016c0   Section        0  stm32f4xx_tim.o(i.TIM_ARRPreloadConfig)
-    i.TIM_ClearITPendingBit                  0x080016d8   Section        0  stm32f4xx_tim.o(i.TIM_ClearITPendingBit)
-    i.TIM_Cmd                                0x080016de   Section        0  stm32f4xx_tim.o(i.TIM_Cmd)
-    i.TIM_GetITStatus                        0x080016f6   Section        0  stm32f4xx_tim.o(i.TIM_GetITStatus)
-    i.TIM_ITConfig                           0x08001718   Section        0  stm32f4xx_tim.o(i.TIM_ITConfig)
-    i.TIM_OC4Init                            0x0800172c   Section        0  stm32f4xx_tim.o(i.TIM_OC4Init)
-    i.TIM_OC4PreloadConfig                   0x080017a4   Section        0  stm32f4xx_tim.o(i.TIM_OC4PreloadConfig)
-    i.TIM_SetAutoreload                      0x080017be   Section        0  stm32f4xx_tim.o(i.TIM_SetAutoreload)
-    i.TIM_SetCompare4                        0x080017c2   Section        0  stm32f4xx_tim.o(i.TIM_SetCompare4)
-    i.TIM_TimeBaseInit                       0x080017c8   Section        0  stm32f4xx_tim.o(i.TIM_TimeBaseInit)
-    i.TIM_TimeBaseStructInit                 0x0800184c   Section        0  stm32f4xx_tim.o(i.TIM_TimeBaseStructInit)
-    i.TIM_UpdateRequestConfig                0x0800185e   Section        0  stm32f4xx_tim.o(i.TIM_UpdateRequestConfig)
-    i.USART1_IRQHandler                      0x08001878   Section        0  stm32f4xx_it.o(i.USART1_IRQHandler)
-    i.USART_Cmd                              0x08001980   Section        0  stm32f4xx_usart.o(i.USART_Cmd)
-    i.USART_GetFlagStatus                    0x08001998   Section        0  stm32f4xx_usart.o(i.USART_GetFlagStatus)
-    i.USART_GetITStatus                      0x080019b2   Section        0  stm32f4xx_usart.o(i.USART_GetITStatus)
-    i.USART_ITConfig                         0x08001a06   Section        0  stm32f4xx_usart.o(i.USART_ITConfig)
-    i.USART_Init                             0x08001a50   Section        0  stm32f4xx_usart.o(i.USART_Init)
-    i.USART_ReceiveData                      0x08001b24   Section        0  stm32f4xx_usart.o(i.USART_ReceiveData)
-    i.USART_SendData                         0x08001b2e   Section        0  stm32f4xx_usart.o(i.USART_SendData)
-    i.UsageFault_Handler                     0x08001b36   Section        0  stm32f4xx_it.o(i.UsageFault_Handler)
-    i.Usart_Config                           0x08001b3a   Section        0  usart.o(i.Usart_Config)
-    i.Usart_FlushRxBuffer                    0x08001be2   Section        0  usart.o(i.Usart_FlushRxBuffer)
-    i.Usart_NVIC_Config                      0x08001bf6   Section        0  usart.o(i.Usart_NVIC_Config)
-    i.Usart_SendByte                         0x08001c24   Section        0  usart.o(i.Usart_SendByte)
-    i.VectorOrderClear                       0x08001c42   Section        0  orders.o(i.VectorOrderClear)
-    i.VectorOrderFind                        0x08001c56   Section        0  orders.o(i.VectorOrderFind)
-    i.VectorOrderPushBack                    0x08001ca2   Section        0  orders.o(i.VectorOrderPushBack)
-    i.VectorOrderSetData                     0x08001cfc   Section        0  orders.o(i.VectorOrderSetData)
-    i.VectorOrderSize                        0x08001d4a   Section        0  orders.o(i.VectorOrderSize)
-    i.__0printf$bare                         0x08001d50   Section        0  printfb.o(i.__0printf$bare)
-    i.__scatterload_copy                     0x08001d60   Section       14  handlers.o(i.__scatterload_copy)
-    i.__scatterload_null                     0x08001d6e   Section        2  handlers.o(i.__scatterload_null)
-    i.__scatterload_zeroinit                 0x08001d70   Section       14  handlers.o(i.__scatterload_zeroinit)
-    i._printf_core                           0x08001d7e   Section        0  printfb.o(i._printf_core)
-    _printf_core                             0x08001d7f   Thumb Code    34  printfb.o(i._printf_core)
-    i.fputc                                  0x08001da0   Section        0  usart.o(i.fputc)
-    i.free                                   0x08001dc8   Section        0  malloc.o(i.free)
-    i.main                                   0x08001e18   Section        0  main.o(i.main)
-    i.malloc                                 0x08001e24   Section        0  malloc.o(i.malloc)
-    .constdata                               0x08001e90   Section       64  config.o(.constdata)
+    i.MSD_Mode_Config                        0x08000c14   Section        0  microstepdriver.o(i.MSD_Mode_Config)
+    i.MSD_Move                               0x08000ca4   Section        0  microstepdriver.o(i.MSD_Move)
+    i.MSD_NVIC_Config                        0x08000cf8   Section        0  microstepdriver.o(i.MSD_NVIC_Config)
+    i.MSD_waitStop                           0x08000d20   Section        0  microstepdriver.o(i.MSD_waitStop)
+    i.MemManage_Handler                      0x08000d34   Section        0  stm32f4xx_it.o(i.MemManage_Handler)
+    i.NMI_Handler                            0x08000d38   Section        0  stm32f4xx_it.o(i.NMI_Handler)
+    i.NVIC_Init                              0x08000d3c   Section        0  misc.o(i.NVIC_Init)
+    i.NVIC_PriorityGroupConfig               0x08000db4   Section        0  misc.o(i.NVIC_PriorityGroupConfig)
+    i.NewInvoker                             0x08000dc8   Section        0  order.o(i.NewInvoker)
+    i.NewOrder                               0x08000e04   Section        0  order.o(i.NewOrder)
+    i.NewOrderACA                            0x08000e24   Section        0  order.o(i.NewOrderACA)
+    i.NewOrderACS                            0x08000e40   Section        0  order.o(i.NewOrderACS)
+    i.NewOrderDCA                            0x08000e5c   Section        0  order.o(i.NewOrderDCA)
+    i.NewOrderDCS                            0x08000e78   Section        0  order.o(i.NewOrderDCS)
+    i.NewOrderDM2                            0x08000e94   Section        0  order.o(i.NewOrderDM2)
+    i.NewOrderDMA                            0x08000eb0   Section        0  order.o(i.NewOrderDMA)
+    i.NewOrderDMF                            0x08000ecc   Section        0  order.o(i.NewOrderDMF)
+    i.NewOrderDMR                            0x08000ee8   Section        0  order.o(i.NewOrderDMR)
+    i.NewOrderDMS                            0x08000f04   Section        0  order.o(i.NewOrderDMS)
+    i.NewOrderERR                            0x08000f20   Section        0  order.o(i.NewOrderERR)
+    i.NewOrderLCA                            0x08000f3c   Section        0  order.o(i.NewOrderLCA)
+    i.NewOrderLCS                            0x08000f58   Section        0  order.o(i.NewOrderLCS)
+    i.NewOrderLM2                            0x08000f74   Section        0  order.o(i.NewOrderLM2)
+    i.NewOrderLMA                            0x08000f90   Section        0  order.o(i.NewOrderLMA)
+    i.NewOrderLMF                            0x08000fac   Section        0  order.o(i.NewOrderLMF)
+    i.NewOrderLMR                            0x08000fc8   Section        0  order.o(i.NewOrderLMR)
+    i.NewOrderLMS                            0x08000fe4   Section        0  order.o(i.NewOrderLMS)
+    i.NewVectorOrder                         0x08001000   Section        0  orders.o(i.NewVectorOrder)
+    i.OrderACADo                             0x08001044   Section        0  order.o(i.OrderACADo)
+    i.OrderACSDo                             0x08001074   Section        0  order.o(i.OrderACSDo)
+    i.OrderDCADo                             0x080010a4   Section        0  order.o(i.OrderDCADo)
+    i.OrderDCSDo                             0x080010cc   Section        0  order.o(i.OrderDCSDo)
+    i.OrderDM2Do                             0x080010f4   Section        0  order.o(i.OrderDM2Do)
+    i.OrderDMADo                             0x08001144   Section        0  order.o(i.OrderDMADo)
+    i.OrderDMFDo                             0x08001178   Section        0  order.o(i.OrderDMFDo)
+    i.OrderDMRDo                             0x080011a0   Section        0  order.o(i.OrderDMRDo)
+    i.OrderDMSDo                             0x080011cc   Section        0  order.o(i.OrderDMSDo)
+    i.OrderDo                                0x08001200   Section        0  order.o(i.OrderDo)
+    i.OrderERRDo                             0x08001218   Section        0  order.o(i.OrderERRDo)
+    i.OrderLCADo                             0x0800122c   Section        0  order.o(i.OrderLCADo)
+    i.OrderLCSDo                             0x08001254   Section        0  order.o(i.OrderLCSDo)
+    i.OrderLM2Do                             0x0800127c   Section        0  order.o(i.OrderLM2Do)
+    i.OrderLMADo                             0x080012cc   Section        0  order.o(i.OrderLMADo)
+    i.OrderLMFDo                             0x08001300   Section        0  order.o(i.OrderLMFDo)
+    i.OrderLMRDo                             0x08001328   Section        0  order.o(i.OrderLMRDo)
+    i.OrderLMSDo                             0x08001354   Section        0  order.o(i.OrderLMSDo)
+    i.PendSV_Handler                         0x08001388   Section        0  stm32f4xx_it.o(i.PendSV_Handler)
+    i.RCC_AHB1PeriphClockCmd                 0x0800138c   Section        0  stm32f4xx_rcc.o(i.RCC_AHB1PeriphClockCmd)
+    i.RCC_APB1PeriphClockCmd                 0x080013ac   Section        0  stm32f4xx_rcc.o(i.RCC_APB1PeriphClockCmd)
+    i.RCC_APB2PeriphClockCmd                 0x080013cc   Section        0  stm32f4xx_rcc.o(i.RCC_APB2PeriphClockCmd)
+    i.RCC_GetClocksFreq                      0x080013ec   Section        0  stm32f4xx_rcc.o(i.RCC_GetClocksFreq)
+    i.SVC_Handler                            0x080014d4   Section        0  stm32f4xx_it.o(i.SVC_Handler)
+    i.SYSCFG_EXTILineConfig                  0x080014d8   Section        0  stm32f4xx_syscfg.o(i.SYSCFG_EXTILineConfig)
+    i.SetSysClock                            0x08001518   Section        0  system_stm32f4xx.o(i.SetSysClock)
+    SetSysClock                              0x08001519   Thumb Code   272  system_stm32f4xx.o(i.SetSysClock)
+    i.SysTick_Handler                        0x08001638   Section        0  stm32f4xx_it.o(i.SysTick_Handler)
+    i.SystemInit                             0x0800163c   Section        0  system_stm32f4xx.o(i.SystemInit)
+    i.TIM2_IRQHandler                        0x080016a4   Section        0  stm32f4xx_it.o(i.TIM2_IRQHandler)
+    i.TIM3_IRQHandler                        0x080016b4   Section        0  stm32f4xx_it.o(i.TIM3_IRQHandler)
+    i.TIM_ARRPreloadConfig                   0x080016c4   Section        0  stm32f4xx_tim.o(i.TIM_ARRPreloadConfig)
+    i.TIM_ClearITPendingBit                  0x080016dc   Section        0  stm32f4xx_tim.o(i.TIM_ClearITPendingBit)
+    i.TIM_Cmd                                0x080016e2   Section        0  stm32f4xx_tim.o(i.TIM_Cmd)
+    i.TIM_GetITStatus                        0x080016fa   Section        0  stm32f4xx_tim.o(i.TIM_GetITStatus)
+    i.TIM_ITConfig                           0x0800171c   Section        0  stm32f4xx_tim.o(i.TIM_ITConfig)
+    i.TIM_OC4Init                            0x08001730   Section        0  stm32f4xx_tim.o(i.TIM_OC4Init)
+    i.TIM_OC4PreloadConfig                   0x080017a8   Section        0  stm32f4xx_tim.o(i.TIM_OC4PreloadConfig)
+    i.TIM_SetAutoreload                      0x080017c2   Section        0  stm32f4xx_tim.o(i.TIM_SetAutoreload)
+    i.TIM_SetCompare4                        0x080017c6   Section        0  stm32f4xx_tim.o(i.TIM_SetCompare4)
+    i.TIM_TimeBaseInit                       0x080017cc   Section        0  stm32f4xx_tim.o(i.TIM_TimeBaseInit)
+    i.TIM_TimeBaseStructInit                 0x08001850   Section        0  stm32f4xx_tim.o(i.TIM_TimeBaseStructInit)
+    i.TIM_UpdateRequestConfig                0x08001862   Section        0  stm32f4xx_tim.o(i.TIM_UpdateRequestConfig)
+    i.USART1_IRQHandler                      0x0800187c   Section        0  stm32f4xx_it.o(i.USART1_IRQHandler)
+    i.USART_Cmd                              0x08001984   Section        0  stm32f4xx_usart.o(i.USART_Cmd)
+    i.USART_GetFlagStatus                    0x0800199c   Section        0  stm32f4xx_usart.o(i.USART_GetFlagStatus)
+    i.USART_GetITStatus                      0x080019b6   Section        0  stm32f4xx_usart.o(i.USART_GetITStatus)
+    i.USART_ITConfig                         0x08001a0a   Section        0  stm32f4xx_usart.o(i.USART_ITConfig)
+    i.USART_Init                             0x08001a54   Section        0  stm32f4xx_usart.o(i.USART_Init)
+    i.USART_ReceiveData                      0x08001b28   Section        0  stm32f4xx_usart.o(i.USART_ReceiveData)
+    i.USART_SendData                         0x08001b32   Section        0  stm32f4xx_usart.o(i.USART_SendData)
+    i.UsageFault_Handler                     0x08001b3a   Section        0  stm32f4xx_it.o(i.UsageFault_Handler)
+    i.Usart_Config                           0x08001b3e   Section        0  usart.o(i.Usart_Config)
+    i.Usart_FlushRxBuffer                    0x08001be6   Section        0  usart.o(i.Usart_FlushRxBuffer)
+    i.Usart_NVIC_Config                      0x08001bfa   Section        0  usart.o(i.Usart_NVIC_Config)
+    i.Usart_SendByte                         0x08001c28   Section        0  usart.o(i.Usart_SendByte)
+    i.VectorOrderClear                       0x08001c46   Section        0  orders.o(i.VectorOrderClear)
+    i.VectorOrderFind                        0x08001c5a   Section        0  orders.o(i.VectorOrderFind)
+    i.VectorOrderPushBack                    0x08001ca6   Section        0  orders.o(i.VectorOrderPushBack)
+    i.VectorOrderSetData                     0x08001d00   Section        0  orders.o(i.VectorOrderSetData)
+    i.VectorOrderSize                        0x08001d4e   Section        0  orders.o(i.VectorOrderSize)
+    i.__0printf$bare                         0x08001d54   Section        0  printfb.o(i.__0printf$bare)
+    i.__scatterload_copy                     0x08001d64   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_null                     0x08001d72   Section        2  handlers.o(i.__scatterload_null)
+    i.__scatterload_zeroinit                 0x08001d74   Section       14  handlers.o(i.__scatterload_zeroinit)
+    i._printf_core                           0x08001d82   Section        0  printfb.o(i._printf_core)
+    _printf_core                             0x08001d83   Thumb Code    34  printfb.o(i._printf_core)
+    i.fputc                                  0x08001da4   Section        0  usart.o(i.fputc)
+    i.free                                   0x08001dcc   Section        0  malloc.o(i.free)
+    i.main                                   0x08001e1c   Section        0  main.o(i.main)
+    i.malloc                                 0x08001e28   Section        0  malloc.o(i.malloc)
+    .constdata                               0x08001e94   Section       64  config.o(.constdata)
     .data                                    0x20000000   Section       16  stm32f4xx_rcc.o(.data)
     APBAHBPrescTable                         0x20000000   Data          16  stm32f4xx_rcc.o(.data)
     .data                                    0x20000010   Section    60104  microstepdriver.o(.data)
@@ -2111,108 +2111,108 @@ Image Symbol Table
     LED_Toggle                               0x080009f5   Thumb Code    14  led.o(i.LED_Toggle)
     MSD_ENA                                  0x08000a05   Thumb Code    56  microstepdriver.o(i.MSD_ENA)
     MSD_GPIO_Config                          0x08000a8d   Thumb Code   172  microstepdriver.o(i.MSD_GPIO_Config)
-    MSD_IRQHandler                           0x08000b39   Thumb Code   198  microstepdriver.o(i.MSD_IRQHandler)
-    MSD_Mode_Config                          0x08000c11   Thumb Code   144  microstepdriver.o(i.MSD_Mode_Config)
-    MSD_Move                                 0x08000ca1   Thumb Code    80  microstepdriver.o(i.MSD_Move)
-    MSD_NVIC_Config                          0x08000cf5   Thumb Code    40  microstepdriver.o(i.MSD_NVIC_Config)
-    MSD_waitStop                             0x08000d1d   Thumb Code    20  microstepdriver.o(i.MSD_waitStop)
-    MemManage_Handler                        0x08000d31   Thumb Code     4  stm32f4xx_it.o(i.MemManage_Handler)
-    NMI_Handler                              0x08000d35   Thumb Code     2  stm32f4xx_it.o(i.NMI_Handler)
-    NVIC_Init                                0x08000d39   Thumb Code   106  misc.o(i.NVIC_Init)
-    NVIC_PriorityGroupConfig                 0x08000db1   Thumb Code    10  misc.o(i.NVIC_PriorityGroupConfig)
-    NewInvoker                               0x08000dc5   Thumb Code    46  order.o(i.NewInvoker)
-    NewOrder                                 0x08000e01   Thumb Code    20  order.o(i.NewOrder)
-    NewOrderACA                              0x08000e21   Thumb Code    20  order.o(i.NewOrderACA)
-    NewOrderACS                              0x08000e3d   Thumb Code    20  order.o(i.NewOrderACS)
-    NewOrderDCA                              0x08000e59   Thumb Code    20  order.o(i.NewOrderDCA)
-    NewOrderDCS                              0x08000e75   Thumb Code    20  order.o(i.NewOrderDCS)
-    NewOrderDM2                              0x08000e91   Thumb Code    20  order.o(i.NewOrderDM2)
-    NewOrderDMA                              0x08000ead   Thumb Code    20  order.o(i.NewOrderDMA)
-    NewOrderDMF                              0x08000ec9   Thumb Code    20  order.o(i.NewOrderDMF)
-    NewOrderDMR                              0x08000ee5   Thumb Code    20  order.o(i.NewOrderDMR)
-    NewOrderDMS                              0x08000f01   Thumb Code    20  order.o(i.NewOrderDMS)
-    NewOrderERR                              0x08000f1d   Thumb Code    20  order.o(i.NewOrderERR)
-    NewOrderLCA                              0x08000f39   Thumb Code    20  order.o(i.NewOrderLCA)
-    NewOrderLCS                              0x08000f55   Thumb Code    20  order.o(i.NewOrderLCS)
-    NewOrderLM2                              0x08000f71   Thumb Code    20  order.o(i.NewOrderLM2)
-    NewOrderLMA                              0x08000f8d   Thumb Code    20  order.o(i.NewOrderLMA)
-    NewOrderLMF                              0x08000fa9   Thumb Code    20  order.o(i.NewOrderLMF)
-    NewOrderLMR                              0x08000fc5   Thumb Code    20  order.o(i.NewOrderLMR)
-    NewOrderLMS                              0x08000fe1   Thumb Code    20  order.o(i.NewOrderLMS)
-    NewVectorOrder                           0x08000ffd   Thumb Code    48  orders.o(i.NewVectorOrder)
-    OrderACADo                               0x08001041   Thumb Code    28  order.o(i.OrderACADo)
-    OrderACSDo                               0x08001071   Thumb Code    28  order.o(i.OrderACSDo)
-    OrderDCADo                               0x080010a1   Thumb Code    22  order.o(i.OrderDCADo)
-    OrderDCSDo                               0x080010c9   Thumb Code    22  order.o(i.OrderDCSDo)
-    OrderDM2Do                               0x080010f1   Thumb Code    62  order.o(i.OrderDM2Do)
-    OrderDMADo                               0x08001141   Thumb Code    38  order.o(i.OrderDMADo)
-    OrderDMFDo                               0x08001175   Thumb Code    28  order.o(i.OrderDMFDo)
-    OrderDMRDo                               0x0800119d   Thumb Code    30  order.o(i.OrderDMRDo)
-    OrderDMSDo                               0x080011c9   Thumb Code    36  order.o(i.OrderDMSDo)
-    OrderDo                                  0x080011fd   Thumb Code    10  order.o(i.OrderDo)
-    OrderERRDo                               0x08001215   Thumb Code    10  order.o(i.OrderERRDo)
-    OrderLCADo                               0x08001229   Thumb Code    22  order.o(i.OrderLCADo)
-    OrderLCSDo                               0x08001251   Thumb Code    22  order.o(i.OrderLCSDo)
-    OrderLM2Do                               0x08001279   Thumb Code    64  order.o(i.OrderLM2Do)
-    OrderLMADo                               0x080012c9   Thumb Code    38  order.o(i.OrderLMADo)
-    OrderLMFDo                               0x080012fd   Thumb Code    28  order.o(i.OrderLMFDo)
-    OrderLMRDo                               0x08001325   Thumb Code    30  order.o(i.OrderLMRDo)
-    OrderLMSDo                               0x08001351   Thumb Code    36  order.o(i.OrderLMSDo)
-    PendSV_Handler                           0x08001385   Thumb Code     2  stm32f4xx_it.o(i.PendSV_Handler)
-    RCC_AHB1PeriphClockCmd                   0x08001389   Thumb Code    26  stm32f4xx_rcc.o(i.RCC_AHB1PeriphClockCmd)
-    RCC_APB1PeriphClockCmd                   0x080013a9   Thumb Code    26  stm32f4xx_rcc.o(i.RCC_APB1PeriphClockCmd)
-    RCC_APB2PeriphClockCmd                   0x080013c9   Thumb Code    26  stm32f4xx_rcc.o(i.RCC_APB2PeriphClockCmd)
-    RCC_GetClocksFreq                        0x080013e9   Thumb Code   214  stm32f4xx_rcc.o(i.RCC_GetClocksFreq)
-    SVC_Handler                              0x080014d1   Thumb Code     2  stm32f4xx_it.o(i.SVC_Handler)
-    SYSCFG_EXTILineConfig                    0x080014d5   Thumb Code    60  stm32f4xx_syscfg.o(i.SYSCFG_EXTILineConfig)
-    SysTick_Handler                          0x08001635   Thumb Code     2  stm32f4xx_it.o(i.SysTick_Handler)
-    SystemInit                               0x08001639   Thumb Code    88  system_stm32f4xx.o(i.SystemInit)
-    TIM2_IRQHandler                          0x080016a1   Thumb Code    10  stm32f4xx_it.o(i.TIM2_IRQHandler)
-    TIM3_IRQHandler                          0x080016b1   Thumb Code    10  stm32f4xx_it.o(i.TIM3_IRQHandler)
-    TIM_ARRPreloadConfig                     0x080016c1   Thumb Code    24  stm32f4xx_tim.o(i.TIM_ARRPreloadConfig)
-    TIM_ClearITPendingBit                    0x080016d9   Thumb Code     6  stm32f4xx_tim.o(i.TIM_ClearITPendingBit)
-    TIM_Cmd                                  0x080016df   Thumb Code    24  stm32f4xx_tim.o(i.TIM_Cmd)
-    TIM_GetITStatus                          0x080016f7   Thumb Code    34  stm32f4xx_tim.o(i.TIM_GetITStatus)
-    TIM_ITConfig                             0x08001719   Thumb Code    18  stm32f4xx_tim.o(i.TIM_ITConfig)
-    TIM_OC4Init                              0x0800172d   Thumb Code   112  stm32f4xx_tim.o(i.TIM_OC4Init)
-    TIM_OC4PreloadConfig                     0x080017a5   Thumb Code    26  stm32f4xx_tim.o(i.TIM_OC4PreloadConfig)
-    TIM_SetAutoreload                        0x080017bf   Thumb Code     4  stm32f4xx_tim.o(i.TIM_SetAutoreload)
-    TIM_SetCompare4                          0x080017c3   Thumb Code     4  stm32f4xx_tim.o(i.TIM_SetCompare4)
-    TIM_TimeBaseInit                         0x080017c9   Thumb Code   104  stm32f4xx_tim.o(i.TIM_TimeBaseInit)
-    TIM_TimeBaseStructInit                   0x0800184d   Thumb Code    18  stm32f4xx_tim.o(i.TIM_TimeBaseStructInit)
-    TIM_UpdateRequestConfig                  0x0800185f   Thumb Code    24  stm32f4xx_tim.o(i.TIM_UpdateRequestConfig)
-    USART1_IRQHandler                        0x08001879   Thumb Code   252  stm32f4xx_it.o(i.USART1_IRQHandler)
-    USART_Cmd                                0x08001981   Thumb Code    24  stm32f4xx_usart.o(i.USART_Cmd)
-    USART_GetFlagStatus                      0x08001999   Thumb Code    26  stm32f4xx_usart.o(i.USART_GetFlagStatus)
-    USART_GetITStatus                        0x080019b3   Thumb Code    84  stm32f4xx_usart.o(i.USART_GetITStatus)
-    USART_ITConfig                           0x08001a07   Thumb Code    74  stm32f4xx_usart.o(i.USART_ITConfig)
-    USART_Init                               0x08001a51   Thumb Code   204  stm32f4xx_usart.o(i.USART_Init)
-    USART_ReceiveData                        0x08001b25   Thumb Code    10  stm32f4xx_usart.o(i.USART_ReceiveData)
-    USART_SendData                           0x08001b2f   Thumb Code     8  stm32f4xx_usart.o(i.USART_SendData)
-    UsageFault_Handler                       0x08001b37   Thumb Code     4  stm32f4xx_it.o(i.UsageFault_Handler)
-    Usart_Config                             0x08001b3b   Thumb Code   168  usart.o(i.Usart_Config)
-    Usart_FlushRxBuffer                      0x08001be3   Thumb Code    20  usart.o(i.Usart_FlushRxBuffer)
-    Usart_NVIC_Config                        0x08001bf7   Thumb Code    46  usart.o(i.Usart_NVIC_Config)
-    Usart_SendByte                           0x08001c25   Thumb Code    30  usart.o(i.Usart_SendByte)
-    VectorOrderClear                         0x08001c43   Thumb Code    20  orders.o(i.VectorOrderClear)
-    VectorOrderFind                          0x08001c57   Thumb Code    76  orders.o(i.VectorOrderFind)
-    VectorOrderPushBack                      0x08001ca3   Thumb Code    90  orders.o(i.VectorOrderPushBack)
-    VectorOrderSetData                       0x08001cfd   Thumb Code    78  orders.o(i.VectorOrderSetData)
-    VectorOrderSize                          0x08001d4b   Thumb Code     6  orders.o(i.VectorOrderSize)
-    __0printf$bare                           0x08001d51   Thumb Code     8  printfb.o(i.__0printf$bare)
-    __1printf$bare                           0x08001d51   Thumb Code     0  printfb.o(i.__0printf$bare)
-    __2printf                                0x08001d51   Thumb Code     0  printfb.o(i.__0printf$bare)
-    __scatterload_copy                       0x08001d61   Thumb Code    14  handlers.o(i.__scatterload_copy)
-    __scatterload_null                       0x08001d6f   Thumb Code     2  handlers.o(i.__scatterload_null)
-    __scatterload_zeroinit                   0x08001d71   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
-    fputc                                    0x08001da1   Thumb Code    34  usart.o(i.fputc)
-    free                                     0x08001dc9   Thumb Code    76  malloc.o(i.free)
-    main                                     0x08001e19   Thumb Code    12  main.o(i.main)
-    malloc                                   0x08001e25   Thumb Code    92  malloc.o(i.malloc)
-    key_MSD_Enable                           0x08001e90   Data          32  config.o(.constdata)
-    key_MSD_Disable                          0x08001eb0   Data          32  config.o(.constdata)
-    Region$$Table$$Base                      0x08001ed0   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x08001ef0   Number         0  anon$$obj.o(Region$$Table)
+    MSD_IRQHandler                           0x08000b39   Thumb Code   204  microstepdriver.o(i.MSD_IRQHandler)
+    MSD_Mode_Config                          0x08000c15   Thumb Code   144  microstepdriver.o(i.MSD_Mode_Config)
+    MSD_Move                                 0x08000ca5   Thumb Code    80  microstepdriver.o(i.MSD_Move)
+    MSD_NVIC_Config                          0x08000cf9   Thumb Code    40  microstepdriver.o(i.MSD_NVIC_Config)
+    MSD_waitStop                             0x08000d21   Thumb Code    20  microstepdriver.o(i.MSD_waitStop)
+    MemManage_Handler                        0x08000d35   Thumb Code     4  stm32f4xx_it.o(i.MemManage_Handler)
+    NMI_Handler                              0x08000d39   Thumb Code     2  stm32f4xx_it.o(i.NMI_Handler)
+    NVIC_Init                                0x08000d3d   Thumb Code   106  misc.o(i.NVIC_Init)
+    NVIC_PriorityGroupConfig                 0x08000db5   Thumb Code    10  misc.o(i.NVIC_PriorityGroupConfig)
+    NewInvoker                               0x08000dc9   Thumb Code    46  order.o(i.NewInvoker)
+    NewOrder                                 0x08000e05   Thumb Code    20  order.o(i.NewOrder)
+    NewOrderACA                              0x08000e25   Thumb Code    20  order.o(i.NewOrderACA)
+    NewOrderACS                              0x08000e41   Thumb Code    20  order.o(i.NewOrderACS)
+    NewOrderDCA                              0x08000e5d   Thumb Code    20  order.o(i.NewOrderDCA)
+    NewOrderDCS                              0x08000e79   Thumb Code    20  order.o(i.NewOrderDCS)
+    NewOrderDM2                              0x08000e95   Thumb Code    20  order.o(i.NewOrderDM2)
+    NewOrderDMA                              0x08000eb1   Thumb Code    20  order.o(i.NewOrderDMA)
+    NewOrderDMF                              0x08000ecd   Thumb Code    20  order.o(i.NewOrderDMF)
+    NewOrderDMR                              0x08000ee9   Thumb Code    20  order.o(i.NewOrderDMR)
+    NewOrderDMS                              0x08000f05   Thumb Code    20  order.o(i.NewOrderDMS)
+    NewOrderERR                              0x08000f21   Thumb Code    20  order.o(i.NewOrderERR)
+    NewOrderLCA                              0x08000f3d   Thumb Code    20  order.o(i.NewOrderLCA)
+    NewOrderLCS                              0x08000f59   Thumb Code    20  order.o(i.NewOrderLCS)
+    NewOrderLM2                              0x08000f75   Thumb Code    20  order.o(i.NewOrderLM2)
+    NewOrderLMA                              0x08000f91   Thumb Code    20  order.o(i.NewOrderLMA)
+    NewOrderLMF                              0x08000fad   Thumb Code    20  order.o(i.NewOrderLMF)
+    NewOrderLMR                              0x08000fc9   Thumb Code    20  order.o(i.NewOrderLMR)
+    NewOrderLMS                              0x08000fe5   Thumb Code    20  order.o(i.NewOrderLMS)
+    NewVectorOrder                           0x08001001   Thumb Code    48  orders.o(i.NewVectorOrder)
+    OrderACADo                               0x08001045   Thumb Code    28  order.o(i.OrderACADo)
+    OrderACSDo                               0x08001075   Thumb Code    28  order.o(i.OrderACSDo)
+    OrderDCADo                               0x080010a5   Thumb Code    22  order.o(i.OrderDCADo)
+    OrderDCSDo                               0x080010cd   Thumb Code    22  order.o(i.OrderDCSDo)
+    OrderDM2Do                               0x080010f5   Thumb Code    62  order.o(i.OrderDM2Do)
+    OrderDMADo                               0x08001145   Thumb Code    38  order.o(i.OrderDMADo)
+    OrderDMFDo                               0x08001179   Thumb Code    28  order.o(i.OrderDMFDo)
+    OrderDMRDo                               0x080011a1   Thumb Code    30  order.o(i.OrderDMRDo)
+    OrderDMSDo                               0x080011cd   Thumb Code    36  order.o(i.OrderDMSDo)
+    OrderDo                                  0x08001201   Thumb Code    10  order.o(i.OrderDo)
+    OrderERRDo                               0x08001219   Thumb Code    10  order.o(i.OrderERRDo)
+    OrderLCADo                               0x0800122d   Thumb Code    22  order.o(i.OrderLCADo)
+    OrderLCSDo                               0x08001255   Thumb Code    22  order.o(i.OrderLCSDo)
+    OrderLM2Do                               0x0800127d   Thumb Code    64  order.o(i.OrderLM2Do)
+    OrderLMADo                               0x080012cd   Thumb Code    38  order.o(i.OrderLMADo)
+    OrderLMFDo                               0x08001301   Thumb Code    28  order.o(i.OrderLMFDo)
+    OrderLMRDo                               0x08001329   Thumb Code    30  order.o(i.OrderLMRDo)
+    OrderLMSDo                               0x08001355   Thumb Code    36  order.o(i.OrderLMSDo)
+    PendSV_Handler                           0x08001389   Thumb Code     2  stm32f4xx_it.o(i.PendSV_Handler)
+    RCC_AHB1PeriphClockCmd                   0x0800138d   Thumb Code    26  stm32f4xx_rcc.o(i.RCC_AHB1PeriphClockCmd)
+    RCC_APB1PeriphClockCmd                   0x080013ad   Thumb Code    26  stm32f4xx_rcc.o(i.RCC_APB1PeriphClockCmd)
+    RCC_APB2PeriphClockCmd                   0x080013cd   Thumb Code    26  stm32f4xx_rcc.o(i.RCC_APB2PeriphClockCmd)
+    RCC_GetClocksFreq                        0x080013ed   Thumb Code   214  stm32f4xx_rcc.o(i.RCC_GetClocksFreq)
+    SVC_Handler                              0x080014d5   Thumb Code     2  stm32f4xx_it.o(i.SVC_Handler)
+    SYSCFG_EXTILineConfig                    0x080014d9   Thumb Code    60  stm32f4xx_syscfg.o(i.SYSCFG_EXTILineConfig)
+    SysTick_Handler                          0x08001639   Thumb Code     2  stm32f4xx_it.o(i.SysTick_Handler)
+    SystemInit                               0x0800163d   Thumb Code    88  system_stm32f4xx.o(i.SystemInit)
+    TIM2_IRQHandler                          0x080016a5   Thumb Code    10  stm32f4xx_it.o(i.TIM2_IRQHandler)
+    TIM3_IRQHandler                          0x080016b5   Thumb Code    10  stm32f4xx_it.o(i.TIM3_IRQHandler)
+    TIM_ARRPreloadConfig                     0x080016c5   Thumb Code    24  stm32f4xx_tim.o(i.TIM_ARRPreloadConfig)
+    TIM_ClearITPendingBit                    0x080016dd   Thumb Code     6  stm32f4xx_tim.o(i.TIM_ClearITPendingBit)
+    TIM_Cmd                                  0x080016e3   Thumb Code    24  stm32f4xx_tim.o(i.TIM_Cmd)
+    TIM_GetITStatus                          0x080016fb   Thumb Code    34  stm32f4xx_tim.o(i.TIM_GetITStatus)
+    TIM_ITConfig                             0x0800171d   Thumb Code    18  stm32f4xx_tim.o(i.TIM_ITConfig)
+    TIM_OC4Init                              0x08001731   Thumb Code   112  stm32f4xx_tim.o(i.TIM_OC4Init)
+    TIM_OC4PreloadConfig                     0x080017a9   Thumb Code    26  stm32f4xx_tim.o(i.TIM_OC4PreloadConfig)
+    TIM_SetAutoreload                        0x080017c3   Thumb Code     4  stm32f4xx_tim.o(i.TIM_SetAutoreload)
+    TIM_SetCompare4                          0x080017c7   Thumb Code     4  stm32f4xx_tim.o(i.TIM_SetCompare4)
+    TIM_TimeBaseInit                         0x080017cd   Thumb Code   104  stm32f4xx_tim.o(i.TIM_TimeBaseInit)
+    TIM_TimeBaseStructInit                   0x08001851   Thumb Code    18  stm32f4xx_tim.o(i.TIM_TimeBaseStructInit)
+    TIM_UpdateRequestConfig                  0x08001863   Thumb Code    24  stm32f4xx_tim.o(i.TIM_UpdateRequestConfig)
+    USART1_IRQHandler                        0x0800187d   Thumb Code   252  stm32f4xx_it.o(i.USART1_IRQHandler)
+    USART_Cmd                                0x08001985   Thumb Code    24  stm32f4xx_usart.o(i.USART_Cmd)
+    USART_GetFlagStatus                      0x0800199d   Thumb Code    26  stm32f4xx_usart.o(i.USART_GetFlagStatus)
+    USART_GetITStatus                        0x080019b7   Thumb Code    84  stm32f4xx_usart.o(i.USART_GetITStatus)
+    USART_ITConfig                           0x08001a0b   Thumb Code    74  stm32f4xx_usart.o(i.USART_ITConfig)
+    USART_Init                               0x08001a55   Thumb Code   204  stm32f4xx_usart.o(i.USART_Init)
+    USART_ReceiveData                        0x08001b29   Thumb Code    10  stm32f4xx_usart.o(i.USART_ReceiveData)
+    USART_SendData                           0x08001b33   Thumb Code     8  stm32f4xx_usart.o(i.USART_SendData)
+    UsageFault_Handler                       0x08001b3b   Thumb Code     4  stm32f4xx_it.o(i.UsageFault_Handler)
+    Usart_Config                             0x08001b3f   Thumb Code   168  usart.o(i.Usart_Config)
+    Usart_FlushRxBuffer                      0x08001be7   Thumb Code    20  usart.o(i.Usart_FlushRxBuffer)
+    Usart_NVIC_Config                        0x08001bfb   Thumb Code    46  usart.o(i.Usart_NVIC_Config)
+    Usart_SendByte                           0x08001c29   Thumb Code    30  usart.o(i.Usart_SendByte)
+    VectorOrderClear                         0x08001c47   Thumb Code    20  orders.o(i.VectorOrderClear)
+    VectorOrderFind                          0x08001c5b   Thumb Code    76  orders.o(i.VectorOrderFind)
+    VectorOrderPushBack                      0x08001ca7   Thumb Code    90  orders.o(i.VectorOrderPushBack)
+    VectorOrderSetData                       0x08001d01   Thumb Code    78  orders.o(i.VectorOrderSetData)
+    VectorOrderSize                          0x08001d4f   Thumb Code     6  orders.o(i.VectorOrderSize)
+    __0printf$bare                           0x08001d55   Thumb Code     8  printfb.o(i.__0printf$bare)
+    __1printf$bare                           0x08001d55   Thumb Code     0  printfb.o(i.__0printf$bare)
+    __2printf                                0x08001d55   Thumb Code     0  printfb.o(i.__0printf$bare)
+    __scatterload_copy                       0x08001d65   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_null                       0x08001d73   Thumb Code     2  handlers.o(i.__scatterload_null)
+    __scatterload_zeroinit                   0x08001d75   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    fputc                                    0x08001da5   Thumb Code    34  usart.o(i.fputc)
+    free                                     0x08001dcd   Thumb Code    76  malloc.o(i.free)
+    main                                     0x08001e1d   Thumb Code    12  main.o(i.main)
+    malloc                                   0x08001e29   Thumb Code    92  malloc.o(i.malloc)
+    key_MSD_Enable                           0x08001e94   Data          32  config.o(.constdata)
+    key_MSD_Disable                          0x08001eb4   Data          32  config.o(.constdata)
+    Region$$Table$$Base                      0x08001ed4   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x08001ef4   Number         0  anon$$obj.o(Region$$Table)
     delayTime_180                            0x20000010   Data       40000  microstepdriver.o(.data)
     delayTime_90                             0x20009c50   Data       20000  microstepdriver.o(.data)
     delayTime_trim                           0x2000ea70   Data         100  microstepdriver.o(.data)
@@ -2242,9 +2242,9 @@ Memory Map of the image
 
   Image Entry point : 0x080001ad
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00010f1c, Max: 0x00100000, ABSOLUTE, COMPRESSED[0x000024a0])
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00010f20, Max: 0x00100000, ABSOLUTE, COMPRESSED[0x00002490])
 
-    Execution Region ER_IROM1 (Base: 0x08000000, Size: 0x00001ef0, Max: 0x00100000, ABSOLUTE)
+    Execution Region ER_IROM1 (Base: 0x08000000, Size: 0x00001ef4, Max: 0x00100000, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -2310,116 +2310,116 @@ Memory Map of the image
     0x08000a02   0x00000002   PAD
     0x08000a04   0x00000088   Code   RO         5290    i.MSD_ENA           microstepdriver.o
     0x08000a8c   0x000000ac   Code   RO         5291    i.MSD_GPIO_Config   microstepdriver.o
-    0x08000b38   0x000000d8   Code   RO         5292    i.MSD_IRQHandler    microstepdriver.o
-    0x08000c10   0x00000090   Code   RO         5293    i.MSD_Mode_Config   microstepdriver.o
-    0x08000ca0   0x00000054   Code   RO         5294    i.MSD_Move          microstepdriver.o
-    0x08000cf4   0x00000028   Code   RO         5295    i.MSD_NVIC_Config   microstepdriver.o
-    0x08000d1c   0x00000014   Code   RO         5296    i.MSD_waitStop      microstepdriver.o
-    0x08000d30   0x00000004   Code   RO         5371    i.MemManage_Handler  stm32f4xx_it.o
-    0x08000d34   0x00000002   Code   RO         5372    i.NMI_Handler       stm32f4xx_it.o
-    0x08000d36   0x00000002   PAD
-    0x08000d38   0x00000078   Code   RO          164    i.NVIC_Init         misc.o
-    0x08000db0   0x00000014   Code   RO          165    i.NVIC_PriorityGroupConfig  misc.o
-    0x08000dc4   0x0000003c   Code   RO         5613    i.NewInvoker        order.o
-    0x08000e00   0x00000020   Code   RO         5614    i.NewOrder          order.o
-    0x08000e20   0x0000001c   Code   RO         5615    i.NewOrderACA       order.o
-    0x08000e3c   0x0000001c   Code   RO         5616    i.NewOrderACS       order.o
-    0x08000e58   0x0000001c   Code   RO         5617    i.NewOrderDCA       order.o
-    0x08000e74   0x0000001c   Code   RO         5618    i.NewOrderDCS       order.o
-    0x08000e90   0x0000001c   Code   RO         5619    i.NewOrderDM2       order.o
-    0x08000eac   0x0000001c   Code   RO         5620    i.NewOrderDMA       order.o
-    0x08000ec8   0x0000001c   Code   RO         5621    i.NewOrderDMF       order.o
-    0x08000ee4   0x0000001c   Code   RO         5622    i.NewOrderDMR       order.o
-    0x08000f00   0x0000001c   Code   RO         5623    i.NewOrderDMS       order.o
-    0x08000f1c   0x0000001c   Code   RO         5624    i.NewOrderERR       order.o
-    0x08000f38   0x0000001c   Code   RO         5625    i.NewOrderLCA       order.o
-    0x08000f54   0x0000001c   Code   RO         5626    i.NewOrderLCS       order.o
-    0x08000f70   0x0000001c   Code   RO         5627    i.NewOrderLM2       order.o
-    0x08000f8c   0x0000001c   Code   RO         5628    i.NewOrderLMA       order.o
-    0x08000fa8   0x0000001c   Code   RO         5629    i.NewOrderLMF       order.o
-    0x08000fc4   0x0000001c   Code   RO         5630    i.NewOrderLMR       order.o
-    0x08000fe0   0x0000001c   Code   RO         5631    i.NewOrderLMS       order.o
-    0x08000ffc   0x00000044   Code   RO         5934    i.NewVectorOrder    orders.o
-    0x08001040   0x00000030   Code   RO         5632    i.OrderACADo        order.o
-    0x08001070   0x00000030   Code   RO         5633    i.OrderACSDo        order.o
-    0x080010a0   0x00000028   Code   RO         5634    i.OrderDCADo        order.o
-    0x080010c8   0x00000028   Code   RO         5635    i.OrderDCSDo        order.o
-    0x080010f0   0x00000050   Code   RO         5636    i.OrderDM2Do        order.o
-    0x08001140   0x00000034   Code   RO         5637    i.OrderDMADo        order.o
-    0x08001174   0x00000028   Code   RO         5638    i.OrderDMFDo        order.o
-    0x0800119c   0x0000002c   Code   RO         5639    i.OrderDMRDo        order.o
-    0x080011c8   0x00000034   Code   RO         5640    i.OrderDMSDo        order.o
-    0x080011fc   0x00000018   Code   RO         5641    i.OrderDo           order.o
-    0x08001214   0x00000014   Code   RO         5642    i.OrderERRDo        order.o
-    0x08001228   0x00000028   Code   RO         5643    i.OrderLCADo        order.o
-    0x08001250   0x00000028   Code   RO         5644    i.OrderLCSDo        order.o
-    0x08001278   0x00000050   Code   RO         5645    i.OrderLM2Do        order.o
-    0x080012c8   0x00000034   Code   RO         5646    i.OrderLMADo        order.o
-    0x080012fc   0x00000028   Code   RO         5647    i.OrderLMFDo        order.o
-    0x08001324   0x0000002c   Code   RO         5648    i.OrderLMRDo        order.o
-    0x08001350   0x00000034   Code   RO         5649    i.OrderLMSDo        order.o
-    0x08001384   0x00000002   Code   RO         5373    i.PendSV_Handler    stm32f4xx_it.o
-    0x08001386   0x00000002   PAD
-    0x08001388   0x00000020   Code   RO         2864    i.RCC_AHB1PeriphClockCmd  stm32f4xx_rcc.o
-    0x080013a8   0x00000020   Code   RO         2873    i.RCC_APB1PeriphClockCmd  stm32f4xx_rcc.o
-    0x080013c8   0x00000020   Code   RO         2876    i.RCC_APB2PeriphClockCmd  stm32f4xx_rcc.o
-    0x080013e8   0x000000e8   Code   RO         2885    i.RCC_GetClocksFreq  stm32f4xx_rcc.o
-    0x080014d0   0x00000002   Code   RO         5374    i.SVC_Handler       stm32f4xx_it.o
-    0x080014d2   0x00000002   PAD
-    0x080014d4   0x00000040   Code   RO         4163    i.SYSCFG_EXTILineConfig  stm32f4xx_syscfg.o
-    0x08001514   0x00000120   Code   RO           13    i.SetSysClock       system_stm32f4xx.o
-    0x08001634   0x00000002   Code   RO         5375    i.SysTick_Handler   stm32f4xx_it.o
-    0x08001636   0x00000002   PAD
-    0x08001638   0x00000068   Code   RO           15    i.SystemInit        system_stm32f4xx.o
-    0x080016a0   0x00000010   Code   RO         5376    i.TIM2_IRQHandler   stm32f4xx_it.o
-    0x080016b0   0x00000010   Code   RO         5377    i.TIM3_IRQHandler   stm32f4xx_it.o
-    0x080016c0   0x00000018   Code   RO         4224    i.TIM_ARRPreloadConfig  stm32f4xx_tim.o
-    0x080016d8   0x00000006   Code   RO         4231    i.TIM_ClearITPendingBit  stm32f4xx_tim.o
-    0x080016de   0x00000018   Code   RO         4236    i.TIM_Cmd           stm32f4xx_tim.o
-    0x080016f6   0x00000022   Code   RO         4257    i.TIM_GetITStatus   stm32f4xx_tim.o
-    0x08001718   0x00000012   Code   RO         4261    i.TIM_ITConfig      stm32f4xx_tim.o
-    0x0800172a   0x00000002   PAD
-    0x0800172c   0x00000078   Code   RO         4280    i.TIM_OC4Init       stm32f4xx_tim.o
-    0x080017a4   0x0000001a   Code   RO         4282    i.TIM_OC4PreloadConfig  stm32f4xx_tim.o
-    0x080017be   0x00000004   Code   RO         4296    i.TIM_SetAutoreload  stm32f4xx_tim.o
-    0x080017c2   0x00000004   Code   RO         4301    i.TIM_SetCompare4   stm32f4xx_tim.o
-    0x080017c6   0x00000002   PAD
-    0x080017c8   0x00000084   Code   RO         4308    i.TIM_TimeBaseInit  stm32f4xx_tim.o
-    0x0800184c   0x00000012   Code   RO         4309    i.TIM_TimeBaseStructInit  stm32f4xx_tim.o
-    0x0800185e   0x00000018   Code   RO         4311    i.TIM_UpdateRequestConfig  stm32f4xx_tim.o
-    0x08001876   0x00000002   PAD
-    0x08001878   0x00000108   Code   RO         5378    i.USART1_IRQHandler  stm32f4xx_it.o
-    0x08001980   0x00000018   Code   RO         4790    i.USART_Cmd         stm32f4xx_usart.o
-    0x08001998   0x0000001a   Code   RO         4793    i.USART_GetFlagStatus  stm32f4xx_usart.o
-    0x080019b2   0x00000054   Code   RO         4794    i.USART_GetITStatus  stm32f4xx_usart.o
-    0x08001a06   0x0000004a   Code   RO         4796    i.USART_ITConfig    stm32f4xx_usart.o
-    0x08001a50   0x000000d4   Code   RO         4797    i.USART_Init        stm32f4xx_usart.o
-    0x08001b24   0x0000000a   Code   RO         4804    i.USART_ReceiveData  stm32f4xx_usart.o
-    0x08001b2e   0x00000008   Code   RO         4807    i.USART_SendData    stm32f4xx_usart.o
-    0x08001b36   0x00000004   Code   RO         5379    i.UsageFault_Handler  stm32f4xx_it.o
-    0x08001b3a   0x000000a8   Code   RO         5218    i.Usart_Config      usart.o
-    0x08001be2   0x00000014   Code   RO         5219    i.Usart_FlushRxBuffer  usart.o
-    0x08001bf6   0x0000002e   Code   RO         5220    i.Usart_NVIC_Config  usart.o
-    0x08001c24   0x0000001e   Code   RO         5221    i.Usart_SendByte    usart.o
-    0x08001c42   0x00000014   Code   RO         5935    i.VectorOrderClear  orders.o
-    0x08001c56   0x0000004c   Code   RO         5936    i.VectorOrderFind   orders.o
-    0x08001ca2   0x0000005a   Code   RO         5937    i.VectorOrderPushBack  orders.o
-    0x08001cfc   0x0000004e   Code   RO         5938    i.VectorOrderSetData  orders.o
-    0x08001d4a   0x00000006   Code   RO         5939    i.VectorOrderSize   orders.o
-    0x08001d50   0x00000010   Code   RO         6026    i.__0printf$bare    mc_w.l(printfb.o)
-    0x08001d60   0x0000000e   Code   RO         6357    i.__scatterload_copy  mc_w.l(handlers.o)
-    0x08001d6e   0x00000002   Code   RO         6358    i.__scatterload_null  mc_w.l(handlers.o)
-    0x08001d70   0x0000000e   Code   RO         6359    i.__scatterload_zeroinit  mc_w.l(handlers.o)
-    0x08001d7e   0x00000022   Code   RO         6033    i._printf_core      mc_w.l(printfb.o)
-    0x08001da0   0x00000028   Code   RO         5225    i.fputc             usart.o
-    0x08001dc8   0x00000050   Code   RO         6285    i.free              mc_w.l(malloc.o)
-    0x08001e18   0x0000000c   Code   RO         5046    i.main              main.o
-    0x08001e24   0x0000006c   Code   RO         6286    i.malloc            mc_w.l(malloc.o)
-    0x08001e90   0x00000040   Data   RO         5510    .constdata          config.o
-    0x08001ed0   0x00000020   Data   RO         6355    Region$$Table       anon$$obj.o
+    0x08000b38   0x000000dc   Code   RO         5292    i.MSD_IRQHandler    microstepdriver.o
+    0x08000c14   0x00000090   Code   RO         5293    i.MSD_Mode_Config   microstepdriver.o
+    0x08000ca4   0x00000054   Code   RO         5294    i.MSD_Move          microstepdriver.o
+    0x08000cf8   0x00000028   Code   RO         5295    i.MSD_NVIC_Config   microstepdriver.o
+    0x08000d20   0x00000014   Code   RO         5296    i.MSD_waitStop      microstepdriver.o
+    0x08000d34   0x00000004   Code   RO         5371    i.MemManage_Handler  stm32f4xx_it.o
+    0x08000d38   0x00000002   Code   RO         5372    i.NMI_Handler       stm32f4xx_it.o
+    0x08000d3a   0x00000002   PAD
+    0x08000d3c   0x00000078   Code   RO          164    i.NVIC_Init         misc.o
+    0x08000db4   0x00000014   Code   RO          165    i.NVIC_PriorityGroupConfig  misc.o
+    0x08000dc8   0x0000003c   Code   RO         5613    i.NewInvoker        order.o
+    0x08000e04   0x00000020   Code   RO         5614    i.NewOrder          order.o
+    0x08000e24   0x0000001c   Code   RO         5615    i.NewOrderACA       order.o
+    0x08000e40   0x0000001c   Code   RO         5616    i.NewOrderACS       order.o
+    0x08000e5c   0x0000001c   Code   RO         5617    i.NewOrderDCA       order.o
+    0x08000e78   0x0000001c   Code   RO         5618    i.NewOrderDCS       order.o
+    0x08000e94   0x0000001c   Code   RO         5619    i.NewOrderDM2       order.o
+    0x08000eb0   0x0000001c   Code   RO         5620    i.NewOrderDMA       order.o
+    0x08000ecc   0x0000001c   Code   RO         5621    i.NewOrderDMF       order.o
+    0x08000ee8   0x0000001c   Code   RO         5622    i.NewOrderDMR       order.o
+    0x08000f04   0x0000001c   Code   RO         5623    i.NewOrderDMS       order.o
+    0x08000f20   0x0000001c   Code   RO         5624    i.NewOrderERR       order.o
+    0x08000f3c   0x0000001c   Code   RO         5625    i.NewOrderLCA       order.o
+    0x08000f58   0x0000001c   Code   RO         5626    i.NewOrderLCS       order.o
+    0x08000f74   0x0000001c   Code   RO         5627    i.NewOrderLM2       order.o
+    0x08000f90   0x0000001c   Code   RO         5628    i.NewOrderLMA       order.o
+    0x08000fac   0x0000001c   Code   RO         5629    i.NewOrderLMF       order.o
+    0x08000fc8   0x0000001c   Code   RO         5630    i.NewOrderLMR       order.o
+    0x08000fe4   0x0000001c   Code   RO         5631    i.NewOrderLMS       order.o
+    0x08001000   0x00000044   Code   RO         5934    i.NewVectorOrder    orders.o
+    0x08001044   0x00000030   Code   RO         5632    i.OrderACADo        order.o
+    0x08001074   0x00000030   Code   RO         5633    i.OrderACSDo        order.o
+    0x080010a4   0x00000028   Code   RO         5634    i.OrderDCADo        order.o
+    0x080010cc   0x00000028   Code   RO         5635    i.OrderDCSDo        order.o
+    0x080010f4   0x00000050   Code   RO         5636    i.OrderDM2Do        order.o
+    0x08001144   0x00000034   Code   RO         5637    i.OrderDMADo        order.o
+    0x08001178   0x00000028   Code   RO         5638    i.OrderDMFDo        order.o
+    0x080011a0   0x0000002c   Code   RO         5639    i.OrderDMRDo        order.o
+    0x080011cc   0x00000034   Code   RO         5640    i.OrderDMSDo        order.o
+    0x08001200   0x00000018   Code   RO         5641    i.OrderDo           order.o
+    0x08001218   0x00000014   Code   RO         5642    i.OrderERRDo        order.o
+    0x0800122c   0x00000028   Code   RO         5643    i.OrderLCADo        order.o
+    0x08001254   0x00000028   Code   RO         5644    i.OrderLCSDo        order.o
+    0x0800127c   0x00000050   Code   RO         5645    i.OrderLM2Do        order.o
+    0x080012cc   0x00000034   Code   RO         5646    i.OrderLMADo        order.o
+    0x08001300   0x00000028   Code   RO         5647    i.OrderLMFDo        order.o
+    0x08001328   0x0000002c   Code   RO         5648    i.OrderLMRDo        order.o
+    0x08001354   0x00000034   Code   RO         5649    i.OrderLMSDo        order.o
+    0x08001388   0x00000002   Code   RO         5373    i.PendSV_Handler    stm32f4xx_it.o
+    0x0800138a   0x00000002   PAD
+    0x0800138c   0x00000020   Code   RO         2864    i.RCC_AHB1PeriphClockCmd  stm32f4xx_rcc.o
+    0x080013ac   0x00000020   Code   RO         2873    i.RCC_APB1PeriphClockCmd  stm32f4xx_rcc.o
+    0x080013cc   0x00000020   Code   RO         2876    i.RCC_APB2PeriphClockCmd  stm32f4xx_rcc.o
+    0x080013ec   0x000000e8   Code   RO         2885    i.RCC_GetClocksFreq  stm32f4xx_rcc.o
+    0x080014d4   0x00000002   Code   RO         5374    i.SVC_Handler       stm32f4xx_it.o
+    0x080014d6   0x00000002   PAD
+    0x080014d8   0x00000040   Code   RO         4163    i.SYSCFG_EXTILineConfig  stm32f4xx_syscfg.o
+    0x08001518   0x00000120   Code   RO           13    i.SetSysClock       system_stm32f4xx.o
+    0x08001638   0x00000002   Code   RO         5375    i.SysTick_Handler   stm32f4xx_it.o
+    0x0800163a   0x00000002   PAD
+    0x0800163c   0x00000068   Code   RO           15    i.SystemInit        system_stm32f4xx.o
+    0x080016a4   0x00000010   Code   RO         5376    i.TIM2_IRQHandler   stm32f4xx_it.o
+    0x080016b4   0x00000010   Code   RO         5377    i.TIM3_IRQHandler   stm32f4xx_it.o
+    0x080016c4   0x00000018   Code   RO         4224    i.TIM_ARRPreloadConfig  stm32f4xx_tim.o
+    0x080016dc   0x00000006   Code   RO         4231    i.TIM_ClearITPendingBit  stm32f4xx_tim.o
+    0x080016e2   0x00000018   Code   RO         4236    i.TIM_Cmd           stm32f4xx_tim.o
+    0x080016fa   0x00000022   Code   RO         4257    i.TIM_GetITStatus   stm32f4xx_tim.o
+    0x0800171c   0x00000012   Code   RO         4261    i.TIM_ITConfig      stm32f4xx_tim.o
+    0x0800172e   0x00000002   PAD
+    0x08001730   0x00000078   Code   RO         4280    i.TIM_OC4Init       stm32f4xx_tim.o
+    0x080017a8   0x0000001a   Code   RO         4282    i.TIM_OC4PreloadConfig  stm32f4xx_tim.o
+    0x080017c2   0x00000004   Code   RO         4296    i.TIM_SetAutoreload  stm32f4xx_tim.o
+    0x080017c6   0x00000004   Code   RO         4301    i.TIM_SetCompare4   stm32f4xx_tim.o
+    0x080017ca   0x00000002   PAD
+    0x080017cc   0x00000084   Code   RO         4308    i.TIM_TimeBaseInit  stm32f4xx_tim.o
+    0x08001850   0x00000012   Code   RO         4309    i.TIM_TimeBaseStructInit  stm32f4xx_tim.o
+    0x08001862   0x00000018   Code   RO         4311    i.TIM_UpdateRequestConfig  stm32f4xx_tim.o
+    0x0800187a   0x00000002   PAD
+    0x0800187c   0x00000108   Code   RO         5378    i.USART1_IRQHandler  stm32f4xx_it.o
+    0x08001984   0x00000018   Code   RO         4790    i.USART_Cmd         stm32f4xx_usart.o
+    0x0800199c   0x0000001a   Code   RO         4793    i.USART_GetFlagStatus  stm32f4xx_usart.o
+    0x080019b6   0x00000054   Code   RO         4794    i.USART_GetITStatus  stm32f4xx_usart.o
+    0x08001a0a   0x0000004a   Code   RO         4796    i.USART_ITConfig    stm32f4xx_usart.o
+    0x08001a54   0x000000d4   Code   RO         4797    i.USART_Init        stm32f4xx_usart.o
+    0x08001b28   0x0000000a   Code   RO         4804    i.USART_ReceiveData  stm32f4xx_usart.o
+    0x08001b32   0x00000008   Code   RO         4807    i.USART_SendData    stm32f4xx_usart.o
+    0x08001b3a   0x00000004   Code   RO         5379    i.UsageFault_Handler  stm32f4xx_it.o
+    0x08001b3e   0x000000a8   Code   RO         5218    i.Usart_Config      usart.o
+    0x08001be6   0x00000014   Code   RO         5219    i.Usart_FlushRxBuffer  usart.o
+    0x08001bfa   0x0000002e   Code   RO         5220    i.Usart_NVIC_Config  usart.o
+    0x08001c28   0x0000001e   Code   RO         5221    i.Usart_SendByte    usart.o
+    0x08001c46   0x00000014   Code   RO         5935    i.VectorOrderClear  orders.o
+    0x08001c5a   0x0000004c   Code   RO         5936    i.VectorOrderFind   orders.o
+    0x08001ca6   0x0000005a   Code   RO         5937    i.VectorOrderPushBack  orders.o
+    0x08001d00   0x0000004e   Code   RO         5938    i.VectorOrderSetData  orders.o
+    0x08001d4e   0x00000006   Code   RO         5939    i.VectorOrderSize   orders.o
+    0x08001d54   0x00000010   Code   RO         6026    i.__0printf$bare    mc_w.l(printfb.o)
+    0x08001d64   0x0000000e   Code   RO         6357    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x08001d72   0x00000002   Code   RO         6358    i.__scatterload_null  mc_w.l(handlers.o)
+    0x08001d74   0x0000000e   Code   RO         6359    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x08001d82   0x00000022   Code   RO         6033    i._printf_core      mc_w.l(printfb.o)
+    0x08001da4   0x00000028   Code   RO         5225    i.fputc             usart.o
+    0x08001dcc   0x00000050   Code   RO         6285    i.free              mc_w.l(malloc.o)
+    0x08001e1c   0x0000000c   Code   RO         5046    i.main              main.o
+    0x08001e28   0x0000006c   Code   RO         6286    i.malloc            mc_w.l(malloc.o)
+    0x08001e94   0x00000040   Data   RO         5510    .constdata          config.o
+    0x08001ed4   0x00000020   Data   RO         6355    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Base: 0x20000000, Size: 0x0000f650, Max: 0x00030000, ABSOLUTE, COMPRESSED[0x000005b0])
+    Execution Region RW_IRAM1 (Base: 0x20000000, Size: 0x0000f650, Max: 0x00030000, ABSOLUTE, COMPRESSED[0x0000059c])
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -2444,30 +2444,30 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-         0          0         64       1348          0       2637   config.o
-        88          0          0          0          0       3395   cylinder.o
-       268         54          0          1          0       3729   dealserialdata.o
-       548         50          0          0          0       3245   initall.o
-       154          0          0          0          0       2584   key.o
-       120         14          0          0          0       4080   led.o
-        40          0          0          0          0       6088   main.o
-       836        102          0      60104          0       6011   microstepdriver.o
-       140         24          0          0          0       1815   misc.o
-      1444        444          0          0          0      23011   order.o
-       338         20          0          0         32       6874   orders.o
-        36          8        428          0       1536        988   startup_stm32f429_439xx.o
-       184         16          0          0          0       2456   stm32f4xx_exti.o
-       222          0          0          0          0       3315   stm32f4xx_gpio.o
-       494         60          0          0          0       7188   stm32f4xx_it.o
-       328         36          0         16          0       5099   stm32f4xx_rcc.o
-        64          4          0          0          0        732   stm32f4xx_syscfg.o
-       434         36          0          0          0       8923   stm32f4xx_tim.o
-       438          8          0          0          0       6161   stm32f4xx_usart.o
-       392         32          0          0          0     298745   system_stm32f4xx.o
-       316          6          0          0          0       3998   usart.o
+         0          0         64       1348          0       2797   config.o
+        88          0          0          0          0       3619   cylinder.o
+       268         54          0          1          0       3793   dealserialdata.o
+       548         50          0          0          0       3437   initall.o
+       154          0          0          0          0       2744   key.o
+       120         14          0          0          0       4368   led.o
+        40          0          0          0          0       6312   main.o
+       840        100          0      60104          0       6339   microstepdriver.o
+       140         24          0          0          0       1911   misc.o
+      1444        444          0          0          0      24355   order.o
+       338         20          0          0         32       7194   orders.o
+        36          8        428          0       1536       1020   startup_stm32f429_439xx.o
+       184         16          0          0          0       2584   stm32f4xx_exti.o
+       222          0          0          0          0       3475   stm32f4xx_gpio.o
+       494         60          0          0          0       7636   stm32f4xx_it.o
+       328         36          0         16          0       5291   stm32f4xx_rcc.o
+        64          4          0          0          0        764   stm32f4xx_syscfg.o
+       434         36          0          0          0       9339   stm32f4xx_tim.o
+       438          8          0          0          0       6417   stm32f4xx_usart.o
+       392         32          0          0          0     299065   system_stm32f4xx.o
+       316          6          0          0          0       4222   usart.o
 
     ----------------------------------------------------------------------
-      6906        914        524      61472       1572     401074   Object Totals
+      6910        912        524      61472       1572     406682   Object Totals
          0          0         32          0          0          0   (incl. Generated)
         22          0          0          3          4          0   (incl. Padding)
 
@@ -2514,15 +2514,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      7396        958        524      61484       1572     389242   Grand Totals
-      7396        958        524       1456       1572     389242   ELF Image Totals (compressed)
-      7396        958        524       1456          0          0   ROM Totals
+      7400        956        524      61484       1572     394850   Grand Totals
+      7400        956        524       1436       1572     394850   ELF Image Totals (compressed)
+      7400        956        524       1436          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 7920 (   7.73kB)
+    Total RO  Size (Code + RO Data)                 7924 (   7.74kB)
     Total RW  Size (RW Data + ZI Data)             63056 (  61.58kB)
-    Total ROM Size (Code + RO Data + RW Data)       9376 (   9.16kB)
+    Total ROM Size (Code + RO Data + RW Data)       9360 (   9.14kB)
 
 ==============================================================================
 
