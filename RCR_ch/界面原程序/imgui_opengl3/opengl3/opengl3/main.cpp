@@ -451,8 +451,8 @@ inline bool ConfigWindow(const std::string& label, const std::string& treeNodeNa
 
         ImGui::SameLine();
         {
-            ImGui::BeginChild((label + "ColorConfig").c_str(), ImVec2(0, 600), false);
-            ImGui::PushItemWidth(190);
+            ImGui::BeginChild((label + "ColorConfig").c_str(), ImVec2(0, 650), false);
+            ImGui::PushItemWidth(180);
             // show the color configer
             for (auto &color : rccSet.m_colors) {
                 if (&color == &rccSet.m_colors[0]) {
@@ -460,19 +460,19 @@ inline bool ConfigWindow(const std::string& label, const std::string& treeNodeNa
                 }
                 ColorConfiger(color);
             }
-            ImGui::Text("White balance\n");
-            ImGui::DragFloat3(("##" + label).c_str(),
-                rccSet.m_pRGB,
-                0.01f,
-                0,
-                5);
+            ImGui::Text("White balance(RGB)\n");
+            for (int i = 0; i < 18; ++i) {
+                if (((label == "F" || label == "B") && !(i == 1 || i == 5 || i >= 9)) || (label == "U")) {
+                    ImGui::DragFloat3((std::to_string(i) + "##" + label).c_str(), rcc.m_whiteBlance[i].data);
+                }
+            }
 
             ImGui::PopItemWidth();
             ImGui::EndChild();
         }
 
         {
-            ImGui::BeginChild((label + "VSlider").c_str(), ImVec2(0, 200), false);
+            ImGui::BeginChild((label + "VSlider").c_str(), ImVec2(0, 170), false);
             const std::vector<SetVSlider> svs{
                 SetVSlider("##" + label + "blurSize", &rccSet.m_blurSize, 0, 100, u8"模糊\n%d"),
                 SetVSlider("##" + label + "radius", &rccSet.m_radius, 10, rows / 2, u8"半径\n%d"),
@@ -484,7 +484,7 @@ inline bool ConfigWindow(const std::string& label, const std::string& treeNodeNa
                 SetVSlider("##" + label + "brightness", &rccSet.m_brightness, -64, 64, u8"亮度\n%d"),
                 SetVSlider("##" + label + "contrast", &rccSet.m_contrast, 0, 100, u8"对比度\n%d") };
 
-            const ImVec2 vsSize = ImVec2(14, 200);
+            const ImVec2 vsSize = ImVec2(14, 170);
             static int showTime{ 0 };
             static bool showTimeFlag{ false };
             if (showTimeFlag == false && ++showTime > 100) {
@@ -619,84 +619,84 @@ inline void ShowMainWindow(const std::string &title, const cv::Mat& matU,
 
         // 前方摄像头画面
         {
-            ImGui::BeginChild("CameraF", ImVec2(528, 458), true);
+            ImGui::BeginChild("CameraF", ImVec2(528, 485), true);
             ImGui::Text(u8"\t\t\t\t\t\t<前摄像头>");
 
             static GLuint tex{};
             const ImTextureID   textureID{ GetMatTextureID(matF, tex) };
             static const ImVec2 textureSize{ static_cast<float>(cols), static_cast<float>(rows) };
             ImGui::Image(textureID, textureSize);
-            std::string getColors{ std::string(23, ' ') + g_rcc_F.GetColorString() + std::string(12, ' ') };
-            ImGui::PushItemWidth(492);
+            std::string getColors{ std::string(23, ' ') + g_rcc_F.GetColorString() };
+            ImGui::PushItemWidth(480);
             ImGui::InputText("##Video_F", const_cast<char*>(getColors.c_str()), getColors.size(), ImGuiInputTextFlags_ReadOnly);
             ImGui::PopItemWidth();
             static int cameraIdx{ g_rccSet_F.m_index };
             ImGui::SameLine();
             ImGui::PushItemWidth(15);
-            ImGui::DragInt("CameraIdx", &cameraIdx, 0.1f, 1, 3);
+            ImGui::DragInt("##CameraIdx", &cameraIdx, 0.1f, 1, 3);
             ImGui::PopItemWidth();
+            ImGui::SameLine();
             if (cameraIdx != g_rccSet_F.m_index) {
                 g_rccSet_F.m_index = cameraIdx;
             }
-
             ImGui::EndChild();
         }
 
         ImGui::SameLine();
         // 上方摄像头画面
         {
-            ImGui::BeginChild("Camera U", ImVec2(529, 458), true);
+            ImGui::BeginChild("Camera U", ImVec2(529, 485), true);
 
             static GLuint tex{};
             const ImTextureID   textureID{ GetMatTextureID(matU, tex) };
             static const ImVec2 textureSize{ static_cast<float>(cols), static_cast<float>(rows) };
             ImGui::Text(u8"\t\t\t\t\t\t<上摄像头>");
             ImGui::Image(textureID, textureSize);
-            std::string getColors{ std::string(18, ' ') + g_rcc_U.GetColorString() + std::string(16, ' ') };
-            ImGui::PushItemWidth(492);
+            std::string getColors{ std::string(20, ' ') + g_rcc_U.GetColorString() };
+            ImGui::PushItemWidth(480);
             ImGui::InputText("##Video_U", const_cast<char*>(getColors.c_str()), getColors.size(), ImGuiInputTextFlags_ReadOnly);
             ImGui::PopItemWidth();
             static int cameraIdx{ g_rccSet_U.m_index };
             ImGui::SameLine();
             ImGui::PushItemWidth(15);
-            ImGui::DragInt("CameraIdx", &cameraIdx, 0.1f, 1, 3);
+            ImGui::DragInt("##CameraIdx", &cameraIdx, 0.1f, 1, 3);
             ImGui::PopItemWidth();
+            ImGui::SameLine();
             if (cameraIdx != g_rccSet_U.m_index) {
                 g_rccSet_U.m_index = cameraIdx;
             }
-
             ImGui::EndChild();
         }
 
         ImGui::SameLine();
         // 后方摄像头画面
         {
-            ImGui::BeginChild("CameraB", ImVec2(529, 458), true);
+            ImGui::BeginChild("CameraB", ImVec2(529, 485), true);
 
             static GLuint tex{};
             const ImTextureID   textureID{ GetMatTextureID(matB, tex) };
             static const ImVec2 textureSize{ static_cast<float>(cols), static_cast<float>(rows) };
             ImGui::Text(u8"\t\t\t\t\t\t<后摄像头>");
             ImGui::Image(textureID, textureSize);
-            std::string getColors{ std::string(23, ' ') + g_rcc_B.GetColorString() + std::string(12, ' ') };
-            ImGui::PushItemWidth(492);
+            std::string getColors{ std::string(23, ' ') + g_rcc_B.GetColorString() };
+            ImGui::PushItemWidth(480);
             ImGui::InputText("##Video_B", const_cast<char*>(getColors.c_str()), getColors.size(), ImGuiInputTextFlags_ReadOnly);
             ImGui::PopItemWidth();
             static int cameraIdx{ g_rccSet_B.m_index };
             ImGui::SameLine();
             ImGui::PushItemWidth(15);
-            ImGui::DragInt("CameraIdx", &cameraIdx, 0.1f, 1, 3);
+            ImGui::DragInt("##CameraIdx", &cameraIdx, 0.1f, 1, 3);
             ImGui::PopItemWidth();
+            ImGui::SameLine();
             if (cameraIdx != g_rccSet_B.m_index) {
                 g_rccSet_B.m_index = cameraIdx;
             }
-
             ImGui::EndChild();
         }
 
         // 3D魔方
         {
-            ImGui::BeginChild("3DCube", ImVec2(528, 550), true);
+            ImGui::BeginChild("3DCube", ImVec2(528, 545), true);
             ImGui::Text(u8"\t\t\t\t\t\t<3D-魔方>\n");
             {
                 ImGui::BeginChild("CubeImg", ImVec2(0, 280), false);
@@ -925,7 +925,7 @@ inline void ShowMainWindow(const std::string &title, const cv::Mat& matU,
         ImGui::SameLine();
         // 对话框
         {
-            ImGui::BeginChild("Dialog", ImVec2(1066, 550), true);
+            ImGui::BeginChild("Dialog", ImVec2(1066, 545), true);
             ImGui::Text(u8"\t\t\t\t\t\t\t\t\t\t\t\t\t  <对话框>");
 
             ImVec2 outputTextAreaSize = ImVec2(1050, ImGui::GetTextLineHeight() * 13.5f); // set the output text window size 
@@ -969,6 +969,13 @@ inline void ShowMainWindow(const std::string &title, const cv::Mat& matU,
                 g_rccSet_F.m_testMode = testMode;
                 g_rccSet_U.m_testMode = testMode;
                 g_rccSet_B.m_testMode = testMode;
+
+                ImGui::SameLine(); ImGui::Text("  "); ImGui::SameLine();
+                static bool whiteBlanceMode;
+                ImGui::Checkbox(u8"白平衡模式", &whiteBlanceMode);
+                g_rccSet_F.m_whiteBlanceMode = whiteBlanceMode;
+                g_rccSet_U.m_whiteBlanceMode = whiteBlanceMode;
+                g_rccSet_B.m_whiteBlanceMode = whiteBlanceMode;
 
                 ImGui::SameLine(); ImGui::Text("  "); ImGui::SameLine();
                 static bool rgbMode;
@@ -1056,7 +1063,7 @@ inline void ShowMainWindow(const std::string &title, const cv::Mat& matU,
     // ----------------------------------------------------------------------------- //
     ImGui::SameLine();
     {
-        ImGui::BeginChild("ConfigWindow", ImVec2(270, 1012), true);
+        ImGui::BeginChild("ConfigWindow", ImVec2(270, 1034), true);
 
         ImGui::Text(u8"\t\t   <设置>");
 

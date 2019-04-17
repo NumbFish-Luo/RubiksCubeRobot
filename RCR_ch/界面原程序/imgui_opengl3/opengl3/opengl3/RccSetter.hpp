@@ -4,6 +4,7 @@
 
 struct RccSet
 {
+    bool  m_whiteBlanceMode;
     int   m_index;
     Gtype m_type;
     bool  m_testMode;
@@ -25,6 +26,7 @@ struct RccSet
     RccSet(const int& index, const Gtype& type, const std::vector<HSV>& colors, const int cols, const int rows)
         : m_index      (index),
           m_type       (type),
+          m_whiteBlanceMode(false),
           m_testMode   (false),
           m_rgbMode    (false),
           m_pRGB       {1, 1, 1},
@@ -46,6 +48,7 @@ struct RccSet
     RccSet(const RccSet& rs)
         : m_index      (rs.m_index),
           m_type       (rs.m_type),
+          m_whiteBlanceMode(rs.m_whiteBlanceMode),
           m_testMode   (rs.m_testMode),
           m_rgbMode    (rs.m_rgbMode),
           m_blurSize   (rs.m_blurSize),
@@ -70,6 +73,7 @@ struct RccSet
     {
         m_index       = rs.m_index;
         m_type        = rs.m_type;
+        m_whiteBlanceMode = rs.m_whiteBlanceMode;
         m_testMode    = rs.m_testMode;
         m_rgbMode     = rs.m_rgbMode;
         m_blurSize    = rs.m_blurSize;

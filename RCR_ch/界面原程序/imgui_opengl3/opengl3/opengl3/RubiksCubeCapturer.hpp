@@ -18,19 +18,29 @@ inline bool MatIsEqual(const cv::Mat mat1, const cv::Mat mat2)
     return (memcmp(mat1.data, mat2.data, nrOfElements1) == 0);
 }
 
+template<typename T>
+struct Data3 {
+    T data[3];
+    T operator[](int i) const{
+        return data[i];
+    }
+    T& operator[](int i) {
+        return data[i];
+    }
+};
+
 class Rcc // RubiksCubeCapturer
 {
 public:
-    Rcc(RccSet rccSetter)
-        : m_camera(),
-          m_frame(),
-          m_blurMask(),
-          m_hsvMask(),
-          m_grid(),
-          m_x(0), m_y(0),
-          m_rccSet(rccSetter),
-          m_colorStr("?")
-    {
+    Rcc(RccSet rccSetter) :
+        m_camera(),
+        m_frame(),
+        m_blurMask(),
+        m_hsvMask(),
+        m_grid(),
+        m_x(0), m_y(0),
+        m_rccSet(rccSetter),
+        m_colorStr("?") {
         m_camera.open(rccSetter.m_index);
         m_camera.set(CV_CAP_PROP_FRAME_WIDTH, 640 * 0.5); // default 640
         m_camera.set(CV_CAP_PROP_FRAME_HEIGHT, 480 * 0.5); // default 480
@@ -67,6 +77,7 @@ public:
     void ReleaseMat();
     void ChangeBrightness();
     void ChangeContrast();
+    Data3<float> m_whiteBlance[18];
 
 private:
     bool ImgProc();
@@ -114,18 +125,27 @@ inline const cv::Mat& Rcc::ReadVideoFrame()
     return m_frame;
 }
 
-void AutoWhiteBalance(cv::Mat& img, float PR, float PG, float PB) {
+//void AutoWhiteBalance(cv::Mat& img, float PR, float PG, float PB) {
+//    std::vector<cv::Mat> whiteBalance;
+//    cv::split(img, whiteBalance);
+//    double B = mean(whiteBalance[0])[0];
+//    double G = mean(whiteBalance[1])[0];
+//    double R = mean(whiteBalance[2])[0];
+//    double KB = (R + G + B) / (3 * B);
+//    double KG = (R + G + B) / (3 * G);
+//    double KR = (R + G + B) / (3 * R);
+//    whiteBalance[0] = whiteBalance[0] * KB * PB;
+//    whiteBalance[1] = whiteBalance[1] * KG * PG;
+//    whiteBalance[2] = whiteBalance[2] * KR * PR;
+//    merge(whiteBalance, img);
+//}
+
+void WhiteBalance(cv::Mat& img, const Data3<float>& rgb) {
     std::vector<cv::Mat> whiteBalance;
     cv::split(img, whiteBalance);
-    double B = mean(whiteBalance[0])[0];
-    double G = mean(whiteBalance[1])[0];
-    double R = mean(whiteBalance[2])[0];
-    double KB = (R + G + B) / (3 * B);
-    double KG = (R + G + B) / (3 * G);
-    double KR = (R + G + B) / (3 * R);
-    whiteBalance[0] = whiteBalance[0] * KB * PB;
-    whiteBalance[1] = whiteBalance[1] * KG * PG;
-    whiteBalance[2] = whiteBalance[2] * KR * PR;
+    whiteBalance[0] = whiteBalance[0] * rgb[2];
+    whiteBalance[1] = whiteBalance[1] * rgb[1];
+    whiteBalance[2] = whiteBalance[2] * rgb[0];
     merge(whiteBalance, img);
 }
 
@@ -142,7 +162,7 @@ inline bool Rcc::ImgProc()
         cv::Size(m_rccSet.m_blurSize * 2 + 1, m_rccSet.m_blurSize * 2 + 1),
         0);
 
-    AutoWhiteBalance(m_blurMask, m_rccSet.m_pRGB[0], m_rccSet.m_pRGB[1], m_rccSet.m_pRGB[2]); // 自动白平衡(灰度世界法)
+    // AutoWhiteBalance(m_blurMask, m_rccSet.m_pRGB[0], m_rccSet.m_pRGB[1], m_rccSet.m_pRGB[2]); // 自动白平衡(灰度世界法)
     cv::cvtColor(m_blurMask, m_hsvMask, cv::COLOR_BGR2HSV); // BGR转HSV
 
     return true;
@@ -241,6 +261,11 @@ inline void Rcc::FindAndDrawColor(std::string &saveCubeColor)
     cv::Mat rangeMaskA{}, rangeMaskB{};
     for (size_t colorIdx = colorIdxMin; colorIdx < colorIdxMax; ++colorIdx) // 颜色循环
     {
+        if (m_rccSet.m_whiteBlanceMode == true) {
+            WhiteBalance(m_blurMask, m_whiteBlance[colorIdx]);
+            cv::cvtColor(m_blurMask, m_hsvMask, cv::COLOR_BGR2HSV);
+        }
+
         cv::inRange(m_hsvMask, m_rccSet.m_colors[colorIdx].Lo,     m_rccSet.m_colors[colorIdx].mid_Hi, rangeMaskA); // 找到指定范围内的颜色
         cv::inRange(m_hsvMask, m_rccSet.m_colors[colorIdx].mid_Lo, m_rccSet.m_colors[colorIdx].Hi,     rangeMaskB);
 
@@ -254,13 +279,23 @@ inline void Rcc::FindAndDrawColor(std::string &saveCubeColor)
                     circle(m_frame, block[blockIdx], 5, m_rccSet.m_colors[colorIdx].bgr, 2); // print cicle
                 }
             }
+            // 测试模式
             if (m_rccSet.m_testMode == true)
             {
                 std::string colorData[3];
+                Data3<uchar> rgbData{ 0, 0, 0 };
+                // HSV模式
                 if (m_rccSet.m_rgbMode == false) for (int i = 0; i < 3; ++i)
                     colorData[i] = std::to_string(m_hsvMask.at<cv::Vec3b>(block[blockIdx])[i]);
-                else for (int i = 0; i < 3; ++i)
-                    colorData[3 - i - 1] = std::to_string(m_blurMask.at<cv::Vec3b>(block[blockIdx])[i]);
+                // RGB模式
+                else for (int i = 0; i < 3; ++i) {
+                    rgbData[3 - i - 1] = m_blurMask.at<cv::Vec3b>(block[blockIdx])[i];
+                    colorData[3 - i - 1] = std::to_string(rgbData[3 - i - 1]);
+                    if (m_rccSet.m_whiteBlanceMode == false) {
+                        // 获取每个色块的白平衡数据 -- 190417
+                        m_whiteBlance[blockIdx][3 - i - 1] = 255.f / (rgbData[3 - i - 1] + 0.1f);
+                    }
+                }
                 for (int numPos = 0; numPos < 3; ++numPos) {
                     cv::Point2d posAdd(-10.0, numPos * 10.0 - 10);
                     putText(m_frame,
