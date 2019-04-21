@@ -682,6 +682,16 @@
               <FileType>1</FileType>
               <FilePath>..\..\User\order\Orders.c</FilePath>
             </File>
+            <File>
+              <FileName>NuxieTube.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\User\NuxieTube\NuxieTube.c</FilePath>
+            </File>
+            <File>
+              <FileName>Clock.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\User\Clock\Clock.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

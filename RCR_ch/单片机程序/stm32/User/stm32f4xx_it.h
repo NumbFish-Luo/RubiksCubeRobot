@@ -36,6 +36,7 @@
 #define USART1_Handler          USART1_IRQHandler
 #define MSD_D_Handler           TIM2_IRQHandler
 #define MSD_L_Handler           TIM3_IRQHandler
+#define Clock_Handler           TIM1_UP_TIM10_IRQHandler
 
 void NMI_Handler(void);
 void HardFault_Handler(void);
@@ -53,5 +54,6 @@ void USART1_Handler(void);
 
 void MSD_D_Handler(void);
 void MSD_L_Handler(void);
+void Clock_Handler(void);
 
 #endif /* __STM32F4xx_IT_H */

@@ -43,6 +43,8 @@
 ..\..\output\order.o: ..\..\User\key/key.h
 ..\..\output\order.o: ..\..\User\MSD/MicroStepDriver.h
 ..\..\output\order.o: ..\..\User\cylinder/cylinder.h
+..\..\output\order.o: ..\..\User\Clock/Clock.h
+..\..\output\order.o: ..\..\User\NuxieTube/NuxieTube.h
 ..\..\output\order.o: ..\..\User\stm32f4xx_it.h
 ..\..\output\order.o: ..\..\User\config/config.h
 ..\..\output\order.o: ..\..\User\usart/usart.h

@@ -3,12 +3,16 @@
 #include "order/Orders.h"
 
 void InitAll_LED() {
-    InitLED(&g_LED_R);
-    InitLED(&g_LED_G);
-    InitLED(&g_LED_B);
+//    InitLED(&g_LED_R);
+//    InitLED(&g_LED_G);
+//    InitLED(&g_LED_B);
 
-    LED_RGB_OFF();
-    LED_ON(&g_LED_Flag); // 指示灯默认开启
+//    LED_RGB_OFF();
+//    LED_ON(&g_LED_Flag); // 指示灯默认开启
+}
+
+void InitAll_Clock() {
+    InitClock(&clock);
 }
 
 void InitAll_KEY() {
@@ -41,6 +45,7 @@ void InitAll_Order() {
     OPB(LMA); OPB(LMS); OPB(LMF); OPB(LMR); OPB(LM2);
     OPB(DMA); OPB(DMS); OPB(DMF); OPB(DMR); OPB(DM2);
     OPB(LCA); OPB(LCS); OPB(DCA); OPB(DCS); OPB(ACA); OPB(ACS);
+    OPB(STA); OPB(END); OPB(RES);
 }
 
 // 清除指令集数据，防止内存泄漏

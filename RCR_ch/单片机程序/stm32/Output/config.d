@@ -43,6 +43,8 @@
 ..\..\output\config.o: ..\..\User\key/key.h
 ..\..\output\config.o: ..\..\User\MSD/MicroStepDriver.h
 ..\..\output\config.o: ..\..\User\cylinder/cylinder.h
+..\..\output\config.o: ..\..\User\Clock/Clock.h
+..\..\output\config.o: ..\..\User\NuxieTube/NuxieTube.h
 ..\..\output\config.o: ..\..\User\stm32f4xx_it.h
 ..\..\output\config.o: ..\..\User\config/config.h
 ..\..\output\config.o: ..\..\User\usart/usart.h

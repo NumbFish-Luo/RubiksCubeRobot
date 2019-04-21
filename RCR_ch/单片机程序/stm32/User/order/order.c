@@ -1,6 +1,7 @@
 #include "config/config.h"
 #include "order/order.h"
 #include "usart/usart.h"
+#include "Clock/Clock.h"
 
 void Delay(__IO uint32_t nCount) {
     while (--nCount);
@@ -156,4 +157,16 @@ ORDER_DO(ACS, "AC-") {
     Cylinder_OFF(&cylinder_L);
     Cylinder_OFF(&cylinder_D);
     Delay(CYLINDER_DELAY_TIME_LOOSEN);
+}
+ORDER_DO(STA, "STA") {
+    printf("[STA]");
+    StartClock(&clock);
+}
+ORDER_DO(END, "END") {
+    printf("[END]");
+    EndClock(&clock);
+}
+ORDER_DO(RES, "RES") {
+    printf("[RES]");
+    ResetClock(&clock);
 }

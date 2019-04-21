@@ -43,6 +43,8 @@
 ..\..\output\stm32f4xx_it.o: ..\..\User\key/key.h
 ..\..\output\stm32f4xx_it.o: ..\..\User\MSD/MicroStepDriver.h
 ..\..\output\stm32f4xx_it.o: ..\..\User\cylinder/cylinder.h
+..\..\output\stm32f4xx_it.o: ..\..\User\Clock/Clock.h
+..\..\output\stm32f4xx_it.o: ..\..\User\NuxieTube/NuxieTube.h
 ..\..\output\stm32f4xx_it.o: ..\..\User\stm32f4xx_it.h
 ..\..\output\stm32f4xx_it.o: ..\..\User\config/config.h
 ..\..\output\stm32f4xx_it.o: ..\..\User\usart/usart.h

@@ -6,6 +6,36 @@ C_LED g_LED_G    = { GPIOH, GPIO_Pin_11, RCC_AHB1Periph_GPIOH }; // PH11
 C_LED g_LED_B    = { GPIOH, GPIO_Pin_12, RCC_AHB1Periph_GPIOH }; // PH12
 C_LED g_LED_Flag = { GPIOD, GPIO_Pin_10, RCC_AHB1Periph_GPIOD }; // PD10
 
+// ################################### clock ###################################
+C_Clock clock = {
+    .nuxieTube =
+    {   // a b c d e f g dp
+        {
+            { GPIOH, GPIO_Pin_2,  RCC_AHB1Periph_GPIOH }, // a  PH2
+            { GPIOH, GPIO_Pin_8,  RCC_AHB1Periph_GPIOH }, // b  PH8
+            { GPIOA, GPIO_Pin_11, RCC_AHB1Periph_GPIOA }, // c  PA11
+            { GPIOB, GPIO_Pin_1,  RCC_AHB1Periph_GPIOB }, // d  PB1
+            { GPIOE, GPIO_Pin_5,  RCC_AHB1Periph_GPIOE }, // e  PE5
+            { GPIOH, GPIO_Pin_13, RCC_AHB1Periph_GPIOH }, // f  PH13
+            { GPIOH, GPIO_Pin_15, RCC_AHB1Periph_GPIOH }, // g  PH15
+            { GPIOC, GPIO_Pin_7,  RCC_AHB1Periph_GPIOC }, // dp PC7
+        },
+        // A B C
+        {
+            { GPIOH, GPIO_Pin_3,  RCC_AHB1Periph_GPIOH }, // A  PH3
+            { GPIOB, GPIO_Pin_0,  RCC_AHB1Periph_GPIOB }, // B  PB0
+            { GPIOA, GPIO_Pin_12, RCC_AHB1Periph_GPIOA }, // C  PA12
+        }
+    },
+    .TIM = TIM1,
+    .TIM_CLK = RCC_APB2Periph_TIM1,
+    .TIM_IRQn = TIM1_UP_TIM10_IRQn,
+    .IRQHandler = TIM1_UP_TIM10_IRQHandler,
+    .Pulse_APB_CLK_FUN = RCC_APB2PeriphClockCmd,
+    .count = 0,
+    .Start = 0
+};
+
 // #################################### key ####################################
 const C_Key key_MSD_Enable =   // PA0, EXIT0
 {

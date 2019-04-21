@@ -45,6 +45,8 @@
 ..\..\output\dealserialdata.o: ..\..\User\key/key.h
 ..\..\output\dealserialdata.o: ..\..\User\MSD/MicroStepDriver.h
 ..\..\output\dealserialdata.o: ..\..\User\cylinder/cylinder.h
+..\..\output\dealserialdata.o: ..\..\User\Clock/Clock.h
+..\..\output\dealserialdata.o: ..\..\User\NuxieTube/NuxieTube.h
 ..\..\output\dealserialdata.o: ..\..\User\stm32f4xx_it.h
 ..\..\output\dealserialdata.o: ..\..\User\config/config.h
 ..\..\output\dealserialdata.o: ..\..\User\usart/usart.h

@@ -836,15 +836,18 @@ inline void ShowMainWindow(const std::string &title, const cv::Mat& matU,
                 ImGui::BeginChild("TimerButtonR", ImVec2(0, 100));
                 if (ImGui::Button("  S t a r t  ")) {
                     g_IOBuf.PushBack("<Start>\n");
+                    g_IOBuf.Send("STA");
                     Reset(0);
                 }
                 ImGui::Text(" "); ImGui::SameLine();
                 if (ImGui::Button("   S t o p   ")) {
                     g_IOBuf.PushBack("<Stop>\n");
+                    g_IOBuf.Send("END");
                     g_stopButton = !g_stopButton;
                 }
                 if (ImGui::Button("  R e s e t  ")) {
                     g_IOBuf.PushBack("<Reset>\n");
+                    g_IOBuf.Send("RES");
                     Reset(-1);
                 }
                 ImGui::EndChild();

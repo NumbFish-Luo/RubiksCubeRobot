@@ -5,9 +5,11 @@
 #include "key/key.h"
 #include "MSD/MicroStepDriver.h"
 #include "cylinder/cylinder.h"
+#include "Clock/Clock.h"
 #include "stm32f4xx_it.h"
 #include "stm32f4xx_tim.h"
 #include "usart/usart.h"
+#include "NuxieTube/NuxieTube.h"
 
 // ############## Cylinder #############
 #define CYLINDER_DELAY_TIME_CLAMP  (uint32_t)(3000000)
@@ -51,5 +53,7 @@ extern unsigned int delayTime_180[TRUN_180];
 extern unsigned int delayTime_90[TRUN_90];
 extern unsigned int delayTime_trim[TRUN_TRIM];
 extern unsigned int delayTime_Idx;
+
+extern C_Clock     clock;
 
 #endif // DEFINE_H

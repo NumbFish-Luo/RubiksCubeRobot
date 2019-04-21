@@ -99,3 +99,7 @@ void MSD_D_Handler() {
 void MSD_L_Handler() {
     MSD_IRQHandler(&MSD_L);
 }
+
+void Clock_Handler() {
+    Clock_IRQHandler(&clock);
+}
