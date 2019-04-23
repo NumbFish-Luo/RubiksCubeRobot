@@ -74,8 +74,23 @@
     <ClCompile Include="k_CoordSys.cpp">
       <Filter>kocimeba</Filter>
     </ClCompile>
-    <ClCompile Include="UI.cpp">
+    <ClCompile Include="MainUI.cpp">
+      <Filter>rubiksCubeRobot\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraUI.cpp">
+      <Filter>rubiksCubeRobot\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraConfigUI.cpp">
+      <Filter>rubiksCubeRobot\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Cube3DUI.cpp">
       <Filter>rubiksCubeRobot</Filter>
+    </ClCompile>
+    <ClCompile Include="UI.cpp">
+      <Filter>rubiksCubeRobot\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="SerialPortUI.cpp">
+      <Filter>rubiksCubeRobot\UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -167,7 +182,22 @@
       <Filter>kocimeba</Filter>
     </ClInclude>
     <ClInclude Include="UI.h">
+      <Filter>rubiksCubeRobot\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="MainUI.h">
+      <Filter>rubiksCubeRobot\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraUI.h">
+      <Filter>rubiksCubeRobot\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraConfigUI.h">
+      <Filter>rubiksCubeRobot\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Cube3DUI.h">
       <Filter>rubiksCubeRobot</Filter>
+    </ClInclude>
+    <ClInclude Include="SerialPortUI.h">
+      <Filter>rubiksCubeRobot\UI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -182,6 +212,9 @@
     </Filter>
     <Filter Include="rubiksCubeRobot">
       <UniqueIdentifier>{9e66b55c-5a46-48d9-90ad-94f44e7cfe61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="rubiksCubeRobot\UI">
+      <UniqueIdentifier>{57397211-b57e-45b0-ae41-1f24cf57f194}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

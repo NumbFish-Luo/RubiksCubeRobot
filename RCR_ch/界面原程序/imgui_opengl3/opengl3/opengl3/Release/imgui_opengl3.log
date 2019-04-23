@@ -1,6 +1,15 @@
-﻿  main.cpp
+﻿  Cube3DUI.cpp
+c:\users\shinelon\documents\github\rubikscuberobot\rcr_ch\界面原程序\imgui_opengl3\opengl3\opengl3\cube3dui.cpp(437): warning C4457: declaration of 'show' hides function parameter
+  c:\users\shinelon\documents\github\rubikscuberobot\rcr_ch\界面原程序\imgui_opengl3\opengl3\opengl3\cube3dui.cpp(267): note: see declaration of 'show'
+c:\users\shinelon\documents\github\rubikscuberobot\rcr_ch\界面原程序\imgui_opengl3\opengl3\opengl3\cube3dui.cpp(267): warning C4100: 'show': unreferenced formal parameter
+c:\users\shinelon\documents\github\rubikscuberobot\rcr_ch\界面原程序\imgui_opengl3\opengl3\opengl3\cube3dui.cpp(267): warning C4100: 'window': unreferenced formal parameter
+  main.cpp
+  MainUI.cpp
+  SerialPortUI.cpp
+c:\users\shinelon\documents\github\rubikscuberobot\rcr_ch\界面原程序\imgui_opengl3\opengl3\opengl3\serialportui.cpp(27): warning C4100: 'show': unreferenced formal parameter
+c:\users\shinelon\documents\github\rubikscuberobot\rcr_ch\界面原程序\imgui_opengl3\opengl3\opengl3\serialportui.cpp(27): warning C4100: 'window': unreferenced formal parameter
   Generating code
-  2 of 2706 functions (<0.1%) were compiled, the rest were copied from previous compilation.
+  7 of 2801 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     3 functions had inline decision re-evaluated but remain unchanged
   Finished generating code

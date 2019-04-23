@@ -33,6 +33,10 @@
 
 #define KEY_MSD_Enable_Handler  EXTI0_IRQHandler
 #define KEY_MSD_Disable_Handler EXTI15_10_IRQHandler
+#define KEY_LMF_Handler         EXTI2_IRQHandler
+#define KEY_LMR_Handler         EXTI3_IRQHandler
+#define KEY_DMF_Handler         EXTI4_IRQHandler
+#define KEY_DMR_Handler         EXTI9_5_IRQHandler
 #define USART1_Handler          USART1_IRQHandler
 #define MSD_D_Handler           TIM2_IRQHandler
 #define MSD_L_Handler           TIM3_IRQHandler
@@ -50,6 +54,10 @@ void SysTick_Handler(void);
 
 void KEY_MSD_Enable_Handler(void);
 void KEY_MSD_Disable_Handler(void);
+// void KEY_LMF_Handler(void);
+// void KEY_LMR_Handler(void);
+// void KEY_DMF_Handler(void);
+// void KEY_DMR_Handler(void);
 void USART1_Handler(void);
 
 void MSD_D_Handler(void);

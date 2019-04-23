@@ -1,5 +1,6 @@
 #include "config/config.h"
 #include "stm32f4xx_it.h"
+#include "Order/Order.h"
 
 void NMI_Handler       () { }
 void HardFault_Handler () {
@@ -20,6 +21,7 @@ void PendSV_Handler    () { }
 void SysTick_Handler   () { }
 
 void KEY_MSD_Enable_Handler() {
+    printf("E");
     // 确保是否产生了EXTI Line中断
     if(EXTI_GetITStatus(key_MSD_Enable.EXTI_Line) != RESET) {
         if(MSD_D.status.out_ena != FALSE) {
@@ -36,6 +38,7 @@ void KEY_MSD_Enable_Handler() {
 }
 
 void KEY_MSD_Disable_Handler() {
+    printf("D");
     // 确保是否产生了EXTI Line中断
     if(EXTI_GetITStatus(key_MSD_Disable.EXTI_Line) != RESET) {
         if(MSD_D.status.out_ena != TRUE) {
@@ -50,6 +53,38 @@ void KEY_MSD_Disable_Handler() {
         EXTI_ClearITPendingBit(key_MSD_Disable.EXTI_Line);
     }
 }
+
+// void KEY_LMF_Handler(void) {
+//     printf("LMF");
+//     if(EXTI_GetITStatus(key_LMF.EXTI_Line) != RESET) {
+//         //NewOrderLMF().base.Do();
+//         EXTI_ClearITPendingBit(key_LMF.EXTI_Line);
+//     }
+// }
+   
+// void KEY_LMR_Handler(void) {
+//     printf("LMR");
+//     if(EXTI_GetITStatus(key_LMR.EXTI_Line) != RESET) {
+//         //NewOrderLMR().base.Do();
+//         EXTI_ClearITPendingBit(key_LMR.EXTI_Line);
+//     }
+// }
+   
+// void KEY_DMF_Handler(void) {
+//     printf("DMF");
+//     if(EXTI_GetITStatus(key_DMF.EXTI_Line) != RESET) {
+//         //NewOrderDMF().base.Do();
+//         EXTI_ClearITPendingBit(key_DMF.EXTI_Line);
+//     }
+// }
+   
+// void KEY_DMR_Handler(void) {
+//     printf("DMR");
+//     if(EXTI_GetITStatus(key_DMR.EXTI_Line) != RESET) {
+//         //NewOrderDMR().base.Do();
+//         EXTI_ClearITPendingBit(key_DMR.EXTI_Line);
+//     }
+// }
 
 // 串口中断服务函数
 void USART1_Handler() {

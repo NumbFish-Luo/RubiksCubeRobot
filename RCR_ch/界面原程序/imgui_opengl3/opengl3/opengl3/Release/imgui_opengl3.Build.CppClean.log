@@ -1,30 +1,3 @@
-d:\happy coding\vs\rcr_ch\界面原程序\imgui_opengl3\opengl3\opengl3\release\vc141.pdb
-d:\happy coding\vs\rcr_ch\界面原程序\imgui_opengl3\opengl3\opengl3\release\main.obj
-d:\happy coding\vs\rcr_ch\界面原程序\imgui_opengl3\opengl3\opengl3\release\k_vector.obj
-d:\happy coding\vs\rcr_ch\界面原程序\imgui_opengl3\opengl3\opengl3\release\k_solver.obj
-d:\happy coding\vs\rcr_ch\界面原程序\imgui_opengl3\opengl3\opengl3\release\k_rubikscube.obj
-d:\happy coding\vs\rcr_ch\界面原程序\imgui_opengl3\opengl3\opengl3\release\k_pruningtable.obj
-d:\happy coding\vs\rcr_ch\界面原程序\imgui_opengl3\opengl3\opengl3\release\k_movetable.obj
-d:\happy coding\vs\rcr_ch\界面原程序\imgui_opengl3\opengl3\opengl3\release\k_kocimainfunc.obj
-d:\happy coding\vs\rcr_ch\界面原程序\imgui_opengl3\opengl3\opengl3\release\k_kocimain.obj
-d:\happy coding\vs\rcr_ch\界面原程序\imgui_opengl3\opengl3\opengl3\release\k_faceletcube.obj
-d:\happy coding\vs\rcr_ch\界面原程序\imgui_opengl3\opengl3\opengl3\release\k_cubeparser.obj
-d:\happy coding\vs\rcr_ch\界面原程序\imgui_opengl3\opengl3\opengl3\release\k_cube.obj
-d:\happy coding\vs\rcr_ch\界面原程序\imgui_opengl3\opengl3\opengl3\release\k_combinatorics.obj
-d:\happy coding\vs\rcr_ch\界面原程序\imgui_opengl3\opengl3\opengl3\release\cubetracker.obj
-d:\happy coding\vs\rcr_ch\界面原程序\imgui_opengl3\opengl3\opengl3\release\config.obj
-d:\happy coding\vs\rcr_ch\界面原程序\imgui_opengl3\opengl3\opengl3\release\colordefine.obj
-d:\happy coding\vs\rcr_ch\界面原程序\imgui_opengl3\opengl3\opengl3\release\imgui_impl_opengl3.obj
-d:\happy coding\vs\rcr_ch\界面原程序\imgui_opengl3\opengl3\opengl3\release\imgui_impl_glfw.obj
-d:\happy coding\vs\rcr_ch\界面原程序\imgui_opengl3\opengl3\opengl3\release\imgui_draw.obj
-d:\happy coding\vs\rcr_ch\界面原程序\imgui_opengl3\opengl3\opengl3\release\imgui_demo.obj
-d:\happy coding\vs\rcr_ch\界面原程序\imgui_opengl3\opengl3\opengl3\release\imgui.obj
-d:\happy coding\vs\rcr_ch\界面原程序\imgui_opengl3\opengl3\opengl3\release\timer.obj
-d:\happy coding\vs\rcr_ch\界面原程序\imgui_opengl3\opengl3\opengl3\release\serial.obj
-d:\happy coding\vs\rcr_ch\界面原程序\imgui_opengl3\opengl3\opengl3\release\gl3w.obj
-d:\happy coding\vs\rcr_ch\界面原程序\imgui_opengl3\opengl3\opengl3\release\k_step.obj
-d:\happy coding\vs\rcr_ch\界面原程序\imgui_opengl3\opengl3\opengl3\release\k_coordsys.obj
-d:\happy coding\vs\rcr_ch\界面原程序\imgui_opengl3\opengl3\opengl3\release\ui.obj
 c:\users\shinelon\documents\github\rubikscuberobot\rcr_ch\界面原程序\imgui_opengl3\opengl3\opengl3\release\vc141.pdb
 c:\users\shinelon\documents\github\rubikscuberobot\rcr_ch\界面原程序\imgui_opengl3\opengl3\opengl3\release\k_step.obj
 c:\users\shinelon\documents\github\rubikscuberobot\rcr_ch\界面原程序\imgui_opengl3\opengl3\opengl3\release\k_solver.obj
@@ -52,13 +25,8 @@ c:\users\shinelon\documents\github\rubikscuberobot\rcr_ch\界面原程序\imgui_
 c:\users\shinelon\documents\github\rubikscuberobot\rcr_ch\界面原程序\imgui_opengl3\opengl3\opengl3\release\main.obj
 c:\users\shinelon\documents\github\rubikscuberobot\rcr_ch\界面原程序\imgui_opengl3\opengl3\opengl3\release\k_vector.obj
 c:\users\shinelon\documents\github\rubikscuberobot\rcr_ch\界面原程序\imgui_opengl3\opengl3\opengl3\release\gl3w.obj
-d:\happy coding\vs\rcr_ch\界面原程序\imgui_opengl3\opengl3\opengl3\release\imgui_opengl3.ipdb
-d:\happy coding\vs\rcr_ch\界面原程序\imgui_opengl3\opengl3\opengl3\release\imgui_opengl3.iobj
 c:\users\shinelon\documents\github\rubikscuberobot\rcr_ch\界面原程序\imgui_opengl3\opengl3\opengl3\release\imgui_opengl3.ipdb
 c:\users\shinelon\documents\github\rubikscuberobot\rcr_ch\界面原程序\imgui_opengl3\opengl3\opengl3\release\imgui_opengl3.iobj
-d:\happy coding\vs\rcr_ch\界面原程序\imgui_opengl3\opengl3\opengl3\release\imgui_opengl3.exe
-d:\happy coding\vs\rcr_ch\界面原程序\imgui_opengl3\opengl3\opengl3\release\imgui_opengl3.pdb
-c:\users\shinelon\documents\github\rubikscuberobot\rcr_ch\界面原程序\imgui_opengl3\opengl3\opengl3\release\imgui_opengl3.exe
 c:\users\shinelon\documents\github\rubikscuberobot\rcr_ch\界面原程序\imgui_opengl3\opengl3\opengl3\release\imgui_opengl3.pdb
 c:\users\shinelon\documents\github\rubikscuberobot\rcr_ch\界面原程序\imgui_opengl3\opengl3\opengl3\release\imgui_opengl3.tlog\cl.command.1.tlog
 c:\users\shinelon\documents\github\rubikscuberobot\rcr_ch\界面原程序\imgui_opengl3\opengl3\opengl3\release\imgui_opengl3.tlog\cl.read.1.tlog

@@ -18,6 +18,9 @@ typedef struct C_Key
     void(*EXTI_IRQHandler)();     // EXTIx_IRQHandler
 
     Trigger_Type trigger;
+    
+    int preemptionPriority; // 抢占优先级
+    int subPriority;        // 子优先级
 } C_Key;
 
 void InitKEY(const C_Key*);

@@ -6,81 +6,56 @@
 #include <stdio.h>
 #include <GL/gl3w.h>
 #include <GLFW/glfw3.h>
+#include <opencv2/opencv.hpp>
+#include <cmath>
+#include <windows.h>
 
-class UI;
-class MainUI;
-class CameraUI;
-class CameraConfigUI;
-class Cube3DUI;
-class SerialPortUI;
+#include "RubiksCubeCapturer.hpp"
+#include "colorDefine.hpp"
+#include "Config.h"
+#include "cubeTracker.h"
+#include "Timer.hpp"
+#include "Serial.h"
+#include "Grid.hpp"
+#include "k_KociMainFunc.h"
 
+ImTextureID GetMatTextureID(const cv::Mat &mat, GLuint& tex);
+
+static const int COLS{ 512 }, ROWS{ 384 };
+
+// 矩形区域类
 struct Rect {
     float W, H;
-    friend Rect operator*(const Rect& l, const Rect& r);
-    operator ImVec2() const;
+    // 提供乘法操作
+    friend Rect operator*(const Rect& l, const Rect& r) {
+        return Rect{ l.W * r.W, l.H * r.H };
+    }
+    // 提供Imgui::ImVec2的隐式转换
+    operator ImVec2() const {
+        return ImVec2(W, H);
+    }
 };
 
-struct UIConfig {
+// UI矩形设置
+struct UIRect {
+    // 主UI区域
     Rect mainUI;
-
+    // 其他UI区域
     Rect cameraUI;
     Rect cameraConfigUI;
     Rect cube3DUI;
     Rect serialPortUI;
 };
 
-constexpr UIConfig UI_CONFIG{
-    { 1920.f, 1080.f },
-    // 以下为mainUI的百分比
-    { 0.84f, 0.48f },
-    { 0.12f, 0.96f },
-    { 0.28f, 0.48f },
-    { 0.56f, 0.48f }
-};
-
-class UI { // UI接口类
+// UI接口类
+class UI {
 public:
-    UI(Rect rect);
+    UI(Rect rect) : m_rect{ rect } {}
     virtual ~UI() = default;
-    virtual void Show(GLFWwindow* window) = 0;
-    Rect GetRect() const;
+    virtual void Show(GLFWwindow* window, bool& show) = 0;
+    Rect GetRect() const {
+        return m_rect;
+    }
 protected:
     const Rect m_rect;
-};
-
-class MainUI : public UI {
-public:
-    MainUI(Rect rect);
-    virtual void Show(GLFWwindow* window);
-private:
-    std::shared_ptr<CameraUI> m_cameraUI;
-    std::shared_ptr<CameraConfigUI> m_cameraConfigUI;
-    std::shared_ptr<Cube3DUI> m_cube3DUI;
-    std::shared_ptr<SerialPortUI> m_serialPortUI;
-};
-
-class CameraUI : public UI {
-public:
-    CameraUI(Rect rect);
-    virtual void Show(GLFWwindow* window);
-private:
-    void ShowCamera(GLFWwindow* window, const std::string& name);
-};
-
-class CameraConfigUI : public UI {
-public:
-    CameraConfigUI(Rect rect);
-    virtual void Show(GLFWwindow* window);
-};
-
-class Cube3DUI : public UI {
-public:
-    Cube3DUI(Rect rect);
-    virtual void Show(GLFWwindow* window);
-};
-
-class SerialPortUI : public UI {
-public:
-    SerialPortUI(Rect rect);
-    virtual void Show(GLFWwindow* window);
 };

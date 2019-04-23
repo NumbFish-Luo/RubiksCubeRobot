@@ -3,11 +3,11 @@
 // NVIC设置中断优先级
 __HIDE_METHOD__ void KEY_NVIC_Config(const C_Key* key) {
     NVIC_InitTypeDef n;
-    NVIC_PriorityGroupConfig(NVIC_PriorityGroup_1); // 配置NVIC为优先级组1
-    n.NVIC_IRQChannel = key->EXTI_IRQn;             // 配置中断源
-    n.NVIC_IRQChannelPreemptionPriority = 1;        // 配置抢占优先级：1
-    n.NVIC_IRQChannelSubPriority = 2;               // 配置子优先级：2
-    n.NVIC_IRQChannelCmd = ENABLE;                  // 使能中断通道
+    NVIC_PriorityGroupConfig(NVIC_PriorityGroup_1);                 // 配置NVIC为优先级组1
+    n.NVIC_IRQChannel = key->EXTI_IRQn;                             // 配置中断源
+    n.NVIC_IRQChannelPreemptionPriority = key->preemptionPriority;  // 配置抢占优先级：1
+    n.NVIC_IRQChannelSubPriority = key->subPriority;                // 配置子优先级：2
+    n.NVIC_IRQChannelCmd = ENABLE;                                  // 使能中断通道
     NVIC_Init(&n);
 }
 
@@ -16,7 +16,7 @@ __HIDE_METHOD__ void KEY_GPIO_Config(const C_Key* key) {
     RCC_AHB1PeriphClockCmd(key->GPIO_CLK, ENABLE);
     g.GPIO_Pin = key->Pin;
     g.GPIO_Mode = GPIO_Mode_IN;
-    g.GPIO_PuPd = GPIO_PuPd_NOPULL;
+    g.GPIO_PuPd = GPIO_PuPd_DOWN;
     GPIO_Init(key->GPIO, &g);
 }
 

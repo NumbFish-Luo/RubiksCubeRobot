@@ -61,19 +61,17 @@ public:
     const cv::Mat& GetHsvMask()  const { return m_hsvMask;  }
     const std::string& GetColorString() const { return m_colorStr; }
 
-    bool Setting(RccSet rccSet)
-    {
-        if (rccSet.m_index != m_rccSet.m_index)
-        {
+    bool Set(const RccSet& rccSet) {
+        if (rccSet.m_index != m_rccSet.m_index) {
             m_camera.open(rccSet.m_index);
         }
         m_rccSet = rccSet;
         return true;
     }
 
-    const cv::Mat& ReadVideoFrame();
+    const cv::Mat& ReadFrame();
     bool DrawGrid();
-    const std::string& ReadColorStr();
+    const std::string& ReadColor();
     void ReleaseMat();
     void ChangeBrightness();
     void ChangeContrast();
@@ -106,17 +104,16 @@ inline void Rcc::ChangeContrast()
 
 inline void Rcc::ReleaseMat()
 {
+    m_camera.release();
     m_frame.release();
     m_blurMask.release();
     m_hsvMask.release();
 }
 
-inline const cv::Mat& Rcc::ReadVideoFrame()
-{
+inline const cv::Mat& Rcc::ReadFrame() {
     cv::Mat framePre = m_frame;
     m_camera >> m_frame;
-    if (MatIsEqual(framePre, m_frame))
-    {
+    if (MatIsEqual(framePre, m_frame)) {
         m_camera.open(m_rccSet.m_index);
     }
     if (m_frame.empty()) { return m_frame; }
@@ -139,15 +136,6 @@ inline const cv::Mat& Rcc::ReadVideoFrame()
 //    whiteBalance[2] = whiteBalance[2] * KR * PR;
 //    merge(whiteBalance, img);
 //}
-
-void WhiteBalance(cv::Mat& img, const Data3<float>& rgb) {
-    std::vector<cv::Mat> whiteBalance;
-    cv::split(img, whiteBalance);
-    whiteBalance[0] = whiteBalance[0] * rgb[2];
-    whiteBalance[1] = whiteBalance[1] * rgb[1];
-    whiteBalance[2] = whiteBalance[2] * rgb[0];
-    merge(whiteBalance, img);
-}
 
 inline bool Rcc::ImgProc()
 {
@@ -194,7 +182,7 @@ inline bool Rcc::DrawGrid()
     return true;
 }
 
-inline const std::string& Rcc::ReadColorStr()
+inline const std::string& Rcc::ReadColor()
 {
     if (m_frame.empty()) 
     {
@@ -257,6 +245,15 @@ inline void Rcc::FindAndDrawColor(std::string &saveCubeColor)
         colorIdxMin = 1;
         colorIdxMax = m_rccSet.m_colors.size();
     }
+
+    auto WhiteBalance = [](cv::Mat& img, const Data3<float>& rgb) {
+        std::vector<cv::Mat> whiteBalance;
+        cv::split(img, whiteBalance);
+        whiteBalance[0] = whiteBalance[0] * rgb[2];
+        whiteBalance[1] = whiteBalance[1] * rgb[1];
+        whiteBalance[2] = whiteBalance[2] * rgb[0];
+        merge(whiteBalance, img);
+    };
 
     cv::Mat rangeMaskA{}, rangeMaskB{};
     for (size_t colorIdx = colorIdxMin; colorIdx < colorIdxMax; ++colorIdx) // ÑÕÉ«Ñ­»·

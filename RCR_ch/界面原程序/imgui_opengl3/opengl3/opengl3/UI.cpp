@@ -1,80 +1,22 @@
 #include "UI.h"
-using namespace std;
-Rect operator*(const Rect& l, const Rect& r) {
-    return Rect{ l.W * r.W, l.H * r.H };
-};
 
-Rect::operator ImVec2() const {
-    return ImVec2(W, H);
-}
+// OpenCV转为OpenGL图片格式
+ImTextureID GetMatTextureID(const cv::Mat &mat, GLuint& tex) {
+    glDeleteTextures(1, &tex);  // 删除前一张无用的图，防止内存泄漏
+    glGenTextures(1, &tex);
+    glBindTexture(GL_TEXTURE_2D, tex);
+    glTexImage2D(GL_TEXTURE_2D, // Type of texture
+        0,                      // Pyramid level (for mip-mapping) - 0 is the top level
+        GL_RGB,                 // Internal colour format to convert to
+        mat.cols,               // Image width  i.e. 640 for Kinect in standard mode
+        mat.rows,               // Image height i.e. 480 for Kinect in standard mode
+        0,                      // Border width in pixels (can either be 1 or 0)
+        GL_BGR,                 // Input image format (i.e. GL_RGB, GL_RGBA, GL_BGR etc.)
+        GL_UNSIGNED_BYTE,       // Image data type
+        mat.ptr());             // The actual image data itself
+    glGenerateMipmap(GL_TEXTURE_2D);
 
-UI::UI(Rect rect) : m_rect{ rect } {}
-
-Rect UI::GetRect() const {
-    return m_rect;
-}
-
-MainUI::MainUI(Rect rect) :
-    UI(rect),
-    m_cameraUI{ std::make_shared<CameraUI>(rect * UI_CONFIG.cameraUI) },
-    m_cameraConfigUI{ std::make_shared<CameraConfigUI>(rect * UI_CONFIG.cameraConfigUI) },
-    m_cube3DUI{ std::make_shared<Cube3DUI>(rect * UI_CONFIG.cube3DUI) },
-    m_serialPortUI{ std::make_shared<SerialPortUI>(rect * UI_CONFIG.serialPortUI) } {}
-
-void MainUI::Show(GLFWwindow* window) {
-    static bool mainWindow = true;
-    ImGui::Begin("MainWindow", &mainWindow);
-    {
-        ImGui::BeginChild("Left", { m_cameraUI->GetRect().W, 0 }, false);
-        {
-            m_cameraUI->Show(window);
-            m_cube3DUI->Show(window);
-            ImGui::SameLine();
-            m_serialPortUI->Show(window);
-            ImGui::EndChild(); // Left
-        }
-        ImGui::SameLine();
-        m_cameraConfigUI->Show(window);
-        ImGui::End(); // MainWindow
-    }
-}
-
-CameraUI::CameraUI(Rect rect) : UI(rect) {}
-
-void CameraUI::Show(GLFWwindow* window) {
-    ShowCamera(window, "F");
-    ImGui::SameLine();
-    ShowCamera(window, "U");
-    ImGui::SameLine();
-    ShowCamera(window, "B");
-}
-
-void CameraUI::ShowCamera(GLFWwindow* window, const string& name) {
-    ImGui::BeginChild(name.c_str(), { m_rect.W / 3, m_rect.H }, true);
-    //: TODO
-    ImGui::EndChild();
-}
-
-CameraConfigUI::CameraConfigUI(Rect rect) : UI(rect) {}
-
-void CameraConfigUI::Show(GLFWwindow* window) {
-    ImGui::BeginChild("CameraConfig", m_rect, true);
-    //: TODO
-    ImGui::EndChild();
-}
-
-Cube3DUI::Cube3DUI(Rect rect) : UI(rect) {}
-
-void Cube3DUI::Show(GLFWwindow* window) {
-    ImGui::BeginChild("Cube3D", m_rect, true);
-    //: TODO
-    ImGui::EndChild();
-}
-
-SerialPortUI::SerialPortUI(Rect rect) : UI(rect) {}
-
-void SerialPortUI::Show(GLFWwindow* window) {
-    ImGui::BeginChild("SerialPort", m_rect, true);
-    //: TODO
-    ImGui::EndChild();
+#pragma warning(disable:4312)
+    // 会引发C4312警告，但是不会造成什么坏的影响，请无视它
+    return reinterpret_cast<ImTextureID>(tex);
 }

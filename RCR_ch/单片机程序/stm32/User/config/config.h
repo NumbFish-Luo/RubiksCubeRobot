@@ -40,6 +40,10 @@ extern C_LED g_LED_Flag;
 
 extern const C_Key key_MSD_Enable;
 extern const C_Key key_MSD_Disable;
+// extern const C_Key key_LMF;
+// extern const C_Key key_LMR;
+// extern const C_Key key_DMF;
+// extern const C_Key key_DMR;
 
 __REDEFINITION__ extern C_USART usart1;
 

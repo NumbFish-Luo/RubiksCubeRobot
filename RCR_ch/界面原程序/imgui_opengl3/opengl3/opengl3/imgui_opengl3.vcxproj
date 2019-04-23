@@ -162,8 +162,11 @@
     <ClCompile Include="..\imgui_impl_glfw.cpp" />
     <ClCompile Include="..\imgui_impl_opengl3.cpp" />
     <ClCompile Include="..\libs\gl3w\GL\gl3w.c" />
+    <ClCompile Include="CameraConfigUI.cpp" />
+    <ClCompile Include="CameraUI.cpp" />
     <ClCompile Include="colorDefine.cpp" />
     <ClCompile Include="Config.cpp" />
+    <ClCompile Include="Cube3DUI.cpp" />
     <ClCompile Include="cubeTracker.cpp" />
     <ClCompile Include="k_Combinatorics.cpp" />
     <ClCompile Include="k_CoordSys.cpp" />
@@ -179,7 +182,9 @@
     <ClCompile Include="k_Step.cpp" />
     <ClCompile Include="k_Vector.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MainUI.cpp" />
     <ClCompile Include="Serial.cpp" />
+    <ClCompile Include="SerialPortUI.cpp" />
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="UI.cpp" />
   </ItemGroup>
@@ -191,8 +196,11 @@
     <ClInclude Include="..\imgui_impl_opengl3.h" />
     <ClInclude Include="..\libs\gl3w\GL\gl3w.h" />
     <ClInclude Include="..\libs\gl3w\GL\glcorearb.h" />
+    <ClInclude Include="CameraConfigUI.h" />
+    <ClInclude Include="CameraUI.h" />
     <ClInclude Include="colorDefine.hpp" />
     <ClInclude Include="Config.h" />
+    <ClInclude Include="Cube3DUI.h" />
     <ClInclude Include="cubeTracker.h" />
     <ClInclude Include="DirectedSegment.hpp" />
     <ClInclude Include="Grid.hpp" />
@@ -209,7 +217,9 @@
     <ClInclude Include="k_Solver.hpp" />
     <ClInclude Include="k_Step.h" />
     <ClInclude Include="k_Vector.hpp" />
+    <ClInclude Include="MainUI.h" />
     <ClInclude Include="RccSetter.hpp" />
+    <ClInclude Include="SerialPortUI.h" />
     <ClInclude Include="UI.h" />
     <ClInclude Include="RubiksCubeCapturer.hpp" />
     <ClInclude Include="Serial.h" />

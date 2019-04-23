@@ -11,10 +11,11 @@ class Timer
 {
 public:
 	typedef std::chrono::milliseconds Interval; // 延时时间
-	typedef std::function<void(void)> Timeout; // 定时执行的函数
+	typedef std::function<void(bool& run)> Timeout; // 定时执行的函数
 
-	Timer(const Timeout &timeout);
+	Timer(const Timeout &timeout, bool& run);
 	Timer(const Timeout &timeout,
+        bool& run,
 		const Interval &interval,
 		bool singleShot = true); // singleShot = true 即仅执行一次
 	~Timer();
@@ -34,6 +35,7 @@ public:
 	const Timeout &timeout() const;
 
 private:
+    bool& _run;
 	std::thread _thread;
 
 	bool _running = false;

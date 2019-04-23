@@ -49,7 +49,10 @@ const C_Key key_MSD_Enable =   // PA0, EXIT0
 
     .EXTI_IRQn       = EXTI0_IRQn,
     .EXTI_IRQHandler = EXTI0_IRQHandler,
-    .trigger         = EXTI_Trigger_Rising
+    .trigger         = EXTI_Trigger_Rising,
+    
+    .preemptionPriority = 1,
+    .subPriority = 2
 };
 
 const C_Key key_MSD_Disable =   // PC13, EXIT15_10
@@ -63,9 +66,84 @@ const C_Key key_MSD_Disable =   // PC13, EXIT15_10
     .EXTI_Line       = EXTI_Line13,
 
     .EXTI_IRQn       = EXTI15_10_IRQn,
-    .EXTI_IRQHandler = EXTI0_IRQHandler,
-    .trigger         = EXTI_Trigger_Falling
+    .EXTI_IRQHandler = EXTI15_10_IRQHandler,
+    .trigger         = EXTI_Trigger_Rising,
+    
+    .preemptionPriority = 2,
+    .subPriority = 2
 };
+
+// const C_Key key_LMF = { // PI2
+//     .GPIO     = GPIOI,
+//     .Pin      = GPIO_Pin_2,
+//     .GPIO_CLK = RCC_AHB1Periph_GPIOI,
+   
+//     .EXTI_GPIOSource = EXTI_PortSourceGPIOI,
+//     .EXTI_PinSource  = EXTI_PinSource2,
+//     .EXTI_Line       = EXTI_Line2,
+   
+//     .EXTI_IRQn       = EXTI2_IRQn,
+//     
+//     .EXTI_IRQHandler = EXTI2_IRQHandler,
+//     .trigger         = EXTI_Trigger_Falling,
+//     
+//     .preemptionPriority = 3,
+//     .subPriority = 2
+// };
+   
+// const C_Key key_LMR = { // PA3
+//     .GPIO     = GPIOA,
+//     .Pin      = GPIO_Pin_3,
+//     .GPIO_CLK = RCC_AHB1Periph_GPIOA,
+   
+//     .EXTI_GPIOSource = EXTI_PortSourceGPIOA,
+//     .EXTI_PinSource  = EXTI_PinSource3,
+//     .EXTI_Line       = EXTI_Line3,
+   
+//     .EXTI_IRQn       = EXTI3_IRQn,
+//     
+//     .EXTI_IRQHandler = EXTI3_IRQHandler,
+//     .trigger         = EXTI_Trigger_Falling,
+//     
+//     .preemptionPriority = 4,
+//     .subPriority = 2
+// };
+   
+// const C_Key key_DMF = { // PI4
+//     .GPIO     = GPIOA,
+//     .Pin      = GPIO_Pin_4,
+//     .GPIO_CLK = RCC_AHB1Periph_GPIOA,
+   
+//     .EXTI_GPIOSource = EXTI_PortSourceGPIOA,
+//     .EXTI_PinSource  = EXTI_PinSource4,
+//     .EXTI_Line       = EXTI_Line4,
+   
+//     .EXTI_IRQn       = EXTI4_IRQn,
+//     
+//     .EXTI_IRQHandler = EXTI4_IRQHandler,
+//     .trigger         = EXTI_Trigger_Falling,
+//     
+//     .preemptionPriority = 5,
+//     .subPriority = 2
+// };
+   
+// const C_Key key_DMR = { // PB9
+//     .GPIO     = GPIOB,
+//     .Pin      = GPIO_Pin_9,
+//     .GPIO_CLK = RCC_AHB1Periph_GPIOB,
+   
+//     .EXTI_GPIOSource = EXTI_PortSourceGPIOB,
+//     .EXTI_PinSource  = EXTI_PinSource9,
+//     .EXTI_Line       = EXTI_Line9,
+   
+//     .EXTI_IRQn       = EXTI9_5_IRQn,
+//     
+//     .EXTI_IRQHandler = EXTI9_5_IRQHandler,
+//     .trigger         = EXTI_Trigger_Falling,
+//     
+//     .preemptionPriority = 6,
+//     .subPriority = 2
+// };
 
 // ################################### usart ###################################
 C_USART usart1 =   // USART1, 115200, Rx: PA10, Tx: PA9

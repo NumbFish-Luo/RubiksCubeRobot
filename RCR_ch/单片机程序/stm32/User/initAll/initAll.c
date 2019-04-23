@@ -18,6 +18,10 @@ void InitAll_Clock() {
 void InitAll_KEY() {
     InitKEY(&key_MSD_Enable);
     InitKEY(&key_MSD_Disable);
+//    InitKEY(&key_LMF);
+//    InitKEY(&key_LMR);
+//    InitKEY(&key_DMF);
+//    InitKEY(&key_DMR);
 }
 
 void InitAll_USART() {

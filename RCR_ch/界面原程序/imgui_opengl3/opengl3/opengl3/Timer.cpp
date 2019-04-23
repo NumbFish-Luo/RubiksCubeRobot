@@ -1,11 +1,11 @@
 #include "Timer.hpp"
 
-Timer::Timer(const Timeout &timeout) : _timeout(timeout)
+Timer::Timer(const Timeout &timeout, bool& run) : _timeout(timeout), _run(run)
 {
 }
 
-Timer::Timer(const Timer::Timeout &timeout, const Timer::Interval &interval, bool singleShot)
-	: _isSingleShot(singleShot), _interval(interval), _timeout(timeout)
+Timer::Timer(const Timer::Timeout &timeout, bool& run, const Timer::Interval &interval, bool singleShot)
+	: _isSingleShot(singleShot), _interval(interval), _timeout(timeout), _run(run)
 {
 }
 
@@ -110,7 +110,7 @@ void Timer::_sleepThenTimeout()
 
 	if (this->running() == true)
 	{
-		this->timeout()();
+		this->timeout()(_run);
 	}
 }
 
