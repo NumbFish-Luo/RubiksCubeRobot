@@ -576,6 +576,16 @@ void MSteps::Translate(const ASteps& aSteps) {
             ++i;
         }
     }
+    // Çå³ý"XC+ XC-"
+    auto& beg = m_mSteps.begin();
+    for (size_t i = 1; i < m_mSteps.size(); ++i) {
+        if (m_mSteps[i][0] == m_mSteps[i - 1][0] &&
+            m_mSteps[i][1] == 'C' && m_mSteps[i - 1][1] == 'C' &&
+            m_mSteps[i][2] == '-' && m_mSteps[i - 1][2] == '+') {
+            m_mSteps.erase(beg + i);
+            m_mSteps.erase(beg + i - 1);
+        }
+    }
 }
 void MSteps::Clear() {
     m_aSteps.Clear();
@@ -735,9 +745,9 @@ bool MSteps::DealSp3(size_t i) {
     // YC- XM2 YMI YC+ YMi
     PushBack(i, "YC-");
     PushBack(i, "XM2");
-    PushBack(i, "YMI", i, true);
+    PushBack(i, "YMI", i + 1, true);
     PushBack(i, "YC+");
-    PushBack(i, "YMi", i);
+    PushBack(i, "YMi", i + 1);
     return true;
 }
 bool MSteps::DealSp4(size_t i) {

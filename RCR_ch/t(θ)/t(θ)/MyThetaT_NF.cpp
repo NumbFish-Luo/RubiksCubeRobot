@@ -1,9 +1,10 @@
 #include "MyThetaT_NF.h"
 
 MyThetaT_NF::MyThetaT_NF(const int theta0, const int t0, const double minDelta, const double p)
-    :MyThetaT(theta0, t0, minDelta), m_p{ p }{
-}
+    : MyThetaT(theta0, t0, minDelta), m_p{ p } {}
+
 MyThetaT_NF::~MyThetaT_NF() {}
+
 double MyThetaT_NF::Theta(double t) {
     auto& theta0 = m_theta0;
     auto& t0 = m_t0;

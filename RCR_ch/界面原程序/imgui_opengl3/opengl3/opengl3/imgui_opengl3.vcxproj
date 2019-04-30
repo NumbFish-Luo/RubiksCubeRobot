@@ -186,7 +186,6 @@
     <ClCompile Include="Serial.cpp" />
     <ClCompile Include="SerialPortUI.cpp" />
     <ClCompile Include="Timer.cpp" />
-    <ClCompile Include="UI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\imconfig.h" />

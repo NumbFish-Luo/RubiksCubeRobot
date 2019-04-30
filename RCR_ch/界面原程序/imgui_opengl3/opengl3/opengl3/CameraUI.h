@@ -27,5 +27,4 @@ private:
     std::string m_colorF;
     std::string m_colorU;
     std::string m_colorB;
-    static const int COLS{ 512 }, ROWS{ 384 };
 };

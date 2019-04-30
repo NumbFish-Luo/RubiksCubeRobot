@@ -1,8 +1,7 @@
 #include "MyThetaT_NF.h"
-#include "MyThetaT_CK.h"
 
 int main() {
-    MyThetaT_NF nf{ 10000, 30000, 10e-6, 0.5 };
+    MyThetaT_NF nf{ 10000, 35000, 10e-6, 0.5 };
     nf.OutputData("arr.txt");
 
     cin.get();

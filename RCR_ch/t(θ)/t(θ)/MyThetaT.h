@@ -8,6 +8,7 @@
 #include <vector>
 #define OUT(n) cout << #n << " = " << n << endl
 using namespace std;
+
 class MyThetaT {
 public:
     MyThetaT(const int theta0, const int t0, const double minDelta);

@@ -86,9 +86,6 @@
     <ClCompile Include="Cube3DUI.cpp">
       <Filter>rubiksCubeRobot</Filter>
     </ClCompile>
-    <ClCompile Include="UI.cpp">
-      <Filter>rubiksCubeRobot\UI</Filter>
-    </ClCompile>
     <ClCompile Include="SerialPortUI.cpp">
       <Filter>rubiksCubeRobot\UI</Filter>
     </ClCompile>

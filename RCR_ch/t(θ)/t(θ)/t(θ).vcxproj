@@ -117,12 +117,10 @@
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MyThetaT.cpp" />
-    <ClCompile Include="MyThetaT_CK.cpp" />
     <ClCompile Include="MyThetaT_NF.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyThetaT.h" />
-    <ClInclude Include="MyThetaT_CK.h" />
     <ClInclude Include="MyThetaT_NF.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

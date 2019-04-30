@@ -449,10 +449,11 @@ void Cube3DUI::Show(GLFWwindow* window, bool& show) {
             const int posY{ static_cast<int>(io.MousePos.y) };
             const float wheel{ io.MouseWheel };
 
+            // 摄像头区域鼠标定位
             static const int Y{ 68 };
-            static const int FX{ 30 };
-            static const int UX{ 566 };
-            static const int BX{ 1102 };
+            static const int FX{ 13 };
+            static const int UX{ 548 };
+            static const int BX{ 1084 };
             if (wheel != 0) {
                 if (posY >= Y && posY <= Y + ROWS) {
                     if (posX >= FX && posX <= FX + COLS) {
@@ -464,7 +465,7 @@ void Cube3DUI::Show(GLFWwindow* window, bool& show) {
                     }
                 }
             }
-            if (ImGui::IsMouseClicked(0)) {
+            if (ImGui::IsMouseClicked(0)) { // 点击
                 if (posY >= Y && posY <= Y + ROWS) {
                     if (posX >= FX && posX <= FX + COLS) {
                         g_rccSet_F.m_horizontal = (int)COLS / 2 + FX - posX;

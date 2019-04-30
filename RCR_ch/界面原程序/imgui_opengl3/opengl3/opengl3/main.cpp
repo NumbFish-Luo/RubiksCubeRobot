@@ -39,7 +39,7 @@ void ReadConfig(const Config& config, const std::string& label, RccSet& rccSette
     }
 }
 
-inline bool Init(GLFWwindow*& window) {
+bool Init(GLFWwindow*& window) {
     InitCubeInputTxt();
     WinExec(CUBE_EXE_NAME.c_str(), SW_HIDE); // Òþ²Øopengl³ÌÐò
 

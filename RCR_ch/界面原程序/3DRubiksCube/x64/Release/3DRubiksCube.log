@@ -1,1 +1,7 @@
-﻿
+﻿  cubegame.cpp
+  Generating code
+  3 of 585 functions ( 0.5%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  3DRubiksCube.vcxproj -> C:\Users\Shinelon\Documents\GitHub\RubiksCubeRobot\RCR_ch\界面原程序\imgui_opengl3\opengl3\x64\Release\opengl3_3DRubiksCube.exe

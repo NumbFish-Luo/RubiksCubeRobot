@@ -3,6 +3,7 @@
 #include "Grid.hpp"
 #include "colorDefine.hpp"
 #include "RccSetter.hpp"
+#include "Serial.h"
 
 inline bool MatIsEqual(const cv::Mat mat1, const cv::Mat mat2)
 {
@@ -26,6 +27,9 @@ struct Data3 {
     }
     T& operator[](int i) {
         return data[i];
+    }
+    std::string ToString() const {
+        return "(" + std::to_string(data[0]) + ", " + std::to_string(data[1]) + ", " + std::to_string(data[2]) + ")";
     }
 };
 
@@ -122,19 +126,19 @@ inline const cv::Mat& Rcc::ReadFrame() {
     return m_frame;
 }
 
-//void AutoWhiteBalance(cv::Mat& img, float PR, float PG, float PB) {
-//    std::vector<cv::Mat> whiteBalance;
-//    cv::split(img, whiteBalance);
-//    double B = mean(whiteBalance[0])[0];
-//    double G = mean(whiteBalance[1])[0];
-//    double R = mean(whiteBalance[2])[0];
+//void GrayWorld(const cv::Mat& in, cv::Mat& out) {
+//    std::vector<cv::Mat> data;
+//    cv::split(in, data); // in图片RGB通道分离到data上
+//    double B = cv::mean(data[0])[0];
+//    double G = cv::mean(data[1])[0];
+//    double R = cv::mean(data[2])[0];
 //    double KB = (R + G + B) / (3 * B);
 //    double KG = (R + G + B) / (3 * G);
 //    double KR = (R + G + B) / (3 * R);
-//    whiteBalance[0] = whiteBalance[0] * KB * PB;
-//    whiteBalance[1] = whiteBalance[1] * KG * PG;
-//    whiteBalance[2] = whiteBalance[2] * KR * PR;
-//    merge(whiteBalance, img);
+//    data[0] = data[0] * KB;
+//    data[1] = data[1] * KG;
+//    data[2] = data[2] * KR;
+//    cv::merge(data, out); // data数据合并到out图片上
 //}
 
 inline bool Rcc::ImgProc()
@@ -246,51 +250,54 @@ inline void Rcc::FindAndDrawColor(std::string &saveCubeColor)
         colorIdxMax = m_rccSet.m_colors.size();
     }
 
-    auto WhiteBalance = [](cv::Mat& img, const Data3<float>& rgb) {
+    auto WhiteBalance = [](cv::Mat& in, cv::Mat& out, const Data3<float>& rgb) {
         std::vector<cv::Mat> whiteBalance;
-        cv::split(img, whiteBalance);
+        cv::split(in, whiteBalance);
         whiteBalance[0] = whiteBalance[0] * rgb[2];
         whiteBalance[1] = whiteBalance[1] * rgb[1];
         whiteBalance[2] = whiteBalance[2] * rgb[0];
-        merge(whiteBalance, img);
+        merge(whiteBalance, out);
     };
 
     cv::Mat rangeMaskA{}, rangeMaskB{};
     for (size_t colorIdx = colorIdxMin; colorIdx < colorIdxMax; ++colorIdx) // 颜色循环
     {
-        if (m_rccSet.m_whiteBlanceMode == true) {
-            WhiteBalance(m_blurMask, m_whiteBlance[colorIdx]);
-            cv::cvtColor(m_blurMask, m_hsvMask, cv::COLOR_BGR2HSV);
+        if (m_rccSet.m_whiteBlanceMode == false) {
+            cv::inRange(m_hsvMask, m_rccSet.m_colors[colorIdx].Lo, m_rccSet.m_colors[colorIdx].mid_Hi, rangeMaskA); // 找到指定范围内的颜色
+            cv::inRange(m_hsvMask, m_rccSet.m_colors[colorIdx].mid_Lo, m_rccSet.m_colors[colorIdx].Hi, rangeMaskB);
         }
-
-        cv::inRange(m_hsvMask, m_rccSet.m_colors[colorIdx].Lo,     m_rccSet.m_colors[colorIdx].mid_Hi, rangeMaskA); // 找到指定范围内的颜色
-        cv::inRange(m_hsvMask, m_rccSet.m_colors[colorIdx].mid_Lo, m_rccSet.m_colors[colorIdx].Hi,     rangeMaskB);
 
         for (size_t blockIdx = 0; blockIdx < block.size(); ++blockIdx) // 方块循环
         {
-            if (rangeMaskA.at<uchar>(block[blockIdx]) > 0 || rangeMaskB.at<uchar>(block[blockIdx]) > 0)
-            {
-                if (m_rccSet.m_testMode == false)
-                {
-                    saveCubeColor[blockIdx] = m_rccSet.m_colors[colorIdx].name[0];           // save color
-                    circle(m_frame, block[blockIdx], 5, m_rccSet.m_colors[colorIdx].bgr, 2); // print cicle
-                }
+            cv::Mat tmpRGB;
+            // 魔方白平衡
+            if (m_rccSet.m_whiteBlanceMode == true) {
+                // g_IOBuf.PushBack(std::to_string(blockIdx) + " " + m_whiteBlance[blockIdx].ToString() + "\n");
+                WhiteBalance(m_blurMask, tmpRGB, m_whiteBlance[blockIdx]);
+                cv::cvtColor(tmpRGB, m_hsvMask, cv::COLOR_BGR2HSV);
+                cv::inRange(m_hsvMask, m_rccSet.m_colors[colorIdx].Lo, m_rccSet.m_colors[colorIdx].mid_Hi, rangeMaskA); // 找到指定范围内的颜色
+                cv::inRange(m_hsvMask, m_rccSet.m_colors[colorIdx].mid_Lo, m_rccSet.m_colors[colorIdx].Hi, rangeMaskB);
+            } else {
+                tmpRGB = m_blurMask;
             }
+
             // 测试模式
-            if (m_rccSet.m_testMode == true)
-            {
+            if (m_rccSet.m_testMode == true) {
                 std::string colorData[3];
                 Data3<uchar> rgbData{ 0, 0, 0 };
                 // HSV模式
-                if (m_rccSet.m_rgbMode == false) for (int i = 0; i < 3; ++i)
-                    colorData[i] = std::to_string(m_hsvMask.at<cv::Vec3b>(block[blockIdx])[i]);
-                // RGB模式
-                else for (int i = 0; i < 3; ++i) {
-                    rgbData[3 - i - 1] = m_blurMask.at<cv::Vec3b>(block[blockIdx])[i];
-                    colorData[3 - i - 1] = std::to_string(rgbData[3 - i - 1]);
-                    if (m_rccSet.m_whiteBlanceMode == false) {
-                        // 获取每个色块的白平衡数据 -- 190417
-                        m_whiteBlance[blockIdx][3 - i - 1] = 255.f / (rgbData[3 - i - 1] + 0.1f);
+                if (m_rccSet.m_rgbMode == false) {
+                    for (int i = 0; i < 3; ++i) {
+                        colorData[i] = std::to_string(m_hsvMask.at<cv::Vec3b>(block[blockIdx])[i]);
+                    }
+                } else { // RGB模式
+                    for (int i = 0; i < 3; ++i) {
+                        rgbData[3 - i - 1] = tmpRGB.at<cv::Vec3b>(block[blockIdx])[i];
+                        colorData[3 - i - 1] = std::to_string(rgbData[3 - i - 1]);
+                        if (m_rccSet.m_whiteBlanceMode == false) {
+                            // 获取每个色块的白平衡数据 -- 190417
+                            m_whiteBlance[blockIdx][3 - i - 1] = 255.f / (rgbData[3 - i - 1] + 0.1f);
+                        }
                     }
                 }
                 for (int numPos = 0; numPos < 3; ++numPos) {
@@ -303,6 +310,15 @@ inline void Rcc::FindAndDrawColor(std::string &saveCubeColor)
                         cv::Scalar(0, 200, 255),
                         1,
                         cv::LineTypes::LINE_8);
+                }
+            }
+
+            if (rangeMaskA.at<uchar>(block[blockIdx]) > 0 || rangeMaskB.at<uchar>(block[blockIdx]) > 0)
+            {
+                if (m_rccSet.m_testMode == false)
+                {
+                    saveCubeColor[blockIdx] = m_rccSet.m_colors[colorIdx].name[0];           // save color
+                    circle(m_frame, block[blockIdx], 5, m_rccSet.m_colors[colorIdx].bgr, 2); // print cicle
                 }
             }
         }

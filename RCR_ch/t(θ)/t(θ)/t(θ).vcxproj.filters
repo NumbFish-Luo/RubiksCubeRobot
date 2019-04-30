@@ -24,18 +24,12 @@
     <ClCompile Include="MyThetaT_NF.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MyThetaT_CK.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyThetaT.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MyThetaT_NF.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MyThetaT_CK.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

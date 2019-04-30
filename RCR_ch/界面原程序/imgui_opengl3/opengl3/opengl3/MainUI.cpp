@@ -1,5 +1,8 @@
 #include "MainUI.h"
 
+#define DEBUGGING
+
+// 新帧
 void NewFrame() {
     glfwPollEvents();
     ImGui_ImplOpenGL3_NewFrame();
@@ -7,6 +10,7 @@ void NewFrame() {
     ImGui::NewFrame();
 }
 
+// 渲染
 void Render(GLFWwindow* window, const ImVec4 &clear_color) {
     ImGui::Render();
     int display_w, display_h;
@@ -21,13 +25,7 @@ void Render(GLFWwindow* window, const ImVec4 &clear_color) {
     glfwSwapBuffers(window);
 }
 
-MainUI::MainUI(Rect rect) :
-    UI(rect),
-    m_cameraUI{ std::make_shared<CameraUI>(rect * UI_RECT.cameraUI) },
-    m_cameraConfigUI{ std::make_shared<CameraConfigUI>(rect * UI_RECT.cameraConfigUI) },
-    m_cube3DUI{ std::make_shared<Cube3DUI>(rect * UI_RECT.cube3DUI) },
-    m_serialPortUI{ std::make_shared<SerialPortUI>(rect * UI_RECT.serialPortUI) } {}
-
+// 清除
 void CleanUp(GLFWwindow *&window) {
     // Cleanup
     ImGui_ImplOpenGL3_Shutdown();
@@ -41,12 +39,91 @@ void CleanUp(GLFWwindow *&window) {
     system(temp.c_str());
 }
 
+// 发送数据给串口
+void SendMsgToSerial() {
+    if (g_IOBuf.serialBufferChange == true) {
+        std::string msg{};
+        for (int i = 0; i < strlen(g_IOBuf.serialBuffer); ++i) {
+            if (g_IOBuf.serialBuffer[i] == '\n' ||
+                g_IOBuf.serialBuffer[i] == '\r' ||
+                g_IOBuf.serialBuffer[i] == ' ') {
+                continue;
+            }
+            msg.push_back(g_IOBuf.serialBuffer[i]);
+        }
+        msg += '\r';
+        g_mySerialPort.WriteData((unsigned char*)(msg).c_str(), static_cast<unsigned int>((msg).size()));
+        g_IOBuf.serialBufferChange = false;
+    }
+}
+
+// 串口主程序
+void SerialMain(bool& run) {
+    while (run) {
+        g_serialTips = "OFF";
+        while (run && g_openSerial) {
+            g_serialTips = "ON";
+            // Init port
+            if (!g_mySerialPort.InitPort(g_serialPortIdx)) {
+                g_serialTips = u8"串口初始化失败";
+                g_serialIsOpened = false;
+                if (++g_serialPortIdx > 16) {
+                    g_serialPortIdx = 1;
+                }
+                Sleep(100);
+                continue;
+            } else {
+                g_serialTips = u8"串口初始化成功";
+            }
+
+            // open listen threaad
+            if (!g_mySerialPort.OpenListenThread()) {
+                g_serialTips = u8"监听线程打开失败";
+                g_serialIsOpened = false;
+                Sleep(1000);
+                continue;
+            } else {
+                g_serialTips = u8"监听线程打开成功";
+            }
+
+            // read input data send to output
+            g_serialTips = u8"等待用户输入";
+            g_serialIsOpened = true;
+            while (run && g_openSerial) {
+                SendMsgToSerial();
+            }
+            g_mySerialPort.CloseListenTread();
+            g_serialIsOpened = false;
+            //Sleep(1000); // 谜之bug，没有Sleep一点时间的话，退出窗口的时候就会死循环在这里
+        }
+        //Sleep(1000); // 谜之bug，没有Sleep一点时间的话，退出窗口的时候就会死循环在这里
+    }
+    return;
+}
+
+// 初始化UI大小
+MainUI::MainUI(Rect rect) :
+    UI(rect),
+    m_cameraUI{ std::make_shared<CameraUI>(rect * UI_RECT.cameraUI) },
+    m_cameraConfigUI{ std::make_shared<CameraConfigUI>(rect * UI_RECT.cameraConfigUI) },
+    m_cube3DUI{ std::make_shared<Cube3DUI>(rect * UI_RECT.cube3DUI) },
+    m_serialPortUI{ std::make_shared<SerialPortUI>(rect * UI_RECT.serialPortUI) } {}
+
+// 处理数据
 void MainUI::DealData() {
+
+#ifdef DEBUGGING
+    static bool flag = true;
+    if (flag) {
+        flag = false;
+        g_nowStep = 2;
+    }
+#endif
+
+    // 获取文件写时间
     auto GetFileWriteTime = [](const LPCTSTR& lpszFilePath) {
         WIN32_FIND_DATA FindFileData = { 0 };
-
         HANDLE hFile = ::FindFirstFile(lpszFilePath, &FindFileData);
-
         if (INVALID_HANDLE_VALUE == hFile) {
             return -1;
         }
@@ -54,7 +131,7 @@ void MainUI::DealData() {
         if (!::FileTimeToSystemTime(&FindFileData.ftLastWriteTime, &WriteTime)) {
             return -1;
         }
-
+        // 时间只精确到秒
         int time = WriteTime.wMilliseconds + WriteTime.wSecond * 1000;
         return time;
     };
@@ -66,36 +143,39 @@ void MainUI::DealData() {
     case -1: // step == -1 按下开始按钮，令step = 0
         break;
     case 0: // step == 0  第一次颜色识别 ↓
-        if (ColorIdentify_1stTime(m_cameraUI->GetColorU(), m_cameraUI->GetColorF(), m_cameraUI->GetColorB())) // 第一次颜色识别
-        {
+        if (ColorIdentify_1stTime(m_cameraUI->GetColorU(), m_cameraUI->GetColorF(), m_cameraUI->GetColorB())) {
             g_IOBuf.PushBack("\n>> [Flip] ");
             g_IOBuf.Send("DC- LM2 DC+ LC- DM2 LC+ "); // 发送翻转指令
             g_nowStep = 1;
         }
         break;
     case 1: // step == 1  翻转魔方 ↑
-        if (strlen(g_IOBuf.output) > 3 && g_IOBuf.output[strlen(g_IOBuf.output) - 3] == '!') // 遇到[Finish!]
-        {
+        // 遇到"[OK!]"的'!'
+        if (strlen(g_IOBuf.output) > 3 && g_IOBuf.output[strlen(g_IOBuf.output) - 3] == '!') {
             g_nowStep = 2;
         }
         break;
-    case 2: // step == 2  第二次颜色识别 ↓ // 还原第二个魔方的时候这里会卡住
+    case 2: //? step == 2  第二次颜色识别 ↓ // 还原第二个魔方的时候这里会卡住
 #ifndef DEBUGGING
         if (ColorIdentify_2ndTime(m_cameraUI->GetColorU(), m_cameraUI->GetColorF(), m_cameraUI->GetColorB())) // 第二次颜色识别 
 #endif
         {
+//! BEG: DEBUG
 #ifdef DEBUGGING
             //test
-            g_cubeColor[U] = "RRGBYGRWG";
-            g_cubeColor[D] = "YYOOWWYRY";
-            g_cubeColor[F] = "WBYRRYBBB";
-            g_cubeColor[B] = "OGWROGOWO";
-            g_cubeColor[L] = "GOBWBBGYR";
-            g_cubeColor[R] = "ROWGGYWOB";
+            g_cubeColor[U] = "ORBRYOWGR";
+            g_cubeColor[D] = "ROBWWWRYB";
+            g_cubeColor[F] = "GWGYRWWGR";
+            g_cubeColor[B] = "OGYGOYOOB";
+            g_cubeColor[L] = "GBORBBYBG";
+            g_cubeColor[R] = "YBYOGYWRW";
 #endif
+//! END: DEBUG
+
             // 写入INPUT.txt
             std::ofstream input("INPUT.txt");
-            input << "U:" + g_cubeColor[U] + '\n'
+            input
+                << "U:" + g_cubeColor[U] + '\n'
                 << "D:" + g_cubeColor[D] + '\n'
                 << "F:" + g_cubeColor[F] + '\n'
                 << "B:" + g_cubeColor[B] + '\n'
@@ -156,66 +236,6 @@ void MainUI::DealData() {
     default:
         break;
     }
-}
-
-void SendMsgToSerial() {
-    if (g_IOBuf.serialBufferChange == true) {
-        std::string msg{};
-        for (int i = 0; i < strlen(g_IOBuf.serialBuffer); ++i) {
-            if (g_IOBuf.serialBuffer[i] == '\n' ||
-                g_IOBuf.serialBuffer[i] == '\r' ||
-                g_IOBuf.serialBuffer[i] == ' ') {
-                continue;
-            }
-            msg.push_back(g_IOBuf.serialBuffer[i]);
-        }
-        msg += '\r';
-        g_mySerialPort.WriteData((unsigned char*)(msg).c_str(), static_cast<unsigned int>((msg).size()));
-        g_IOBuf.serialBufferChange = false;
-    }
-}
-
-void SerialMain(bool& run) {
-    while (run) {
-        g_serialTips = "OFF";
-        while (run && g_openSerial) {
-            g_serialTips = "ON";
-            // Init port
-            if (!g_mySerialPort.InitPort(g_serialPortIdx)) {
-                g_serialTips = u8"串口初始化失败";
-                g_serialIsOpened = false;
-                if (++g_serialPortIdx > 16) {
-                    g_serialPortIdx = 1;
-                }
-                Sleep(100);
-                continue;
-            } else {
-                g_serialTips = u8"串口初始化成功";
-            }
-
-            // open listen threaad
-            if (!g_mySerialPort.OpenListenThread()) {
-                g_serialTips = u8"监听线程打开失败";
-                g_serialIsOpened = false;
-                Sleep(1000);
-                continue;
-            } else {
-                g_serialTips = u8"监听线程打开成功";
-            }
-
-            // read input data send to output
-            g_serialTips = u8"等待用户输入";
-            g_serialIsOpened = true;
-            while (run && g_openSerial) {
-                SendMsgToSerial();
-            }
-            g_mySerialPort.CloseListenTread();
-            g_serialIsOpened = false;
-            //Sleep(1000); // 谜之bug，没有Sleep一点时间的话，退出窗口的时候就会死循环在这里
-        }
-        //Sleep(1000); // 谜之bug，没有Sleep一点时间的话，退出窗口的时候就会死循环在这里
-    }
-    return;
 }
 
 // 显示主UI

@@ -70,9 +70,9 @@ bool SolveCube(std::vector<std::string>& faceletStrings) {
         return READ_FAIL;
     }
     // Initialize tables and solve
-    Solver solver;
-    solver.InitializeTables();
-    solver.Solve(cube, 3);
+    Solver solver; // 第二次识别的时候可能会出错的地方...试一下改成static?
+    solver.InitializeTables(); // 第二次识别的时候可能会出错的地方...
+    solver.Solve(cube, 500); // 定时退出
     return READ_SUCCESS;
 }
 

@@ -16,15 +16,7 @@ constexpr UIRect UI_RECT{
 };
 
 extern IOBuf g_IOBuf; // 外部变量，不要初始化
-
-
 extern CSerialPort  g_mySerialPort;
-
-class MainUI;
-class CameraUI;
-class CameraConfigUI;
-class Cube3DUI;
-class SerialPortUI;
 
 class MainUI : public UI {
 public:
@@ -40,10 +32,4 @@ private:
 
 bool ColorIdentify_1stTime(const std::string& colorStr_U, const std::string& colorStr_F, const std::string& colorStr_B, bool reset = false);
 bool ColorIdentify_2ndTime(const std::string& colorStr_U, const std::string& colorStr_F, const std::string& colorStr_B, bool reset = false);
-void Reset(int step);
 void InitCubeInputTxt();
-void Help();
-int CallBackInputWrap(ImGuiTextEditCallbackData* data);
-void ColorConfiger(HSV &color);
-void SaveConfig(std::ofstream& fout, const std::string& label, const RccSet& rccSetter);
-bool ConfigWindow(const std::string& label, const std::string& treeNodeName, Rcc& rcc, RccSet& rccSet, const int cols, const int rows);
