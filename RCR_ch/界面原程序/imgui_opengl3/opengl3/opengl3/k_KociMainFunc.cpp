@@ -72,7 +72,7 @@ bool SolveCube(std::vector<std::string>& faceletStrings) {
     // Initialize tables and solve
     Solver solver; // 第二次识别的时候可能会出错的地方...试一下改成static?
     solver.InitializeTables(); // 第二次识别的时候可能会出错的地方...
-    solver.Solve(cube, 500); // 定时退出
+    solver.Solve(cube, 1000); // 定时退出
     return READ_SUCCESS;
 }
 

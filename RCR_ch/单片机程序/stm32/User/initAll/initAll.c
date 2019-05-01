@@ -12,7 +12,8 @@ void InitAll_LED() {
 }
 
 void InitAll_Clock() {
-    InitClock(&clock);
+    // 暂时不初始化数码管看看 -- 190501
+    // InitClock(&clock);
 }
 
 void InitAll_KEY() {

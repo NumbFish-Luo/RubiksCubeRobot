@@ -1,7 +1,8 @@
 #include "MyThetaT_NF.h"
 
 int main() {
-    MyThetaT_NF nf{ 10000, 35000, 10e-6, 0.5 };
+    // ·Âsin: 2 - 4 / pi = 0.726
+    MyThetaT_NF nf{ 10000, 35000, 10e-6, 0.726 };
     nf.OutputData("arr.txt");
 
     cin.get();

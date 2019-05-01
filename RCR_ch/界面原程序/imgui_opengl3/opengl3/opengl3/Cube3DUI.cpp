@@ -432,18 +432,8 @@ void Cube3DUI::Show(GLFWwindow* window, bool& show) {
             ImGui::EndChild();
         }
 
-        static DWORD timePre = GetTickCount();
-        DWORD timeNow = GetTickCount();
-        static int show{};
-        static int fps{};
-        if (GetTickCount() != timePre && show == 0) {
-            fps = 1000 / (GetTickCount() - timePre);
-        }
-        if (++show > 15) {
-            show = 0;
-        }
-        ImGui::Text("\t\t\t\t\tFPS:%3d  step%2d  n%2d", fps, g_nowStep, g_sendNext);
         ImGuiIO& io = ImGui::GetIO();
+        ImGui::Text("\t\t\t\t\tFPS:%2.1f  step%2d  n%2d", io.Framerate, g_nowStep, g_sendNext);
         if (ImGui::IsMousePosValid()) {
             const int posX{ static_cast<int>(io.MousePos.x) };
             const int posY{ static_cast<int>(io.MousePos.y) };
@@ -482,7 +472,6 @@ void Cube3DUI::Show(GLFWwindow* window, bool& show) {
         } else {
             ImGui::Text("<INVALID>");
         }
-        timePre = timeNow;
     }
     ImGui::EndChild();
 }

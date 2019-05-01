@@ -50,7 +50,7 @@ public:
         m_camera.set(CV_CAP_PROP_FRAME_HEIGHT, 480 * 0.5); // default 480
         m_camera.set(CV_CAP_PROP_BRIGHTNESS, 0); // default 0
         m_camera.set(CV_CAP_PROP_CONTRAST, 50); // default 50
-        m_camera.set(CV_CAP_PROP_EXPOSURE, -5); // default -4 // 曝光越低越流畅的样子？
+        m_camera.set(CV_CAP_PROP_EXPOSURE, -4); // default -4 // 曝光越低越流畅的样子？
         m_camera.set(CV_CAP_PROP_SATURATION, 64); // default 64
         m_camera.set(CV_CAP_PROP_HUE, 0); // default 0
         m_camera.set(CV_CAP_PROP_FPS, 30); // default 0
@@ -250,35 +250,60 @@ inline void Rcc::FindAndDrawColor(std::string &saveCubeColor)
         colorIdxMax = m_rccSet.m_colors.size();
     }
 
-    auto WhiteBalance = [](cv::Mat& in, cv::Mat& out, const Data3<float>& rgb) {
+    auto WhiteBalance = [](cv::Mat& in, cv::Mat& out, const Data3<float>& rgb, cv::Point2d pos = cv::Point2d(-1, -1), bool hsv = false) {
         std::vector<cv::Mat> whiteBalance;
-        cv::split(in, whiteBalance);
+        cv::Mat tmp;
+        tmp.create(1, 1, in.type());
+        if (pos != cv::Point2d(-1, -1)) {
+            tmp.at<cv::Vec3b>(0, 0) = in.at<cv::Vec3b>(pos);
+        } else {
+            tmp = in;
+        }
+        cv::split(tmp, whiteBalance);
         whiteBalance[0] = whiteBalance[0] * rgb[2];
         whiteBalance[1] = whiteBalance[1] * rgb[1];
         whiteBalance[2] = whiteBalance[2] * rgb[0];
         merge(whiteBalance, out);
+        if (hsv) {
+            cv::cvtColor(out, out, cv::COLOR_BGR2HSV);
+            //g_IOBuf.PushBack(
+            //    "(" + std::to_string(pos.x) + "," + std::to_string(pos.y) + ") " +
+            //    std::to_string(out.at<cv::Vec3b>(0, 0)[2]) + "," +
+            //    std::to_string(out.at<cv::Vec3b>(0, 0)[1]) + "," +
+            //    std::to_string(out.at<cv::Vec3b>(0, 0)[0]) + "\n");
+        }
     };
 
     cv::Mat rangeMaskA{}, rangeMaskB{};
+    cv::Mat rangePointMaskA{}, rangePointMaskB{};
+    cv::Mat rgbMask{}, hsvMask{};
+    cv::Mat rgbPointMask{ 1, 1, m_blurMask.type() }, hsvPointMask{ 1, 1, m_hsvMask.type() };
+    cv::Point2d pos{};
     for (size_t colorIdx = colorIdxMin; colorIdx < colorIdxMax; ++colorIdx) // 颜色循环
     {
-        if (m_rccSet.m_whiteBlanceMode == false) {
-            cv::inRange(m_hsvMask, m_rccSet.m_colors[colorIdx].Lo, m_rccSet.m_colors[colorIdx].mid_Hi, rangeMaskA); // 找到指定范围内的颜色
-            cv::inRange(m_hsvMask, m_rccSet.m_colors[colorIdx].mid_Lo, m_rccSet.m_colors[colorIdx].Hi, rangeMaskB);
-        }
+        cv::inRange(m_hsvMask, m_rccSet.m_colors[colorIdx].Lo, m_rccSet.m_colors[colorIdx].mid_Hi, rangeMaskA); // 找到指定范围内的颜色
+        cv::inRange(m_hsvMask, m_rccSet.m_colors[colorIdx].mid_Lo, m_rccSet.m_colors[colorIdx].Hi, rangeMaskB);
 
         for (size_t blockIdx = 0; blockIdx < block.size(); ++blockIdx) // 方块循环
         {
-            cv::Mat tmpRGB;
+            pos = block[blockIdx];
+            rgbMask = m_blurMask;
+            hsvMask = m_hsvMask;
+
             // 魔方白平衡
             if (m_rccSet.m_whiteBlanceMode == true) {
                 // g_IOBuf.PushBack(std::to_string(blockIdx) + " " + m_whiteBlance[blockIdx].ToString() + "\n");
-                WhiteBalance(m_blurMask, tmpRGB, m_whiteBlance[blockIdx]);
-                cv::cvtColor(tmpRGB, m_hsvMask, cv::COLOR_BGR2HSV);
-                cv::inRange(m_hsvMask, m_rccSet.m_colors[colorIdx].Lo, m_rccSet.m_colors[colorIdx].mid_Hi, rangeMaskA); // 找到指定范围内的颜色
-                cv::inRange(m_hsvMask, m_rccSet.m_colors[colorIdx].mid_Lo, m_rccSet.m_colors[colorIdx].Hi, rangeMaskB);
+                // 为了优化运行效率，这里不处理整一张图，因此这里的tmpRGB为一个点而已
+                WhiteBalance(m_blurMask, rgbPointMask, m_whiteBlance[blockIdx], block[blockIdx], false);
+                cv::cvtColor(rgbPointMask, hsvPointMask, cv::COLOR_BGR2HSV);
+                cv::inRange(hsvPointMask, m_rccSet.m_colors[colorIdx].Lo, m_rccSet.m_colors[colorIdx].mid_Hi, rangePointMaskA);
+                cv::inRange(hsvPointMask, m_rccSet.m_colors[colorIdx].mid_Lo, m_rccSet.m_colors[colorIdx].Hi, rangePointMaskB);
+                // 回点rangeMaskA和B
+                rangeMaskA.at<uchar>(pos) = rangePointMaskA.at<uchar>(0, 0);
+                rangeMaskB.at<uchar>(pos) = rangePointMaskB.at<uchar>(0, 0);
             } else {
-                tmpRGB = m_blurMask;
+                rgbPointMask.at<cv::Vec3b>(0, 0) = m_blurMask.at<cv::Vec3b>(pos);
+                hsvPointMask.at<cv::Vec3b>(0, 0) = m_hsvMask.at<cv::Vec3b>(pos);
             }
 
             // 测试模式
@@ -288,11 +313,11 @@ inline void Rcc::FindAndDrawColor(std::string &saveCubeColor)
                 // HSV模式
                 if (m_rccSet.m_rgbMode == false) {
                     for (int i = 0; i < 3; ++i) {
-                        colorData[i] = std::to_string(m_hsvMask.at<cv::Vec3b>(block[blockIdx])[i]);
+                        colorData[i] = std::to_string(hsvPointMask.at<cv::Vec3b>(0, 0)[i]);
                     }
                 } else { // RGB模式
                     for (int i = 0; i < 3; ++i) {
-                        rgbData[3 - i - 1] = tmpRGB.at<cv::Vec3b>(block[blockIdx])[i];
+                        rgbData[3 - i - 1] = rgbPointMask.at<cv::Vec3b>(0, 0)[i];
                         colorData[3 - i - 1] = std::to_string(rgbData[3 - i - 1]);
                         if (m_rccSet.m_whiteBlanceMode == false) {
                             // 获取每个色块的白平衡数据 -- 190417
@@ -304,7 +329,7 @@ inline void Rcc::FindAndDrawColor(std::string &saveCubeColor)
                     cv::Point2d posAdd(-10.0, numPos * 10.0 - 10);
                     putText(m_frame,
                         colorData[numPos],
-                        block[blockIdx] + posAdd,
+                        pos + posAdd,
                         cv::HersheyFonts::FONT_HERSHEY_DUPLEX,
                         0.4,
                         cv::Scalar(0, 200, 255),
@@ -313,7 +338,7 @@ inline void Rcc::FindAndDrawColor(std::string &saveCubeColor)
                 }
             }
 
-            if (rangeMaskA.at<uchar>(block[blockIdx]) > 0 || rangeMaskB.at<uchar>(block[blockIdx]) > 0)
+            if (rangeMaskA.at<uchar>(pos) > 0 || rangeMaskB.at<uchar>(pos) > 0)
             {
                 if (m_rccSet.m_testMode == false)
                 {

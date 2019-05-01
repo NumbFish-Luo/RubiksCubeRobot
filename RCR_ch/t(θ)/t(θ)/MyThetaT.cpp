@@ -35,32 +35,33 @@ void MyThetaT::OutputData(const string& fileName) {
         output.push_back((int)round(m_delayTimeArr[n]));
         timeSum_int += output[n - 1];
 
+        if (n != 1) {
+            fout << ", ";
+        }
+        if ((n - 1) % 13 == 0) {
+            fout << endl;
+        }
+        fout << setiosflags(ios::fixed) << fixed << setprecision(0) << setw(4) << output[n - 1];
+
         //:T[¦È]
-        //if (n != 1) {
-        //    fout << ", ";
-        //}
-        //if ((n - 1) % 13 == 0) {
-        //    fout << endl;
-        //}
-        //fout << setiosflags(ios::fixed) << fixed << setprecision(0) << setw(4) << output[n - 1];
         //fout << output[n - 1] << endl;
 
         //:theta(t)
         //for (int i = 0; i < output[n - 1]; ++i)
         //    fout << n << endl;
 
-        if (n > 1) {
+        //if (n > 1) {
             //:v(t)
-            tmp_t.push_back((timeSum_int - output[n - 1]) / 2.0 - (output[n - 1] + output[n - 2]) / 4.0);
-            tmp_v.push_back(2.0 / (output[n - 2] + output[n - 1]));
-            fout << tmp_t[n - 2] << ',' << tmp_v[n - 2] << endl;
+            //tmp_t.push_back((timeSum_int - output[n - 1]) / 2.0 - (output[n - 1] + output[n - 2]) / 4.0);
+            //tmp_v.push_back(2.0 / (output[n - 2] + output[n - 1]));
+            //fout << tmp_t[n - 2] << ',' << tmp_v[n - 2] << endl;
 
             //:a(t)
             //if (tmp_t.size() > 1) {
             //    tmp_a = (tmp_v[n - 2] - tmp_v[n - 3]) / (tmp_t[n - 2] - tmp_t[n - 3]);
             //    fout << tmp_t[n - 3] + (tmp_t[n - 2] - tmp_t[n - 3]) / 2.f << ',' << tmp_a << endl;
             //}
-        }
+        //}
     }
     std::cout
         << "timeSum = " << timeSum << endl

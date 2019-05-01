@@ -1,6 +1,6 @@
 #include "MainUI.h"
 
-#define DEBUGGING
+//#define DEBUGGING
 
 // 新帧
 void NewFrame() {
@@ -163,12 +163,12 @@ void MainUI::DealData() {
 //! BEG: DEBUG
 #ifdef DEBUGGING
             //test
-            g_cubeColor[U] = "ORBRYOWGR";
-            g_cubeColor[D] = "ROBWWWRYB";
-            g_cubeColor[F] = "GWGYRWWGR";
-            g_cubeColor[B] = "OGYGOYOOB";
-            g_cubeColor[L] = "GBORBBYBG";
-            g_cubeColor[R] = "YBYOGYWRW";
+            g_cubeColor[U] = "RGORYYGYR";
+            g_cubeColor[D] = "RBOWWOORY";
+            g_cubeColor[F] = "YGGGRWWRB";
+            g_cubeColor[B] = "YWBYOGBWW";
+            g_cubeColor[L] = "WYORBOGOG";
+            g_cubeColor[R] = "YBBBGOWBR";
 #endif
 //! END: DEBUG
 
@@ -248,7 +248,7 @@ void MainUI::Show(GLFWwindow* window, bool& show) {
         // 处理数据
         DealData();
         // 开始主界面绘制
-        ImGui::Begin(u8"魔杰作", &show, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove);
+        ImGui::Begin(u8"魔杰座", &show, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove);
         {
             // 绘制左侧
             ImGui::BeginChild("Left", { m_cameraUI->GetRect().W + 16, 0 }, false);
