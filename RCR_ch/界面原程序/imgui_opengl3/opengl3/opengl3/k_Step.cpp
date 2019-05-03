@@ -575,6 +575,7 @@ void MSteps::Translate(const ASteps& aSteps) {
         } else {
             ++i;
         }
+        // m_mSteps.push_back("...");
     }
     // Çå³ý"XC+ XC-"
     auto& beg = m_mSteps.begin();
@@ -601,6 +602,15 @@ size_t MSteps::AStepsSize() const {
     return m_aSteps.AStepsSize();
 }
 void MSteps::DealNormalCase(size_t i) {
+    std::string lastMStep;
+    size_t mStepsSize = m_mSteps.size();
+    std::string XCA = "XC+";
+
+    XCA[0] = m_aSteps[i][0];
+    if (mStepsSize > 0) {
+        lastMStep = m_mSteps[mStepsSize - 1];
+    }
+
     if (m_aSteps[i][0] != 'A') {
         switch (m_aSteps[i][1]) {
         case '2':
@@ -611,18 +621,36 @@ void MSteps::DealNormalCase(size_t i) {
         case '+':
             // X+
             // XM+ XC- XM- XC+
-            PushBack(i, "XM+");
-            PushBack(i, "XC-");
-            PushBack(i, "XM-");
-            PushBack(i, "XC+");
+            // XC- XM- XC+ XM+
+            if (lastMStep.size() > 0 &&
+                lastMStep == XCA) {
+                PushBack(i, "XC-");
+                PushBack(i, "XM-");
+                PushBack(i, "XC+");
+                PushBack(i, "XM+");
+            } else {
+                PushBack(i, "XM+");
+                PushBack(i, "XC-");
+                PushBack(i, "XM-");
+                PushBack(i, "XC+");
+            }
             break;
         case '-':
             // X-
             // XM- XC- XM+ XC+
-            PushBack(i, "XM-");
-            PushBack(i, "XC-");
-            PushBack(i, "XM+");
-            PushBack(i, "XC+");
+            // XC- XM+ XC+ XM-
+            if (lastMStep.size() > 0 &&
+                lastMStep == XCA) {
+                PushBack(i, "XC-");
+                PushBack(i, "XM+");
+                PushBack(i, "XC+");
+                PushBack(i, "XM-");
+            } else {
+                PushBack(i, "XM-");
+                PushBack(i, "XC-");
+                PushBack(i, "XM+");
+                PushBack(i, "XC+");
+            }
             break;
         }
     } else {
