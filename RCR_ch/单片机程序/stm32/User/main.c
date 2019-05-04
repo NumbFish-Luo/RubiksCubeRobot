@@ -16,13 +16,8 @@ void Clear() {
 }
 
 int main() {
-//    int show = 0;
     InitAll();
     while(1) {
-//        if (++show > 800) { // 防止数码管因为位选速度太快导致模糊
-//            show = 0;
-//            ShowNuxieTube(&clock.nuxieTube); // 显示数码管
-//        }
         DealSerialData(); // 处理串口数据
     }
 }
