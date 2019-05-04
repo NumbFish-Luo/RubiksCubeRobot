@@ -266,7 +266,7 @@ void MainUI::Show(GLFWwindow* window, bool& show) {
             // »æÖÆÓÒ²à
             m_cameraConfigUI->Show(window, show);
         }
-        ImGui::End(); // End Ä§½Ü×÷
+        ImGui::End(); // End Ä§½Ü×ù
         // ¿ªÊ¼´®¿Ú³ÌÐò
         static Timer serial(SerialMain, show, Timer::Interval(1000), true); // Æô¶¯SerialMain
         serial.start(true);

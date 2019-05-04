@@ -12,8 +12,9 @@
 #include "NuxieTube/NuxieTube.h"
 
 // ############## Cylinder #############
-#define CYLINDER_DELAY_TIME_CLAMP  (uint32_t)(3000000)
-#define CYLINDER_DELAY_TIME_LOOSEN (uint32_t)(2500000)
+#define MSD_DELAY_TIME             (uint32_t)(2500000)
+#define CYLINDER_DELAY_TIME_CLAMP  (uint32_t)(5000000)
+#define CYLINDER_DELAY_TIME_LOOSEN (uint32_t)(4000000)
 
 // ################ MSD ################
 #define TRUN_90      5000
@@ -26,7 +27,7 @@
 #define TRUN_90S_L  -TRUN_90 // steps
 #define TRUN_90S_D  -TRUN_90 // steps
 
-#define MIN_DELAY_TIME 3 // 最小允许延时值
+#define MIN_DELAY_TIME 1 // 最小允许延时值
 
 #define ANGLE_L_MIN -270
 #define ANGLE_L_MAX  90

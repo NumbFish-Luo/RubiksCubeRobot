@@ -54,6 +54,7 @@ ORDER_DO(LMA, "LM+") {
     MSD_L.angle += 90;
     MSD_Move(&MSD_L);
     MSD_waitStop(&MSD_L);
+    Delay(MSD_DELAY_TIME);
 }
 ORDER_DO(LMS, "LM-") {
     printf("[LM-] ");
@@ -61,6 +62,7 @@ ORDER_DO(LMS, "LM-") {
     MSD_L.angle -= 90;
     MSD_Move(&MSD_L);
     MSD_waitStop(&MSD_L);
+    Delay(MSD_DELAY_TIME);
 }
 ORDER_DO(LMF, "LMF") {
     printf("[LMF] ");
@@ -86,6 +88,7 @@ ORDER_DO(LM2, "LM2") {
     }
     MSD_Move(&MSD_L);
     MSD_waitStop(&MSD_L);
+    Delay(MSD_DELAY_TIME);
 }
 ORDER_DO(LCA, "LC+") {
     printf("[LC+] ");
@@ -103,6 +106,7 @@ ORDER_DO(DMA, "DM+") {
     MSD_D.angle += 90;
     MSD_Move(&MSD_D);
     MSD_waitStop(&MSD_D);
+    Delay(MSD_DELAY_TIME);
 }
 ORDER_DO(DMS, "DM-") {
     printf("[DM-] ");
@@ -110,6 +114,7 @@ ORDER_DO(DMS, "DM-") {
     MSD_D.angle -= 90;
     MSD_Move(&MSD_D);
     MSD_waitStop(&MSD_D);
+    Delay(MSD_DELAY_TIME);
 }
 ORDER_DO(DMF, "DMF") {
     printf("[DMF] ");
@@ -135,6 +140,7 @@ ORDER_DO(DM2, "DM2") {
     }
     MSD_Move(&MSD_D);
     MSD_waitStop(&MSD_D);
+    Delay(MSD_DELAY_TIME);
 }
 ORDER_DO(DCA, "DC+") {
     printf("[DC+] ");
