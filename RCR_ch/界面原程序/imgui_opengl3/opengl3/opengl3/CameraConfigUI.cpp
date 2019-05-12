@@ -53,7 +53,7 @@ bool ConfigWindow(const std::string& label, const std::string& treeNodeName, Rcc
                 SetVSlider("##" + label + "radius", &rccSet.m_radius, 10, rows / 2, u8"半径\n%d"),
                 SetVSlider("##" + label + "horizontal", &rccSet.m_horizontal, -cols / 2, cols / 2, u8"水平移动\n%d"),
                 SetVSlider("##" + label + "vertical", &rccSet.m_vertical, -rows / 2, rows / 2, u8"垂直移动\n%d"),
-                SetVSlider("##" + label + "rotateAngle", &rccSet.m_rotateAngle, -90, 90, u8"旋转角度\n%d"),
+                SetVSlider("##" + label + "rotateAngle", &rccSet.m_rotateAngle, -180, 180, u8"旋转角度\n%d"),
                 SetVSlider("##" + label + "perspective", &rccSet.m_perspective, 30, 100, u8"透视\n%d"),
                 SetVSlider("##" + label + "aspectRatio", &rccSet.m_aspectRatio, 1, 100, u8"长宽比\n%d"),
                 SetVSlider("##" + label + "brightness", &rccSet.m_brightness, -64, 64, u8"亮度\n%d"),

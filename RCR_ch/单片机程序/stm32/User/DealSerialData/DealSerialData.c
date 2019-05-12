@@ -23,6 +23,7 @@ void DealSerialData() {
                 orderName[1] = usart1.RxBuffer[idx + 1];
                 orderName[2] = usart1.RxBuffer[idx + 2];
                 orderName[3] = '\0';
+                
                 ivk.SetOrder(&ivk, g_orders.Find(&g_orders, orderName));
                 ivk.DoOrder(&ivk);
                 if (strcmp(ivk.order.name, "ERR") == 0) {

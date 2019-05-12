@@ -33,3 +33,4 @@ private:
 bool ColorIdentify_1stTime(const std::string& colorStr_U, const std::string& colorStr_F, const std::string& colorStr_B, bool reset = false);
 bool ColorIdentify_2ndTime(const std::string& colorStr_U, const std::string& colorStr_F, const std::string& colorStr_B, bool reset = false);
 void InitCubeInputTxt();
+void Reset(int step);

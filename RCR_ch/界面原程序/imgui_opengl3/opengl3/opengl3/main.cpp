@@ -8,12 +8,12 @@ std::vector<std::string> g_faceletStr{};
 int          g_serialPortIdx{ 1 };
 bool         g_serialIsOpened{ false };
 bool         g_openSerial{ true };
-RccSet       g_rccSet_U{ 2, Gtype::TYPE_B, g_hsvColor_U, COLS, ROWS };
-RccSet       g_rccSet_F{ 1, Gtype::TYPE_A, g_hsvColor_F, COLS, ROWS };
-RccSet       g_rccSet_B{ 3, Gtype::TYPE_A, g_hsvColor_B, COLS, ROWS };
-Rcc          g_rcc_U{ g_rccSet_U };
-Rcc          g_rcc_F{ g_rccSet_F };
-Rcc          g_rcc_B{ g_rccSet_B };
+RccSet       g_rccSet_U{ 3, Gtype::TYPE_B, g_hsvColor_U, COLS, ROWS };
+RccSet       g_rccSet_F{ 0, Gtype::TYPE_A, g_hsvColor_F, COLS, ROWS };
+RccSet       g_rccSet_B{ 1, Gtype::TYPE_A, g_hsvColor_B, COLS, ROWS };
+Rcc          g_rcc_U{ g_rccSet_U, true, -5 }; // 偏暗用-4，偏亮用-5
+Rcc          g_rcc_F{ g_rccSet_F, true, -5 }; // 偏暗用-4，偏亮用-5
+Rcc          g_rcc_B{ g_rccSet_B, true, -5 }; // 偏暗用-4，偏亮用-5
 std::string  g_serialTips{};
 CSerialPort  g_mySerialPort{};
 ImFont*      g_smallFont{};
@@ -21,6 +21,9 @@ ImFont*      g_bigFont{};
 int          g_nowStep{ -1 };
 DWORD        g_timerPre{};
 bool         g_stopButton{ false };
+
+int g_RedOrange_S = 0; // 保存红橙颜色数据
+int g_RedOrange_V = 0; // 保存红橙颜色数据
 
 void ReadConfig(const Config& config, const std::string& label, RccSet& rccSetter) {
     rccSetter.m_radius = config.Read(label + "radius", rccSetter.m_radius);

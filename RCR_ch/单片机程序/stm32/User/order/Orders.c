@@ -3,6 +3,7 @@
 #include "order/Orders.h"
 
 VectorOrder g_orders;
+RobotState g_robotState = { Clamp, Clamp, Fast };
 
 void VectorOrderClear(VectorOrder* v) {
     free(v->datas);

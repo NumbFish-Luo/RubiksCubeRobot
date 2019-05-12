@@ -31,6 +31,11 @@ bool ColorIdentify_1stTime(const std::string& colorStr_U, const std::string& col
     1 4 7   3 4 5
     0 3 6   6 7 8
     */
+
+    for (auto& color : g_cubeColor) {
+        color = "?????????";
+    }
+
     static bool mappingOK_L{ false };
     if (mappingOK_L == false) {
         bool foundOK{ true };

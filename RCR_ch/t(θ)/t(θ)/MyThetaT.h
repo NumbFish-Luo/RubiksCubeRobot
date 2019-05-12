@@ -14,10 +14,10 @@ public:
     MyThetaT(const int theta0, const int t0, const double minDelta);
     virtual ~MyThetaT() = 0;
 
-    void OutputData(const string& fileName);
-
-protected:
+    void OutputData(const string& fileName, bool half = false);
     virtual double Theta(double t) = 0;
+protected:
+    
     double T(double theta);
 
     const int      m_theta0;

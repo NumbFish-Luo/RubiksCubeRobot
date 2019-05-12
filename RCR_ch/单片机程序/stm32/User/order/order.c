@@ -45,11 +45,32 @@ Invoker NewInvoker() {
     NEW_ORDER_impl(_, _name_); \
     void Order##_##Do(void)
 
+typedef enum HandType {
+    Left = 0, Right = 1
+}HandType;
+    
+void SpeedAdjust(HandType handType) {
+    if (handType == Left) {
+        if (g_robotState.d_hand == Loosen) { // 如果对面手是松开的，那么应该慢慢转
+            g_robotState.speed = Slow;
+        } else {
+            g_robotState.speed = Fast;
+        }
+    } else {
+        if (g_robotState.l_hand == Loosen) { // 如果对面手是松开的，那么应该慢慢转
+            g_robotState.speed = Slow;
+        } else {
+            g_robotState.speed = Fast;
+        }
+    }
+}
+
 ORDER_DO(ERR, "ERR") {
     printf("[ERR] ");
 }
 ORDER_DO(LMA, "LM+") {
     printf("[LM+] ");
+    SpeedAdjust(Left); // 速度调整
     MSD_L.steps = TRUN_90_L;
     MSD_L.angle += 90;
     MSD_Move(&MSD_L);
@@ -58,6 +79,7 @@ ORDER_DO(LMA, "LM+") {
 }
 ORDER_DO(LMS, "LM-") {
     printf("[LM-] ");
+    SpeedAdjust(Left); // 速度调整
     MSD_L.steps = TRUN_90S_L;
     MSD_L.angle -= 90;
     MSD_Move(&MSD_L);
@@ -78,6 +100,7 @@ ORDER_DO(LMR, "LMR") {
 }
 ORDER_DO(LM2, "LM2") {
     printf("[LM2] ");
+    SpeedAdjust(Left); // 速度调整
     if (MSD_L.angle >= (ANGLE_L_MAX + ANGLE_L_MIN) / 2) {
         MSD_L.steps = 2 * TRUN_90S_L;
         MSD_L.angle -= 180;
@@ -92,16 +115,19 @@ ORDER_DO(LM2, "LM2") {
 }
 ORDER_DO(LCA, "LC+") {
     printf("[LC+] ");
+    g_robotState.l_hand = Clamp; // 左侧夹紧
     Cylinder_ON(&cylinder_L);
     Delay(CYLINDER_DELAY_TIME_CLAMP);
 }
 ORDER_DO(LCS, "LC-") {
     printf("[LC-] ");
+    g_robotState.l_hand = Loosen; // 左侧松开
     Cylinder_OFF(&cylinder_L);
     Delay(CYLINDER_DELAY_TIME_LOOSEN);
 }
 ORDER_DO(DMA, "DM+") {
     printf("[DM+] ");
+    SpeedAdjust(Right); // 速度调整
     MSD_D.steps = TRUN_90_D;
     MSD_D.angle += 90;
     MSD_Move(&MSD_D);
@@ -110,6 +136,7 @@ ORDER_DO(DMA, "DM+") {
 }
 ORDER_DO(DMS, "DM-") {
     printf("[DM-] ");
+    SpeedAdjust(Right); // 速度调整
     MSD_D.steps = TRUN_90S_D;
     MSD_D.angle -= 90;
     MSD_Move(&MSD_D);
@@ -130,6 +157,7 @@ ORDER_DO(DMR, "DMR") {
 }
 ORDER_DO(DM2, "DM2") {
     printf("[DM2] ");
+    SpeedAdjust(Right); // 速度调整
     if (MSD_D.angle >= (ANGLE_D_MAX + ANGLE_D_MIN) / 2) {
         MSD_D.steps = 2 * TRUN_90S_D;
         MSD_D.angle -= 180;
@@ -144,11 +172,13 @@ ORDER_DO(DM2, "DM2") {
 }
 ORDER_DO(DCA, "DC+") {
     printf("[DC+] ");
+    g_robotState.d_hand = Clamp; // 下侧夹紧
     Cylinder_ON(&cylinder_D);
     Delay(CYLINDER_DELAY_TIME_CLAMP);
 }
 ORDER_DO(DCS, "DC-") {
     printf("[DC-] ");
+    g_robotState.d_hand = Loosen; // 下侧松开
     Cylinder_OFF(&cylinder_D);
     Delay(CYLINDER_DELAY_TIME_LOOSEN);
 }

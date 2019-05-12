@@ -1,6 +1,6 @@
 #include "MainUI.h"
 
-//#define DEBUGGING
+// #define DEBUGGING
 
 // 新帧
 void NewFrame() {
@@ -116,7 +116,7 @@ void MainUI::DealData() {
     static bool flag = true;
     if (flag) {
         flag = false;
-        g_nowStep = 2;
+        g_nowStep = 1;
     }
 #endif
 
@@ -153,6 +153,7 @@ void MainUI::DealData() {
         // 遇到"[OK!]"的'!'
         if (strlen(g_IOBuf.output) > 3 && g_IOBuf.output[strlen(g_IOBuf.output) - 3] == '!') {
             g_nowStep = 2;
+            // Sleep(500); // 等待魔方完全被翻转
         }
         break;
     case 2: //? step == 2  第二次颜色识别 ↓ // 还原第二个魔方的时候这里会卡住
@@ -183,12 +184,21 @@ void MainUI::DealData() {
                 << "R:" + g_cubeColor[R];
             input.close();
 
+            for (auto& str : g_faceletStr) {
+                str.clear();
+            }
+
             g_faceletStr[U] = "U:" + g_cubeColor[U];
             g_faceletStr[D] = "D:" + g_cubeColor[D];
             g_faceletStr[F] = "F:" + g_cubeColor[F];
             g_faceletStr[B] = "B:" + g_cubeColor[B];
             g_faceletStr[L] = "L:" + g_cubeColor[L];
             g_faceletStr[R] = "R:" + g_cubeColor[R];
+
+            for (auto& str : g_faceletStr) {
+                g_IOBuf.PushBack(str);
+                g_IOBuf.PushBack("\n");
+            }
 
             if (SolveCube(g_faceletStr) == READ_FAIL) {
                 g_IOBuf.PushBack(u8"\n>> [错误] 颜色输入错误，请检查摄像头是否连接正确\n");
@@ -219,7 +229,7 @@ void MainUI::DealData() {
         }
         break;
     case 4: // step == 4  完成计算，开始执行 ↑↓
-        if (strlen(g_IOBuf.output) > 3 && g_IOBuf.output[strlen(g_IOBuf.output) - 3] == '!') // 遇到[Finish!]，则暂停计时
+        if (strlen(g_IOBuf.output) > 3 && g_IOBuf.output[strlen(g_IOBuf.output) - 3] == '!') // 遇到[OK!]，则暂停计时
         {
             g_IOBuf.Send("AC-");
             g_stopButton = true; // 暂停计时

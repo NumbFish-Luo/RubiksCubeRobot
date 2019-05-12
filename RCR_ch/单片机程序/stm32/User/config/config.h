@@ -11,15 +11,15 @@
 #include "usart/usart.h"
 #include "NuxieTube/NuxieTube.h"
 
-// ############## Cylinder #############
-#define MSD_DELAY_TIME             (uint32_t)(2500000)
-#define CYLINDER_DELAY_TIME_CLAMP  (uint32_t)(5000000)
-#define CYLINDER_DELAY_TIME_LOOSEN (uint32_t)(4000000)
+// ############## Delay Time #############
+#define MSD_DELAY_TIME             (uint32_t)(      1)
+#define CYLINDER_DELAY_TIME_CLAMP  (uint32_t)(4000000)
+#define CYLINDER_DELAY_TIME_LOOSEN (uint32_t)(4500000)
 
 // ################ MSD ################
-#define TRUN_90      5000
-#define TRUN_180     10000
-#define TRUN_TRIM    25
+#define TRUN_90      200
+#define TRUN_180     400
+#define TRUN_TRIM    1
 
 #define TRUN_90_L    TRUN_90 // steps
 #define TRUN_90_D    TRUN_90 // steps

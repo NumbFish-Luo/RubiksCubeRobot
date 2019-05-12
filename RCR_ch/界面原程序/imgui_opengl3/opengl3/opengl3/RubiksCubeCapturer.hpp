@@ -36,7 +36,7 @@ struct Data3 {
 class Rcc // RubiksCubeCapturer
 {
 public:
-    Rcc(RccSet rccSetter) :
+    Rcc(RccSet rccSetter, bool openExposure = true, int exposure = -5) :
         m_camera(),
         m_frame(),
         m_blurMask(),
@@ -50,7 +50,9 @@ public:
         m_camera.set(CV_CAP_PROP_FRAME_HEIGHT, 480 * 0.5); // default 480
         m_camera.set(CV_CAP_PROP_BRIGHTNESS, 0); // default 0
         m_camera.set(CV_CAP_PROP_CONTRAST, 50); // default 50
-        m_camera.set(CV_CAP_PROP_EXPOSURE, -4); // default -4 // 曝光越低越流畅的样子？
+        if (openExposure) {
+            m_camera.set(CV_CAP_PROP_EXPOSURE, exposure); // default -4 // 曝光越低越流畅的样子？
+        }
         m_camera.set(CV_CAP_PROP_SATURATION, 64); // default 64
         m_camera.set(CV_CAP_PROP_HUE, 0); // default 0
         m_camera.set(CV_CAP_PROP_FPS, 30); // default 0
@@ -292,8 +294,6 @@ inline void Rcc::FindAndDrawColor(std::string &saveCubeColor)
 
             // 魔方白平衡
             if (m_rccSet.m_whiteBlanceMode == true) {
-                // g_IOBuf.PushBack(std::to_string(blockIdx) + " " + m_whiteBlance[blockIdx].ToString() + "\n");
-                // 为了优化运行效率，这里不处理整一张图，因此这里的tmpRGB为一个点而已
                 WhiteBalance(m_blurMask, rgbPointMask, m_whiteBlance[blockIdx], block[blockIdx], false);
                 cv::cvtColor(rgbPointMask, hsvPointMask, cv::COLOR_BGR2HSV);
                 cv::inRange(hsvPointMask, m_rccSet.m_colors[colorIdx].Lo, m_rccSet.m_colors[colorIdx].mid_Hi, rangePointMaskA);
@@ -305,6 +305,13 @@ inline void Rcc::FindAndDrawColor(std::string &saveCubeColor)
                 rgbPointMask.at<cv::Vec3b>(0, 0) = m_blurMask.at<cv::Vec3b>(pos);
                 hsvPointMask.at<cv::Vec3b>(0, 0) = m_hsvMask.at<cv::Vec3b>(pos);
             }
+
+            //: 如果是红色和橙色，需要另外保存它们的数据
+            //if (colorIdx == 2 || colorIdx == 3) {
+            //    // 只需要保存s和v值
+            //    g_RedOrange_S = hsvPointMask.at<cv::Vec3b>(0, 0)[1];
+            //    g_RedOrange_V = hsvPointMask.at<cv::Vec3b>(0, 0)[2];
+            //}
 
             // 测试模式
             if (m_rccSet.m_testMode == true) {

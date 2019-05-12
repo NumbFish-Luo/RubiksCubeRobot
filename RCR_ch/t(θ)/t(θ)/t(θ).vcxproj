@@ -118,10 +118,12 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MyThetaT.cpp" />
     <ClCompile Include="MyThetaT_NF.cpp" />
+    <ClCompile Include="MyThetaT_Sin.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyThetaT.h" />
     <ClInclude Include="MyThetaT_NF.h" />
+    <ClInclude Include="MyThetaT_Sin.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

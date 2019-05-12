@@ -5,6 +5,24 @@
 
 void Delay(__IO uint32_t nCount);
 
+typedef enum HandState {
+    Clamp = 0,
+    Loosen = 1
+}HandState;
+
+typedef enum SpeedState {
+    Fast = 0,
+    Slow = 1
+}SpeedState;
+
+typedef struct RobotState {
+    HandState l_hand;
+    HandState d_hand;
+    SpeedState speed;
+}RobotState;
+
+extern RobotState g_robotState;
+
 typedef struct Order {
     const char* name;
     void(*Do)(void);

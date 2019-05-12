@@ -206,3 +206,6 @@ extern HSV g_hsvBlue;
 extern std::vector<HSV> g_hsvColor_U;
 extern std::vector<HSV> g_hsvColor_F;
 extern std::vector<HSV> g_hsvColor_B;
+
+extern int g_RedOrange_S;
+extern int g_RedOrange_V;

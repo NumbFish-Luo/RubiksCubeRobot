@@ -10,7 +10,7 @@ MyThetaT::MyThetaT(const int theta0, const int t0, const double minDelta) :
 
 MyThetaT::~MyThetaT() {}
 
-void MyThetaT::OutputData(const string& fileName) {
+void MyThetaT::OutputData(const string& fileName, bool half) {
     ofstream fout{ fileName };
     if (!fout.is_open()) {
         cerr << "Cannot open arr.txt!" << endl;
@@ -41,7 +41,22 @@ void MyThetaT::OutputData(const string& fileName) {
         if ((n - 1) % 13 == 0) {
             fout << endl;
         }
-        fout << setiosflags(ios::fixed) << fixed << setprecision(0) << setw(4) << output[n - 1];
+
+        if (half && n > (m_theta0 / 2)) {
+            cout << "half" << endl;
+            for (int i = n; i <= m_theta0; ++i) {
+                if (i != n) {
+                    fout << ", ";
+                }
+                if ((i - 1) % 13 == 0) {
+                    fout << endl;
+                }
+                fout << setiosflags(ios::fixed) << fixed << setprecision(0) << setw(4) << output[m_theta0 - i];
+            }
+            break;
+        } else {
+            fout << setiosflags(ios::fixed) << fixed << setprecision(0) << setw(4) << output[n - 1];
+        }
 
         //:T[¦È]
         //fout << output[n - 1] << endl;

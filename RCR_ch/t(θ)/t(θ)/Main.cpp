@@ -1,9 +1,9 @@
 #include "MyThetaT_NF.h"
+#include "MyThetaT_Sin.h"
 
 int main() {
-    // ·Âsin: 2 - 4 / pi = 0.726
-    MyThetaT_NF nf{ 5000, 30000, 10e-6, 0.726 };
-    nf.OutputData("arr.txt");
+    MyThetaT_Sin mySin{ 200, 25000, 10e-6 };
+    mySin.OutputData("sin.txt", true);
 
     cin.get();
     return 0;
