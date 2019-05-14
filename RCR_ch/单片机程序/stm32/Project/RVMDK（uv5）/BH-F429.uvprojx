@@ -643,11 +643,6 @@
               <FilePath>..\..\User\usart\usart.c</FilePath>
             </File>
             <File>
-              <FileName>MicroStepDriver.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\User\MSD\MicroStepDriver.c</FilePath>
-            </File>
-            <File>
               <FileName>stm32f4xx_it.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\User\stm32f4xx_it.c</FilePath>
@@ -691,6 +686,16 @@
               <FileName>Clock.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\User\Clock\Clock.c</FilePath>
+            </File>
+            <File>
+              <FileName>IO.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\User\IO\IO.c</FilePath>
+            </File>
+            <File>
+              <FileName>SteppingMotor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\User\SteppingMotor\SteppingMotor.c</FilePath>
             </File>
           </Files>
         </Group>

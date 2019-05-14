@@ -2,26 +2,25 @@
 #include "order/order.h"
 #include "order/Orders.h"
 
-void InitAll_LED() {
-//    InitLED(&g_LED_R);
-//    InitLED(&g_LED_G);
-//    InitLED(&g_LED_B);
+// 步进电机
+IO            motor_L_Plu;
+IO            motor_L_Dir;
+IO            motor_L_Ena;
+IO            motor_D_Plu;
+IO            motor_D_Dir;
+IO            motor_D_Ena;
+SteppingMotor motor_L;
+SteppingMotor motor_D;
 
-//    LED_RGB_OFF();
-//    LED_ON(&g_LED_Flag); // 指示灯默认开启
-}
-
-void InitAll_Clock() {
-    InitClock(&clock);
-}
-
-void InitAll_KEY() {
-    InitKEY(&key_MSD_Enable);
-    InitKEY(&key_MSD_Disable);
-//    InitKEY(&key_LMF);
-//    InitKEY(&key_LMR);
-//    InitKEY(&key_DMF);
-//    InitKEY(&key_DMR);
+void InitAll_SteppingMotor() {
+    motor_L_Plu = NewIO(GPIOC, GPIO_Pin_9,  RCC_AHB1Periph_GPIOC, GPIO_Speed_50MHz);
+    motor_L_Dir = NewIO(GPIOC, GPIO_Pin_6,  RCC_AHB1Periph_GPIOC, GPIO_Speed_50MHz);
+    motor_L_Ena = NewIO(GPIOB, GPIO_Pin_15, RCC_AHB1Periph_GPIOB, GPIO_Speed_50MHz);
+    motor_D_Plu = NewIO(GPIOA, GPIO_Pin_3,  RCC_AHB1Periph_GPIOA, GPIO_Speed_50MHz);
+    motor_D_Dir = NewIO(GPIOC, GPIO_Pin_0,  RCC_AHB1Periph_GPIOC, GPIO_Speed_50MHz);
+    motor_D_Ena = NewIO(GPIOB, GPIO_Pin_14, RCC_AHB1Periph_GPIOB, GPIO_Speed_50MHz);
+    motor_L     = NewSteppingMotor(motor_L_Plu, motor_L_Ena, motor_L_Dir);
+    motor_D     = NewSteppingMotor(motor_L_Plu, motor_L_Ena, motor_L_Dir);
 }
 
 void InitAll_USART() {
@@ -34,22 +33,15 @@ void InitAll_Cylinder() {
     InitCylinder(&cylinder_L);
 }
 
-// 初始化步进电机
-void InitAll_MSD() {
-    InitMSD(&MSD_D);
-    InitMSD(&MSD_L);
-}
-
 // 初始化命令集
 void InitAll_Order() {
     #define OPB(_) g_orders.PushBack(&g_orders, NewOrder##_().base)
     
     g_orders = NewVectorOrder();
     // MPB(ERR); // 无需加载ERR指令
-    OPB(LMA); OPB(LMS); OPB(LMF); OPB(LMR); OPB(LM2);
-    OPB(DMA); OPB(DMS); OPB(DMF); OPB(DMR); OPB(DM2);
+    OPB(LMA); OPB(LMS); OPB(LMF); OPB(LMR); OPB(LM2); OPB(LMT);
+    OPB(DMA); OPB(DMS); OPB(DMF); OPB(DMR); OPB(DM2); OPB(DMT);
     OPB(LCA); OPB(LCS); OPB(DCA); OPB(DCS); OPB(ACA); OPB(ACS);
-    OPB(STA); OPB(END); OPB(RES);
 }
 
 // 清除指令集数据，防止内存泄漏

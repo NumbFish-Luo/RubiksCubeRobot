@@ -1,11 +1,8 @@
 #include "config/config.h"
 #include "order/order.h"
 #include "usart/usart.h"
-#include "Clock/Clock.h"
-
-void Delay(__IO uint32_t nCount) {
-    while (--nCount);
-}
+#include "InitAll/InitAll.h"
+#include "SteppingMotor/SteppingMotor.h"
 
 void OrderDo() {
     printf("[DoBase]\n");
@@ -46,7 +43,7 @@ Invoker NewInvoker() {
     void Order##_##Do(void)
 
 typedef enum HandType {
-    Left = 0, Right = 1
+    Left = 0, Down = 1
 }HandType;
     
 void SpeedAdjust(HandType handType) {
@@ -71,47 +68,30 @@ ORDER_DO(ERR, "ERR") {
 ORDER_DO(LMA, "LM+") {
     printf("[LM+] ");
     SpeedAdjust(Left); // 速度调整
-    MSD_L.steps = TRUN_90_L;
-    MSD_L.angle += 90;
-    MSD_Move(&MSD_L);
-    MSD_waitStop(&MSD_L);
-    Delay(MSD_DELAY_TIME);
+    motor_L.Turn(&motor_L, TURN_90);
 }
 ORDER_DO(LMS, "LM-") {
     printf("[LM-] ");
     SpeedAdjust(Left); // 速度调整
-    MSD_L.steps = TRUN_90S_L;
-    MSD_L.angle -= 90;
-    MSD_Move(&MSD_L);
-    MSD_waitStop(&MSD_L);
-    Delay(MSD_DELAY_TIME);
+    motor_L.Turn(&motor_L, -TURN_90);
 }
 ORDER_DO(LMF, "LMF") {
     printf("[LMF] ");
-    MSD_L.steps = TRUN_TRIM;
-    MSD_Move(&MSD_L);
-    MSD_waitStop(&MSD_L);
+    motor_L.Turn(&motor_L, TURN_1);
 }
 ORDER_DO(LMR, "LMR") {
     printf("[LMR] ");
-    MSD_L.steps = -TRUN_TRIM;
-    MSD_Move(&MSD_L);
-    MSD_waitStop(&MSD_L);
+    motor_L.Turn(&motor_L, -TURN_1);
 }
 ORDER_DO(LM2, "LM2") {
     printf("[LM2] ");
     SpeedAdjust(Left); // 速度调整
-    if (MSD_L.angle >= (ANGLE_L_MAX + ANGLE_L_MIN) / 2) {
-        MSD_L.steps = 2 * TRUN_90S_L;
-        MSD_L.angle -= 180;
-    }
-    else {
-        MSD_L.steps = 2 * TRUN_90_L;
-        MSD_L.angle += 180;
-    }
-    MSD_Move(&MSD_L);
-    MSD_waitStop(&MSD_L);
-    Delay(MSD_DELAY_TIME);
+    motor_L.Turn(&motor_L, TURN_180);
+}
+ORDER_DO(LMT, "LMT") {
+    printf("[LMT] ");
+    SpeedAdjust(Left); // 速度调整
+    motor_L.Turn(&motor_L, -TURN_180);
 }
 ORDER_DO(LCA, "LC+") {
     printf("[LC+] ");
@@ -127,48 +107,31 @@ ORDER_DO(LCS, "LC-") {
 }
 ORDER_DO(DMA, "DM+") {
     printf("[DM+] ");
-    SpeedAdjust(Right); // 速度调整
-    MSD_D.steps = TRUN_90_D;
-    MSD_D.angle += 90;
-    MSD_Move(&MSD_D);
-    MSD_waitStop(&MSD_D);
-    Delay(MSD_DELAY_TIME);
+    SpeedAdjust(Down); // 速度调整
+    motor_D.Turn(&motor_L, TURN_90);
 }
 ORDER_DO(DMS, "DM-") {
     printf("[DM-] ");
-    SpeedAdjust(Right); // 速度调整
-    MSD_D.steps = TRUN_90S_D;
-    MSD_D.angle -= 90;
-    MSD_Move(&MSD_D);
-    MSD_waitStop(&MSD_D);
-    Delay(MSD_DELAY_TIME);
+    SpeedAdjust(Down); // 速度调整
+    motor_D.Turn(&motor_L, -TURN_90);
 }
 ORDER_DO(DMF, "DMF") {
     printf("[DMF] ");
-    MSD_D.steps = TRUN_TRIM;
-    MSD_Move(&MSD_D);
-    MSD_waitStop(&MSD_D);
+    motor_D.Turn(&motor_L, TURN_1);
 }
 ORDER_DO(DMR, "DMR") {
     printf("[DMR] ");
-    MSD_D.steps = -TRUN_TRIM;
-    MSD_Move(&MSD_D);
-    MSD_waitStop(&MSD_D);
+    motor_D.Turn(&motor_L, -TURN_1);
 }
 ORDER_DO(DM2, "DM2") {
     printf("[DM2] ");
-    SpeedAdjust(Right); // 速度调整
-    if (MSD_D.angle >= (ANGLE_D_MAX + ANGLE_D_MIN) / 2) {
-        MSD_D.steps = 2 * TRUN_90S_D;
-        MSD_D.angle -= 180;
-    }
-    else {
-        MSD_D.steps = 2 * TRUN_90_D;
-        MSD_D.angle += 180;
-    }
-    MSD_Move(&MSD_D);
-    MSD_waitStop(&MSD_D);
-    Delay(MSD_DELAY_TIME);
+    SpeedAdjust(Down); // 速度调整
+    motor_D.Turn(&motor_L, TURN_180);
+}
+ORDER_DO(DMT, "DMT") {
+    printf("[DMT] ");
+    SpeedAdjust(Down); // 速度调整
+    motor_D.Turn(&motor_L, -TURN_180);
 }
 ORDER_DO(DCA, "DC+") {
     printf("[DC+] ");
@@ -193,16 +156,4 @@ ORDER_DO(ACS, "AC-") {
     Cylinder_OFF(&cylinder_L);
     Cylinder_OFF(&cylinder_D);
     Delay(CYLINDER_DELAY_TIME_LOOSEN);
-}
-ORDER_DO(STA, "STA") {
-    printf("[STA]");
-    StartClock(&clock);
-}
-ORDER_DO(END, "END") {
-    printf("[END]");
-    EndClock(&clock);
-}
-ORDER_DO(RES, "RES") {
-    printf("[RES]");
-    ResetClock(&clock);
 }

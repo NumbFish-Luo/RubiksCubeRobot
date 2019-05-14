@@ -31,16 +31,7 @@
 #include "stm32f4xx.h"
 #include "config/config.h"
 
-#define KEY_MSD_Enable_Handler  EXTI0_IRQHandler
-#define KEY_MSD_Disable_Handler EXTI15_10_IRQHandler
-#define KEY_LMF_Handler         EXTI2_IRQHandler
-#define KEY_LMR_Handler         EXTI3_IRQHandler
-#define KEY_DMF_Handler         EXTI4_IRQHandler
-#define KEY_DMR_Handler         EXTI9_5_IRQHandler
 #define USART1_Handler          USART1_IRQHandler
-#define MSD_D_Handler           TIM2_IRQHandler
-#define MSD_L_Handler           TIM3_IRQHandler
-#define Clock_Handler           TIM1_UP_TIM10_IRQHandler
 
 void NMI_Handler(void);
 void HardFault_Handler(void);

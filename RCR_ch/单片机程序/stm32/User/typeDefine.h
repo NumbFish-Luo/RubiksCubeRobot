@@ -1,6 +1,8 @@
 #ifndef TYPE_DEFINE_H
 #define TYPE_DEFINE_H
 
+#include "stm32f4xx.h"
+
 #define __NOTICE__                        // 需要特别注意的函数
 #define __HIDE_METHOD__  // inline        // 不提供给用户使用的函数
 #define __REDEFINITION__ // extern        // 为了保证代码风格, 而多处extern的变量/常量
