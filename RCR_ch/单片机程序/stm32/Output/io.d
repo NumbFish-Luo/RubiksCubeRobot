@@ -1,5 +1,5 @@
-..\..\output\io.o: ..\..\User\IO\IO.c
-..\..\output\io.o: ..\..\User\IO/IO.h
+..\..\output\io.o: ..\..\User\IO.c
+..\..\output\io.o: ..\..\User\IO.h
 ..\..\output\io.o: ..\..\User\typedefine.h
 ..\..\output\io.o: ..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h
 ..\..\output\io.o: ..\..\Libraries\CMSIS\Include\core_cm4.h

@@ -1,7 +1,7 @@
-#ifndef STEPPING_MOTOR
-#define STEPPING_MOTOR
+#ifndef STEP_MOTOR_H
+#define STEP_MOTOR_H
 
-#include "IO/IO.h"
+#include "IO.h"
 
 // 步进电机旋转角度与步数的对应关系
 typedef enum TurnStep {
@@ -21,4 +21,4 @@ struct SteppingMotor {
 };
 SteppingMotor NewSteppingMotor(IO plu, IO ena, IO dir);
 
-#endif // STEPPING_MOTOR
+#endif // STEP_MOTOR_H

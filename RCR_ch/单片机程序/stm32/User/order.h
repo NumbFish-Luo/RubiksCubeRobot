@@ -1,9 +1,9 @@
 #ifndef ORDER_H
 #define ORDER_H
 
-#include "stm32f4xx.h"
+#include "typeDefine.h"
 
-void Delay(__IO uint32_t nCount);
+void Delay(uint32_t nCount);
 
 typedef enum HandState {
     Clamp = 0,

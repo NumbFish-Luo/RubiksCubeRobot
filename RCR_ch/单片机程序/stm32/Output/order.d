@@ -1,6 +1,6 @@
-..\..\output\order.o: ..\..\User\order\order.c
-..\..\output\order.o: ..\..\User\config/config.h
-..\..\output\order.o: ..\..\User\cylinder/cylinder.h
+..\..\output\order.o: ..\..\User\order.c
+..\..\output\order.o: ..\..\User\order.h
+..\..\output\order.o: ..\..\User\typeDefine.h
 ..\..\output\order.o: ..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h
 ..\..\output\order.o: ..\..\Libraries\CMSIS\Include\core_cm4.h
 ..\..\output\order.o: E:\Keil_MDK_V518\ARM\ARMCC\Bin\..\include\stdint.h
@@ -39,12 +39,8 @@
 ..\..\output\order.o: ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_fmc.h
 ..\..\output\order.o: ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_ltdc.h
 ..\..\output\order.o: ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_sai.h
-..\..\output\order.o: ..\..\User\typeDefine.h
-..\..\output\order.o: ..\..\User\stm32f4xx_it.h
-..\..\output\order.o: ..\..\User\config/config.h
-..\..\output\order.o: ..\..\User\usart/usart.h
+..\..\output\order.o: ..\..\User\SerialPort.h
 ..\..\output\order.o: E:\Keil_MDK_V518\ARM\ARMCC\Bin\..\include\stdio.h
-..\..\output\order.o: ..\..\User\IO/IO.h
-..\..\output\order.o: ..\..\User\SteppingMotor/SteppingMotor.h
-..\..\output\order.o: ..\..\User\order/order.h
-..\..\output\order.o: ..\..\User\InitAll/InitAll.h
+..\..\output\order.o: ..\..\User\IO.h
+..\..\output\order.o: ..\..\User\Init.h
+..\..\output\order.o: ..\..\User\StepMotor.h

@@ -1,8 +1,8 @@
 ..\..\output\main.o: ..\..\User\main.c
-..\..\output\main.o: ..\..\User\DealSerialData/DealSerialData.h
-..\..\output\main.o: ..\..\User\initAll/initAll.h
-..\..\output\main.o: ..\..\User\config/config.h
-..\..\output\main.o: ..\..\User\cylinder/cylinder.h
+..\..\output\main.o: E:\Keil_MDK_V518\ARM\ARMCC\Bin\..\include\string.h
+..\..\output\main.o: ..\..\User\Init.h
+..\..\output\main.o: ..\..\User\SerialPort.h
+..\..\output\main.o: E:\Keil_MDK_V518\ARM\ARMCC\Bin\..\include\stdio.h
 ..\..\output\main.o: ..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h
 ..\..\output\main.o: ..\..\Libraries\CMSIS\Include\core_cm4.h
 ..\..\output\main.o: E:\Keil_MDK_V518\ARM\ARMCC\Bin\..\include\stdint.h
@@ -42,9 +42,7 @@
 ..\..\output\main.o: ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_ltdc.h
 ..\..\output\main.o: ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_sai.h
 ..\..\output\main.o: ..\..\User\typeDefine.h
-..\..\output\main.o: ..\..\User\stm32f4xx_it.h
-..\..\output\main.o: ..\..\User\config/config.h
-..\..\output\main.o: ..\..\User\usart/usart.h
-..\..\output\main.o: E:\Keil_MDK_V518\ARM\ARMCC\Bin\..\include\stdio.h
-..\..\output\main.o: ..\..\User\IO/IO.h
-..\..\output\main.o: ..\..\User\SteppingMotor/SteppingMotor.h
+..\..\output\main.o: ..\..\User\IO.h
+..\..\output\main.o: ..\..\User\StepMotor.h
+..\..\output\main.o: ..\..\User\order.h
+..\..\output\main.o: ..\..\User\Orders.h

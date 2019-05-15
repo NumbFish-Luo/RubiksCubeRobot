@@ -1,8 +1,10 @@
-#include "config/config.h"
-#include "order/order.h"
-#include "usart/usart.h"
-#include "InitAll/InitAll.h"
-#include "SteppingMotor/SteppingMotor.h"
+#include "order.h"
+#include "SerialPort.h"
+#include "Init.h"
+#include "StepMotor.h"
+
+#define DELAY_CLAMP  (uint32_t)(4000000)
+#define DELAY_LOOSEN (uint32_t)(4500000)
 
 void OrderDo() {
     printf("[DoBase]\n");
@@ -96,14 +98,14 @@ ORDER_DO(LMT, "LMT") {
 ORDER_DO(LCA, "LC+") {
     printf("[LC+] ");
     g_robotState.l_hand = Clamp; // ×ó²à¼Ð½ô
-    Cylinder_ON(&cylinder_L);
-    Delay(CYLINDER_DELAY_TIME_CLAMP);
+    claw_L.ON(&claw_L);
+    Delay(DELAY_CLAMP);
 }
 ORDER_DO(LCS, "LC-") {
     printf("[LC-] ");
     g_robotState.l_hand = Loosen; // ×ó²àËÉ¿ª
-    Cylinder_OFF(&cylinder_L);
-    Delay(CYLINDER_DELAY_TIME_LOOSEN);
+    claw_L.OFF(&claw_L);
+    Delay(DELAY_LOOSEN);
 }
 ORDER_DO(DMA, "DM+") {
     printf("[DM+] ");
@@ -136,24 +138,24 @@ ORDER_DO(DMT, "DMT") {
 ORDER_DO(DCA, "DC+") {
     printf("[DC+] ");
     g_robotState.d_hand = Clamp; // ÏÂ²à¼Ð½ô
-    Cylinder_ON(&cylinder_D);
-    Delay(CYLINDER_DELAY_TIME_CLAMP);
+    claw_D.ON(&claw_D);
+    Delay(DELAY_CLAMP);
 }
 ORDER_DO(DCS, "DC-") {
     printf("[DC-] ");
     g_robotState.d_hand = Loosen; // ÏÂ²àËÉ¿ª
-    Cylinder_OFF(&cylinder_D);
-    Delay(CYLINDER_DELAY_TIME_LOOSEN);
+    claw_D.OFF(&claw_D);
+    Delay(DELAY_LOOSEN);
 }
 ORDER_DO(ACA, "AC+") {
     printf("[AC+] ");
-    Cylinder_ON(&cylinder_L);
-    Cylinder_ON(&cylinder_D);
-    Delay(CYLINDER_DELAY_TIME_CLAMP);
+    claw_L.ON(&claw_L);
+    claw_D.ON(&claw_D);
+    Delay(DELAY_CLAMP);
 }
 ORDER_DO(ACS, "AC-") {
     printf("[AC-] ");
-    Cylinder_OFF(&cylinder_L);
-    Cylinder_OFF(&cylinder_D);
-    Delay(CYLINDER_DELAY_TIME_LOOSEN);
+    claw_L.OFF(&claw_L);
+    claw_D.OFF(&claw_D);
+    Delay(DELAY_LOOSEN);
 }

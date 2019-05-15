@@ -1,6 +1,8 @@
-..\..\output\steppingmotor.o: ..\..\User\SteppingMotor\SteppingMotor.c
+..\..\output\steppingmotor.o: ..\..\User\SteppingMotor.c
 ..\..\output\steppingmotor.o: E:\Keil_MDK_V518\ARM\ARMCC\Bin\..\include\stdio.h
-..\..\output\steppingmotor.o: ..\..\User\Order/Order.h
+..\..\output\steppingmotor.o: ..\..\User\SteppingMotor.h
+..\..\output\steppingmotor.o: ..\..\User\IO.h
+..\..\output\steppingmotor.o: ..\..\User\typedefine.h
 ..\..\output\steppingmotor.o: ..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h
 ..\..\output\steppingmotor.o: ..\..\Libraries\CMSIS\Include\core_cm4.h
 ..\..\output\steppingmotor.o: E:\Keil_MDK_V518\ARM\ARMCC\Bin\..\include\stdint.h
@@ -39,11 +41,4 @@
 ..\..\output\steppingmotor.o: ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_fmc.h
 ..\..\output\steppingmotor.o: ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_ltdc.h
 ..\..\output\steppingmotor.o: ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_sai.h
-..\..\output\steppingmotor.o: ..\..\User\SteppingMotor/SteppingMotor.h
-..\..\output\steppingmotor.o: ..\..\User\IO/IO.h
-..\..\output\steppingmotor.o: ..\..\User\typedefine.h
-..\..\output\steppingmotor.o: ..\..\User\Config/Config.h
-..\..\output\steppingmotor.o: ..\..\User\cylinder/cylinder.h
-..\..\output\steppingmotor.o: ..\..\User\stm32f4xx_it.h
-..\..\output\steppingmotor.o: ..\..\User\config/config.h
-..\..\output\steppingmotor.o: ..\..\User\usart/usart.h
+..\..\output\steppingmotor.o: ..\..\User\Order.h

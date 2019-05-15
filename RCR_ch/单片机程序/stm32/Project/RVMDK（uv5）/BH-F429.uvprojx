@@ -623,79 +623,44 @@
           <GroupName>USER</GroupName>
           <Files>
             <File>
-              <FileName>main.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\User\main.c</FilePath>
-            </File>
-            <File>
-              <FileName>led.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\User\led\led.c</FilePath>
-            </File>
-            <File>
-              <FileName>key.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\User\key\key.c</FilePath>
-            </File>
-            <File>
-              <FileName>usart.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\User\usart\usart.c</FilePath>
-            </File>
-            <File>
               <FileName>stm32f4xx_it.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\User\stm32f4xx_it.c</FilePath>
             </File>
             <File>
-              <FileName>DealSerialData.c</FileName>
+              <FileName>main.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\User\DealSerialData\DealSerialData.c</FilePath>
-            </File>
-            <File>
-              <FileName>config.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\User\config\config.c</FilePath>
-            </File>
-            <File>
-              <FileName>initAll.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\User\initAll\initAll.c</FilePath>
-            </File>
-            <File>
-              <FileName>order.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\User\order\order.c</FilePath>
-            </File>
-            <File>
-              <FileName>cylinder.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\User\cylinder\cylinder.c</FilePath>
-            </File>
-            <File>
-              <FileName>Orders.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\User\order\Orders.c</FilePath>
-            </File>
-            <File>
-              <FileName>NuxieTube.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\User\NuxieTube\NuxieTube.c</FilePath>
-            </File>
-            <File>
-              <FileName>Clock.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\User\Clock\Clock.c</FilePath>
+              <FilePath>..\..\User\main.c</FilePath>
             </File>
             <File>
               <FileName>IO.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\User\IO\IO.c</FilePath>
+              <FilePath>..\..\User\IO.c</FilePath>
             </File>
             <File>
-              <FileName>SteppingMotor.c</FileName>
+              <FileName>order.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\User\SteppingMotor\SteppingMotor.c</FilePath>
+              <FilePath>..\..\User\order.c</FilePath>
+            </File>
+            <File>
+              <FileName>Orders.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\User\Orders.c</FilePath>
+            </File>
+            <File>
+              <FileName>Init.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\User\Init.c</FilePath>
+            </File>
+            <File>
+              <FileName>StepMotor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\User\StepMotor.c</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPort.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\User\SerialPort.c</FilePath>
             </File>
           </Files>
         </Group>

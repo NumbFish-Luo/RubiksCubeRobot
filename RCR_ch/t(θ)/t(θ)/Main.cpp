@@ -2,7 +2,7 @@
 #include "MyThetaT_Sin.h"
 
 int main() {
-    MyThetaT_Sin mySin{ 200, 25000, 10e-6 };
+    MyThetaT_Sin mySin{ 400, 4500000, 10e-6 };
     mySin.OutputData("sin.txt", true);
 
     cin.get();

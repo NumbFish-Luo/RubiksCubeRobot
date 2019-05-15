@@ -1,5 +1,5 @@
-..\..\output\usart.o: ..\..\User\usart\usart.c
-..\..\output\usart.o: ..\..\User\usart/usart.h
+..\..\output\usart.o: ..\..\User\usart.c
+..\..\output\usart.o: ..\..\User\usart.h
 ..\..\output\usart.o: E:\Keil_MDK_V518\ARM\ARMCC\Bin\..\include\stdio.h
 ..\..\output\usart.o: ..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h
 ..\..\output\usart.o: ..\..\Libraries\CMSIS\Include\core_cm4.h
@@ -40,3 +40,4 @@
 ..\..\output\usart.o: ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_ltdc.h
 ..\..\output\usart.o: ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_sai.h
 ..\..\output\usart.o: ..\..\User\typeDefine.h
+..\..\output\usart.o: ..\..\User\IO.h

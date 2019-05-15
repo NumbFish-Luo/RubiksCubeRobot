@@ -1,7 +1,7 @@
-..\..\output\initall.o: ..\..\User\initAll\initAll.c
-..\..\output\initall.o: ..\..\User\initAll/initAll.h
-..\..\output\initall.o: ..\..\User\config/config.h
-..\..\output\initall.o: ..\..\User\cylinder/cylinder.h
+..\..\output\initall.o: ..\..\User\initAll.c
+..\..\output\initall.o: ..\..\User\initAll.h
+..\..\output\initall.o: ..\..\User\usart.h
+..\..\output\initall.o: E:\Keil_MDK_V518\ARM\ARMCC\Bin\..\include\stdio.h
 ..\..\output\initall.o: ..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h
 ..\..\output\initall.o: ..\..\Libraries\CMSIS\Include\core_cm4.h
 ..\..\output\initall.o: E:\Keil_MDK_V518\ARM\ARMCC\Bin\..\include\stdint.h
@@ -41,11 +41,8 @@
 ..\..\output\initall.o: ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_ltdc.h
 ..\..\output\initall.o: ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_sai.h
 ..\..\output\initall.o: ..\..\User\typeDefine.h
+..\..\output\initall.o: ..\..\User\IO.h
+..\..\output\initall.o: ..\..\User\SteppingMotor.h
+..\..\output\initall.o: ..\..\User\order.h
+..\..\output\initall.o: ..\..\User\Orders.h
 ..\..\output\initall.o: ..\..\User\stm32f4xx_it.h
-..\..\output\initall.o: ..\..\User\config/config.h
-..\..\output\initall.o: ..\..\User\usart/usart.h
-..\..\output\initall.o: E:\Keil_MDK_V518\ARM\ARMCC\Bin\..\include\stdio.h
-..\..\output\initall.o: ..\..\User\IO/IO.h
-..\..\output\initall.o: ..\..\User\SteppingMotor/SteppingMotor.h
-..\..\output\initall.o: ..\..\User\order/order.h
-..\..\output\initall.o: ..\..\User\order/Orders.h

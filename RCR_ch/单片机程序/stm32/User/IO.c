@@ -1,4 +1,4 @@
-#include "IO/IO.h"
+#include "IO.h"
 
 void ON(IO* io) {
     io->GPIO->BSRRL = io->Pin;
@@ -26,14 +26,13 @@ IO NewIO(GPIO_Type gpio, Pin_Type pin, CLK_Type clk, GPIOSpeed_TypeDef speed) {
     
     io.GPIO = gpio;
     io.Pin = pin;
-    io.GPIO_CLK = clk;
     io.ON = ON;
     io.OFF = OFF;
     io.Toggle = Toggle;
     io.Set = Set;
     io.Read = Read;
     
-    RCC_AHB1PeriphClockCmd(io.GPIO_CLK, ENABLE);
+    RCC_AHB1PeriphClockCmd(clk, ENABLE);
     g.GPIO_Pin   = io.Pin;
     g.GPIO_Mode  = GPIO_Mode_OUT;
     g.GPIO_OType = GPIO_OType_PP;

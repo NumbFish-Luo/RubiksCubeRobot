@@ -29,9 +29,8 @@
 #define __STM32F4xx_IT_H
 
 #include "stm32f4xx.h"
-#include "config/config.h"
 
-#define USART1_Handler          USART1_IRQHandler
+#define USART1_Handler USART1_IRQHandler
 
 void NMI_Handler(void);
 void HardFault_Handler(void);
@@ -43,16 +42,6 @@ void DebugMon_Handler(void);
 void PendSV_Handler(void);
 void SysTick_Handler(void);
 
-void KEY_MSD_Enable_Handler(void);
-void KEY_MSD_Disable_Handler(void);
-// void KEY_LMF_Handler(void);
-// void KEY_LMR_Handler(void);
-// void KEY_DMF_Handler(void);
-// void KEY_DMR_Handler(void);
 void USART1_Handler(void);
-
-void MSD_D_Handler(void);
-void MSD_L_Handler(void);
-void Clock_Handler(void);
 
 #endif /* __STM32F4xx_IT_H */

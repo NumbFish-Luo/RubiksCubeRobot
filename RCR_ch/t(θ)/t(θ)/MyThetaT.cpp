@@ -28,6 +28,9 @@ void MyThetaT::OutputData(const string& fileName, bool half) {
     vector<double> tmp_v;
     double tmp_a;
 
+    constexpr int NEW_LINE = 10;
+    constexpr int LENGHT = 6;
+
     for (int n = 1; n <= m_theta0; ++n) {
         m_tArr[n] = T(n);
         m_delayTimeArr[n] = m_tArr[n] - m_tArr[n - 1];
@@ -38,7 +41,7 @@ void MyThetaT::OutputData(const string& fileName, bool half) {
         if (n != 1) {
             fout << ", ";
         }
-        if ((n - 1) % 13 == 0) {
+        if ((n - 1) % NEW_LINE == 0) {
             fout << endl;
         }
 
@@ -48,14 +51,14 @@ void MyThetaT::OutputData(const string& fileName, bool half) {
                 if (i != n) {
                     fout << ", ";
                 }
-                if ((i - 1) % 13 == 0) {
+                if ((i - 1) % NEW_LINE == 0) {
                     fout << endl;
                 }
-                fout << setiosflags(ios::fixed) << fixed << setprecision(0) << setw(4) << output[m_theta0 - i];
+                fout << setiosflags(ios::fixed) << fixed << setprecision(0) << setw(LENGHT) << output[m_theta0 - i];
             }
             break;
         } else {
-            fout << setiosflags(ios::fixed) << fixed << setprecision(0) << setw(4) << output[n - 1];
+            fout << setiosflags(ios::fixed) << fixed << setprecision(0) << setw(LENGHT) << output[n - 1];
         }
 
         //:T[¦È]

@@ -1,8 +1,9 @@
-..\..\output\orders.o: ..\..\User\order\Orders.c
+..\..\output\orders.o: ..\..\User\Orders.c
 ..\..\output\orders.o: E:\Keil_MDK_V518\ARM\ARMCC\Bin\..\include\stdlib.h
 ..\..\output\orders.o: E:\Keil_MDK_V518\ARM\ARMCC\Bin\..\include\string.h
-..\..\output\orders.o: ..\..\User\order/Orders.h
-..\..\output\orders.o: ..\..\User\order/Order.h
+..\..\output\orders.o: ..\..\User\Orders.h
+..\..\output\orders.o: ..\..\User\Order.h
+..\..\output\orders.o: ..\..\User\typeDefine.h
 ..\..\output\orders.o: ..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h
 ..\..\output\orders.o: ..\..\Libraries\CMSIS\Include\core_cm4.h
 ..\..\output\orders.o: E:\Keil_MDK_V518\ARM\ARMCC\Bin\..\include\stdint.h
