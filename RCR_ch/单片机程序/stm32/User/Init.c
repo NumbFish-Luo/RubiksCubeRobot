@@ -11,14 +11,14 @@ SerialPort    serialPort;
 
 // 初始化步进电机
 void Init_StepMotor() {
-    IO motor_L_Plu = NewIO(GPIOC, GPIO_Pin_9,  RCC_AHB1Periph_GPIOC, GPIO_Speed_50MHz);
+    IO motor_L_Plu = NewIO(GPIOB, GPIO_Pin_13, RCC_AHB1Periph_GPIOB, GPIO_Speed_50MHz);
     IO motor_L_Dir = NewIO(GPIOC, GPIO_Pin_6,  RCC_AHB1Periph_GPIOC, GPIO_Speed_50MHz);
     IO motor_L_Ena = NewIO(GPIOB, GPIO_Pin_15, RCC_AHB1Periph_GPIOB, GPIO_Speed_50MHz);
     IO motor_D_Plu = NewIO(GPIOA, GPIO_Pin_3,  RCC_AHB1Periph_GPIOA, GPIO_Speed_50MHz);
     IO motor_D_Dir = NewIO(GPIOC, GPIO_Pin_0,  RCC_AHB1Periph_GPIOC, GPIO_Speed_50MHz);
     IO motor_D_Ena = NewIO(GPIOB, GPIO_Pin_14, RCC_AHB1Periph_GPIOB, GPIO_Speed_50MHz);
     motor_L = NewSteppingMotor(motor_L_Plu, motor_L_Ena, motor_L_Dir);
-    motor_D = NewSteppingMotor(motor_L_Plu, motor_L_Ena, motor_L_Dir);
+    motor_D = NewSteppingMotor(motor_D_Plu, motor_D_Ena, motor_D_Dir);
 }
 
 void Init_SerialPort() {
@@ -26,7 +26,7 @@ void Init_SerialPort() {
         USART1, GPIO_AF_USART1, RCC_APB2Periph_USART1, 115200,
         USART1_IRQn, USART1_IRQHandler,
         GPIOA, GPIO_Pin_10, RCC_AHB1Periph_GPIOA, GPIO_PinSource10,
-        GPIOA, GPIO_Pin_9, RCC_AHB1Periph_GPIOA, GPIO_PinSource9);
+        GPIOA, GPIO_Pin_9,  RCC_AHB1Periph_GPIOA, GPIO_PinSource9);
 }
 
 // 初始化爪子

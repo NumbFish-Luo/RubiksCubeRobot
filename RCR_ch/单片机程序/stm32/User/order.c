@@ -110,30 +110,30 @@ ORDER_DO(LCS, "LC-") {
 ORDER_DO(DMA, "DM+") {
     printf("[DM+] ");
     SpeedAdjust(Down); // 速度调整
-    motor_D.Turn(&motor_L, TURN_90);
+    motor_D.Turn(&motor_D, TURN_90);
 }
 ORDER_DO(DMS, "DM-") {
     printf("[DM-] ");
     SpeedAdjust(Down); // 速度调整
-    motor_D.Turn(&motor_L, -TURN_90);
+    motor_D.Turn(&motor_D, -TURN_90);
 }
 ORDER_DO(DMF, "DMF") {
     printf("[DMF] ");
-    motor_D.Turn(&motor_L, TURN_1);
+    motor_D.Turn(&motor_D, TURN_1);
 }
 ORDER_DO(DMR, "DMR") {
     printf("[DMR] ");
-    motor_D.Turn(&motor_L, -TURN_1);
+    motor_D.Turn(&motor_D, -TURN_1);
 }
 ORDER_DO(DM2, "DM2") {
     printf("[DM2] ");
     SpeedAdjust(Down); // 速度调整
-    motor_D.Turn(&motor_L, TURN_180);
+    motor_D.Turn(&motor_D, TURN_180);
 }
 ORDER_DO(DMT, "DMT") {
     printf("[DMT] ");
     SpeedAdjust(Down); // 速度调整
-    motor_D.Turn(&motor_L, -TURN_180);
+    motor_D.Turn(&motor_D, -TURN_180);
 }
 ORDER_DO(DCA, "DC+") {
     printf("[DC+] ");
